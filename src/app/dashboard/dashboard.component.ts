@@ -1,0 +1,63 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import swal from 'sweetalert';
+import { EnquireUniportService } from '../enquire-uniport.service';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css', '../../assets/vendor/bootstrap/css/bootstrap.min.css']
+})
+export class DashboardComponent implements OnInit {
+
+  page = 'page1';
+  courses;
+  availableCourses;
+  decodedToken;
+  token = localStorage.getItem('token');
+  user;
+  coursesPurchased;
+  helper = new JwtHelperService();
+  fromStorage = localStorage.getItem('available-courses');
+
+  constructor(private router: Router, private service: EnquireUniportService) { }
+
+  ngOnInit() {
+
+    window.scrollTo(0, 0);
+
+    this.decodedToken = this.helper.decodeToken(this.token);
+
+
+
+    this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
+      this.user = response;
+      this.coursesPurchased = response[0].courses;
+    });
+
+    if (this.helper.isTokenExpired(this.fromStorage)) {
+      console.log('Expired , go to the network');
+      this.service.getCoursesToken().subscribe(res => {
+        this.availableCourses = res['token'];
+        localStorage.setItem('available-courses', this.availableCourses);
+        var getToken = localStorage.getItem('available-courses');
+        this.courses = this.helper.decodeToken(getToken)['courses'];
+      });
+    } else {
+      console.log('Not expired , Decode token');
+      this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
+    }
+  }
+
+
+
+
+
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('available-courses');
+    this.router.navigate(['/login']);
+  }
+
+}

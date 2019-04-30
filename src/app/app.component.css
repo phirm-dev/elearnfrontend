@@ -1,0 +1,10 @@
+.navbar-custom{
+    background: black;
+    font-family: 'varela round'
+}
+
+@media(min-width:985px){
+    .hide_desktop{
+        display: none;
+    }
+}

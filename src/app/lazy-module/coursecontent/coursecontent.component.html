@@ -1,0 +1,142 @@
+<div class="text-center iconload animated slideOutUp"><img src="assets/icons/favicon (2).png" style="width:140px;" alt=""></div>
+<div class="expired-view" *ngIf="expired">
+  <div class="container">
+    <div class="row">
+      <h3 style="font-family: 'varela round'">Your Subscription for this Course has Expired</h3>
+    </div>
+  </div>
+</div>
+
+<body id="course-single" class="page course_detail" *ngIf="view && !expired" style="font-family:'varela round'">
+
+  <main>
+
+    <div class="page-heading text-center" style="background: #272727">
+      <div class="container">
+        <h2 style="color: white;font-family: 'varela round'" class="text-capitalize">
+          {{view.course_name}}
+        </h2>
+        <p class="breadcrumbs" style="font-family: 'varela round'">
+          <a routerLink="/">Home</a>
+          <i class="zmdi zmdi-chevron-right"></i>
+          <a routerLink="/dashboard">Dashboard</a>
+          <i class="zmdi zmdi-chevron-right"></i>
+          <a>{{view.course_name}}</a>
+          <!-- <i class="zmdi zmdi-chevron-right"></i>
+          <span>Adobe Photoshop CC for Professionals</span> -->
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mobileContain">
+        <div class="col-md-12 col-lg-7 box mobileVid" style="height:max-content">
+
+          <video id="plyrID" oncontextmenu="return false;" controls playsinline autoplay [src]="sanitizedUrl"
+            controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;">
+          </video>
+
+          <!-- <div class='skip-button'>custom skip ad button</div> -->
+          <!-- <img src="assets/images/preview.jpg" alt="Course" class="resp-img course-preview"> -->
+          <!-- <video controls oncontextmenu="return false" id="player" playsinline controlsList="nodownload" class="resp-img course-preview"
+            src="assets/videos/{{view.course_code}}/intro.mp4"></video> -->
+
+          <!-- <h5>What does this course include?</h5>
+          <ul class="includes">
+            <li *ngFor="let vid of noVideos">
+              {{vid}}
+            </li>
+          </ul>
+          <hr> -->
+          <p id="vidTitle" style="
+          font-size: 12px;
+          margin-left: 15px;
+          font-family: 'varela round'
+      ">Intro</p>
+        </div>
+        <div class="col-md-12 col-lg-5">
+          <ul class="course-accordion box listMobile">
+            <li class="accordion-option opened" style="box-shadow:none;">
+              <div class="option-title">
+                <span style="font-family:'varela round'">{{view.number_of_courses}} videos</span>
+              </div>
+              <div class="option-wrapper">
+                <ul class="option-items" style="border-radius:5px;margin-left: 30px">
+                  <li class="option-item scrolly" style="border-radius:5px;background: #fbfbfb;border: none;" *ngFor="let vid of noVideos"
+                    (click)="watchCourse(vid,view.course_code)">
+                    <a style="font-family:'varela round';font-size: x-small;">{{vid}}</a>
+                  </li>
+                  <br>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="col-lg-9 box">
+          <h3 class="text-capitalize text-mobile" style="margin-top:0px;font-family: 'varela round'">
+            {{view.course_name}}
+          </h3>
+          <p class="class-details text-mobile">
+            <span class="lessons">
+              <i class="zmdi zmdi-assignment"></i>{{view.number_of_courses}} LESSONS</span>
+            <span class="duration">
+              <i class="zmdi zmdi-time"></i>5hr</span>
+            <span class="views"><i class="zmdi zmdi-eye"></i>2241 VIEWS</span>
+            <span class="tag"><i class="zmdi zmdi-label"></i>ADOBE PHOTOSHOP</span>
+          </p>
+          <h4 class="text-mobile">COURSE DETAILS</h4>
+          <p class="abs text-mobile" style="
+          font-family: 'varela round';
+          font-weight: 600;
+      ">
+            {{view.course_description}}
+          </p>
+        </div>
+        <div class="col-lg-3"></div> -->
+      </div>
+      <div class="row">
+        <div class="col-lg-9">
+          <h4 class="text-mobile">Comments</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let comment of comments" style="border: none">
+              <span class="mb-4" style="font-weight: bold">{{comment.authur}}</span>
+              <br>
+              <p class="mt-2">{{comment.comment}}</p>
+              <hr>
+            </li>
+          </ul>
+          <div class="big-comment-box">
+            <input type="text" #bigcomment class="form-control">
+            <br>
+            <button class="btn btn-secondary btn-large" style="margin: 0px auto" (click)="makeComment(bigcomment,view.course_code)">submit</button>
+          </div>
+          <button class="text-mobile btn btn-secondary comment-mobile-btn" (click)="animateComment()">Make a comment</button>
+          <div style="z-index:7000" id="talkBox" class="commentBox animated slideOutDown faster">
+
+            <input type="text" #comment class="form-control">
+            <br>
+            <button class="btn btn-secondary btn-large" style="margin: 0px auto" (click)="makeCommentMobile(comment,view.course_code)">submit</button>
+            <button class="btn btn-danger" (click)="cancelComment()">Cancel</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br>
+  <br>
+  <br>
+
+</body>
+
+<!-- <body id="course-single" *ngIf="!view">
+  <h3 class="text-center course_detail" style="margin-top: 80px;">You have not purchased this course!
+    <br>
+    <br>
+    <button (click)="purchase()" class="btn btn-primary btn-large">Purchase</button>
+  </h3>
+</body> -->
+<a (click)="back()" class="contactus">
+  <!-- <img src="assets/images/favicon (1).png" alt=""> -->
+  <!-- <p><i class="fas fa-share-alt"></i> Back </p> -->
+  <p><i class="fas fa-long-arrow-alt-left"></i></p>
+</a>

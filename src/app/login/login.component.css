@@ -1,0 +1,137 @@
+.login_body{
+    background: rgb(224, 221, 221);
+    margin-top: 67px;
+    min-height: 80vh;
+}
+
+.login_form{
+    background: #fbfbfb;
+    margin: 50px auto;
+    border: 1px solid #ededed;
+    width: 470.5px;
+}
+
+label{
+    color: black;
+    font-weight: bold;
+    font-size: 1.00rem
+}
+
+input{
+    outline: none;
+    font-weight: bold;
+    box-shadow: none;
+    appearance: none;
+    padding: 7px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    margin: 14px;
+    font-size: 16px;
+    margin-top: 7px;
+    margin-bottom: 14px;
+    background: #ededed;
+    width: calc(100% - 28px);
+}
+
+.loader{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999998;
+    position: fixed;
+    transition: 1s;
+}
+
+button{
+    border-radius: 5px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    margin: 14px;
+}
+
+@media(max-width:530px){
+    .login_form{
+        width: 300px;
+    }
+}
+
+
+
+
+div.group {
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 28px;
+    position: relative;
+    background: #fbfbfb;
+}
+
+input{
+    box-shadow: none;
+    appearance: none;
+    padding: 7px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    margin: 14px;
+    font-size: 16px;
+    margin-top: 7px;
+    margin-bottom: 14px;
+    background: #ededed;
+    width: calc(100% - 28px);
+}
+
+div.group span.head {
+    font-weight: 800;
+    color: #444;
+    display: block;
+    margin: 16px;
+    margin-bottom: 0;
+    margin-top: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.signup-btn{
+    border-radius: 5px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    margin: 14px;
+}
+
+.group-heading {
+    background: #ededed;
+    margin-top: -20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #444;
+    font-weight: 800;
+    display: table;
+    padding-left: 7px;
+    padding-right: 7px;
+    position: absolute;
+    /* right: 14px; */
+    /* right: 50%; */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.iconload{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:aliceblue;
+    z-index: 1000;
+    position: fixed;
+    transition: 1s;
+}
+
+.iconload > img{
+    margin-top: 40vh;
+}

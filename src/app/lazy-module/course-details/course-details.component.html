@@ -1,0 +1,95 @@
+<div id="course-single" class="page course_detail" *ngFor="let course of courseDetails">
+
+  <main style="min-height:80vh;">
+
+    <div class="page-heading text-center" style="background: #272727;font-family: 'varela round'">
+      <div class="container">
+        <h2 style="color: white; font-family: 'varela round'" class="text-capitalize">
+          {{course.course_name}}
+        </h2>
+        <p class="breadcrumbs" style="font-family: 'varela round'">
+          <a routerLink="/">Home</a>
+          <i class="zmdi zmdi-chevron-right"></i>
+          <a routerLink="/dashboard">Dashboard</a>
+          <i class="zmdi zmdi-chevron-right"></i>
+          <a>{{course.course_name}}</a>
+          <!-- <i class="zmdi zmdi-chevron-right"></i>
+          <span>Adobe Photoshop CC for Professionals</span> -->
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <!-- <img src="assets/images/preview.jpg" alt="Course" class="resp-img course-preview"> -->
+          <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl" autoplay controlsList="nodownload" poster="assets/img/poster.jpeg"
+            style="width:100%;">
+          </video>
+
+          <p id="vidTitle" style="
+          font-size: 12px;
+          margin-left: 15px;
+          font-family: 'varela round';
+          margin-bottom: 10px;
+      ">Intro</p>
+
+          <!-- <div class='skip-button'>custom skip ad button</div> -->
+          <div class="order text-center">
+            <span class="views" style="
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'varela round';
+            line-height: 3;
+        ">Free
+              Sample Videos</span>
+            <div class="sample-videos" style="margin-left:-40px">
+              <ul class="sample" style="list-style:none;text-align:left">
+                <li *ngFor="let vid of video" (click)="watchVideo(vid)"><i class="fas fa-play" style="margin-right:16px;"></i>
+                  {{vid}}</li>
+              </ul>
+            </div>
+            <h3 style="color:red; font-family: 'varela round'">PROMO! <span class="price-slash">N1500</span></h3>
+            <h5>N{{course.course_price / 100}}</h5>
+            <!-- <p>SINGLE PRICE</p> -->
+            <!-- <button type="button" class="btn btn-success btn-block btn--col" angular-rave [PBFPubKey]=APIkey
+              [customer_email]="user.email" [customer_firstname]="user.username" [country]="'NG'" [currency]="'NGN'"
+              [amount]="course.course_price" [txref]="course._id" (callback)="paymentSuccess($event)" (onclose)="paymentClose($event)">Get
+              Full Access</button> -->
+
+            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
+              [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()" (callback)="paymentDone($event)">Get
+              Full Access</angular4-paystack>
+            <!-- <button (click)="buyCourse(courseDetails[0].course_name,user.username)">Buy</button> -->
+          </div>
+          <!-- <video controls oncontextmenu="return false" id="player" playsinline  class="rethis.service.buyCourse(course, user).subscribe(res => {sp-img course-preview" src="assets/videos/{{course.course_code}}/intro.mp4"></video> -->
+          <h3 class="text-capitalize">
+            {{course.course_name}}
+          </h3>
+          <p class="class-details">
+            <span class="lessons">
+              <i class="zmdi zmdi-assignment"></i>{{course.number_of_courses}} Lessons</span>
+            <!-- <span class="duration">
+              <i class="zmdi zmdi-time"></i>5hr</span> -->
+            <span class="views"><i class="zmdi zmdi-eye"></i>{{course.views}} Views</span>
+            <span class="tag"><i class="zmdi zmdi-label"></i>4 Months Subscription</span>
+          </p>
+          <h4>COURSE DETAILS</h4>
+          <p class="abs" style="font-size:15px;
+          font-family: 'varela round';
+          font-weight: 600;
+      ">
+            {{course.course_description}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br>
+  <br>
+  <br>
+
+</div>
+<a (click)="share()" class="contactus">
+  <!-- <img src="assets/images/favicon (1).png" alt=""> -->
+  <p><i class="fas fa-share-alt"></i> Share </p>
+</a>

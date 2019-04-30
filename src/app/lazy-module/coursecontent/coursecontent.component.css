@@ -1,0 +1,231 @@
+.course_detail{
+    min-height: 90vh;
+    margin-top: 67px;
+    background: #fbfbfb;
+}
+
+.expired-view{
+    margin-top: 67px;
+    min-height: 90vh;
+}
+
+.opened > .option-wrapper{
+    max-height: min-content !important;
+}
+
+.page-heading[_ngcontent-c1] .breadcrumbs[_ngcontent-c1] a[_ngcontent-c1], .page-heading[_ngcontent-c1] .breadcrumbs[_ngcontent-c1] i[_ngcontent-c1]{
+    color: white;
+}
+
+.blueplay{
+    cursor: pointer;
+}
+
+.option-item{
+    cursor: pointer;
+}
+
+.option-item:hover{
+    background: lightblue;
+}
+
+#my-video{
+    height: 400;
+    width: 300;
+}
+
+.comment-mobile-btn{
+    display: none;
+}
+
+.native-fullscreen{
+    height: auto !important;
+}
+.vg-overlay-play native-fullscreen{
+    height: auto;
+}
+
+
+/* 990-1200 */
+@media(max-width:1200px){
+    vg-player{
+        height: 40vh;
+    }
+    vg-scrub-bar{
+        margin-top: 20px;
+    }  
+}
+
+@media (min-width:990px){
+    vg-player{
+        height: 60vh;
+    }
+}
+
+.iconload{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:#272727;
+    z-index: 8000;
+    position: fixed;
+    transition: 1s;
+    animation-delay: .5s;
+}
+
+.iconload > img{
+    margin-top: 40vh;
+}
+
+.box{
+    text-transform: uppercase;
+    font-family: "varela round";
+    margin: 14px auto;
+    display: block;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    padding: 42px;
+    background: #fff;
+    width: calc(100% - 14px);
+}
+
+#course-single h3{
+    margin-top: 0px;
+    font-family: 'varela round';
+}
+
+.contactus {
+    display: none;
+    text-decoration: none;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(255, 71, 66);
+    color: #fff;
+    position: fixed;
+    font-weight: 500;
+    z-index: 18;
+    border-top-right-radius: 5px;
+    padding: 0.5em;
+    border-top: 1px solid #efefef;
+    font-weight: 800;
+    border-right: 1px solid #efefef;
+    background: #fff;
+    color: #6f6f6f;
+}
+
+.contactus img {
+    border-radius: 2em;
+    width: 1.5em;
+    vertical-align: middle;
+}
+
+.contactus p {
+    margin: 0;
+    vertical-align: middle;
+    display: inline;
+    margin-right: 0.5em;
+    font-weight: 400;
+    color: #6f6f6f;
+}
+
+.big-comment-box{
+    display: block;
+}
+
+.comment-mobile-btn{
+    display: none !important;
+}
+
+.commentBox{
+    display: none;
+}
+
+@media(max-width:450px){
+    .box{
+        border-radius: 0px;
+        background: rgb(22, 22, 22);
+        border: none;
+    }
+    .mobileVid{
+        position: fixed!important;
+        z-index: 6000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: black;
+        border-top: 1px solid #ededed;
+        padding: 14px;
+        display: block;
+        font-size: .9em;
+        margin: 0;
+        border: black;
+        color: white;
+        border-radius: 0;
+    }
+
+    .comment-mobile-btn{
+        display: block !important;
+    }
+
+    .big-comment-box{
+        display: none;
+    }
+
+    .commentBox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(22, 22, 22);
+    border-top: none;
+    padding: 14px;
+    display: block;
+    font-size: 0.9em;
+    }
+    .mobileContain{
+        margin-top: 10px;
+    }
+    .listMobile{
+        text-transform: uppercase;
+        font-family: "varela round";
+        margin: 0px;
+        display: block;
+        color: white;
+        border: none;
+        border-radius: 0px;
+        padding: 42px;
+        background: rgb(22, 22, 22);
+        width: calc(100% - 14px);
+    }
+    .course_detail{
+        background: rgb(22, 22, 22);
+    }
+    .option-items{
+        margin-left: 10px;
+        width: 100%;
+    }
+    h3 h4 p{
+        color: whitesmoke;
+    }
+    .list-group-item{
+        background: rgb(22, 22, 22) !important;
+        color: whitesmoke;
+    }
+    .text-mobile{
+        color: whitesmoke !important;
+        font-family: 'varela round' !important;
+    }
+    .contactus{
+        display: block;
+    }
+    .contactus p{
+        font-size: 12px;
+    }
+}
+
+@media(max-width:380px){
+    .mobileContain{
+        margin-top: 10px;
+    }
+}

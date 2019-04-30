@@ -1,0 +1,23 @@
+<div class="container-fluid login_body">
+  <div class="text-center iconload" *ngIf="loader"><img src="assets/icons/favicon (2).png" style="width:140px" alt=""></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" style="margin-top:5vh">
+        <div class="group">
+          <div class="group-heading">👩‍💻 Login</div>
+          <form #user="ngForm" (ngSubmit)="login(user.value)">
+            <span class="head">Username</span>
+            <input type="text" name="username" ngModel>
+            <span class="head">Password</span>
+            <input type="password" name="password" ngModel>
+            <button class="signup-btn btn ">Login</button>
+            <br>
+            <a routerLink="/signup" style="margin:14px;color:skyblue">Don't have an account?</a>
+            <br>
+            <!-- <a href="" style="margin:14px;color:skyblue">Forgot Password?</a> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

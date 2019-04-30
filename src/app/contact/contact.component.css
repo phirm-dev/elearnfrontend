@@ -1,0 +1,25 @@
+.contact_body{
+    margin-top: 67px;
+    min-height: 80vh;
+    background: #fbfbfb;
+    font-family: "varela round";
+}
+.box{
+    text-transform: uppercase;
+    font-family: "varela round";
+    margin: 14px auto;
+    display: block;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    padding: 42px;
+    background: #fff;
+    width: calc(100% - 14px);
+}
+
+.box:hover{
+    filter: brightness(70%);
+}
+
+p{
+    color: black !important;
+}

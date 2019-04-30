@@ -1,0 +1,25 @@
+<div class="container-fluid login_body">
+  <div class="text-center iconload" *ngIf="loader"><img src="assets/icons/favicon (2).png" style="width:140px" alt=""></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" style="margin-top:5vh">
+        <div class="group">
+          <div class="group-heading">👩‍💻 Register</div>
+          <form #user="ngForm" (ngSubmit)="signUp(user.value)">
+            <span class="head">Username</span>
+            <input type="text" name="username" ngModel>
+            <span class="head">Email</span>
+            <input type="text" name="email" ngModel>
+            <span class="head">Password</span>
+            <input type="password" name="password" ngModel>
+            <span class="head">Confirm Password</span>
+            <input type="password" name="confirmpassword" ngModel>
+            <button class="signup-btn btn ">signup</button>
+            <br>
+            <a routerLink="/login" style="margin:14px;color:skyblue">Already have an account?</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
