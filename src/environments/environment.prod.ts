@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url : '/api/'
+  url : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
 };
