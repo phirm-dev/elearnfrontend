@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "jefftutors-ng",
-    "alias": ["www.jefftutors.com", "jefftutors.com"],
+    "alias": "www.jefftutors.com",
     "builds": [
       {
         "src": "package.json",
@@ -13,11 +13,6 @@
     }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "status": 301,
-            "headers": { "Location": "https://jefftutors.com/$1" }
-          },
         
       {
         "src": "/(assets/.+|.+\\.css|.+\\.js)",
