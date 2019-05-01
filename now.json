@@ -12,9 +12,7 @@
     }
     ],
     "routes": [
-        { "src": "/(dist|css|icons|img|libs|images|javascript|scss|vendor|uploads)/(.*)", 
-          "dest": "/public/dist/$1/$2"
-        },
+        
       {
         "src": "/(assets/.+|.+\\.css|.+\\.js)",
         "headers": { "cache-control": "max-age=31536000," },
