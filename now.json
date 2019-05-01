@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "my-new-app",
+    "name": "jefftutors-ng",
     "builds": [
       {
         "src": "package.json",
