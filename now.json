@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "name": "my-new-app",
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@now/static-build"
+      },
+      {
+        "src": "/dist/assets/**", 
+        "use": "@now/static"
+    }
+    ],
+    "routes": [
+        { "src": "/(dist|css|icons|img|libs|images|javascript|scss|vendor|uploads)/(.*)", 
+          "dest": "/public/dist/$1/$2"
+        },
+      {
+        "src": "/(assets/.+|.+\\.css|.+\\.js)",
+        "headers": { "cache-control": "max-age=31536000," },
+        "dest": "/$1"
+      },
+      {
+        "src": "/(.*).html",
+        "headers": { "cache-control": "public,max-age=0, must-revalidate" },
+        "dest": "/$1.html"
+      },
+      {
+        "src": "/(.*)",
+        "headers": { "cache-control": "public, max-age=0, must-revalidate" },
+        "dest": "/index.html"
+      }
+    ]
+  }

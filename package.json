@@ -7,10 +7,7 @@
     "angular:test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "express:test": "./node_modules/.bin/eslint  .",
-    "deploy": "git add . && git commit -m 'cool' && git push heroku master",
-    "heroku-postbuild": "echo Skip build on Heroku",
-    "deploy:prod": "pm2 deploy ecosystem.config.js production update"
+    "now-build": "ng build --prod --output-path dist"
   },
   "private": true,
   "dependencies": {
