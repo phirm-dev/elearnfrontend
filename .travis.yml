@@ -9,4 +9,4 @@ notifications:
 script:
   - npm i -g now
 after_success:
-  - now --token=$NOW_TOKEN
+  - now --target production --token=$NOW_TOKEN
