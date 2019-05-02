@@ -26,9 +26,9 @@
         "dest": "/index.html"
       },
       {
-        "src": "/manifest.json",
+        "src": "/(.*).json",
         "headers": { "cache-control": "public, max-age=0, must-revalidate" },
-        "dest": "/$1"
+        "dest": "/$1.json"
       }
 
     ],
