@@ -8,7 +8,7 @@
         "use": "@now/static-build"
       },
       {
-        "src": "/dist/assets/**", 
+        "src": "/dist/**", 
         "use": "@now/static"
     }
     ],
