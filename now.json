@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "jefftutors-ng",
-    "alias": "www.jefftutors.com",
+    "alias": ["www.jefftutors.com"],
     "builds": [
       {
         "src": "package.json",
