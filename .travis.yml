@@ -6,8 +6,6 @@ branches:
     - master
 notifications:
   email: false
-before_script:
-  - npm install --save
 script:
   - npm i -g now
 after_success:
