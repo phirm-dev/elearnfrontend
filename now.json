@@ -11,7 +11,7 @@
     "routes": [
         
       {
-        "src": "/(assets/.+|.+\\.css|.+\\.js|.+\\.json|.+\\.png|.+\\.jpg|.+\\.svg|.+\\.png|.+\\.|.+\\.ttf|.+\\.woff|.+\\.less|.+\\.scss|.+\\.eot)",
+        "src": "/(assets/.+|.+\\.css|.+\\.js|.+\\.json)",
         "headers": { "cache-control": "max-age=31536000" },
         "dest": "/$1"
       },
@@ -24,8 +24,7 @@
         "src": "/(.*)",
         "headers": { "cache-control": "public, max-age=0, must-revalidate" },
         "dest": "/index.html"
-      },
-
+      }
 
     ],
     
