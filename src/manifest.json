@@ -5,7 +5,7 @@
     "background_color": "#f9f9f9",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://jefftutors.com/dashboard",
+    "start_url": "https://www.jefftutors.com/dashboard",
     "icons": [
       {
         "src": "assets/icons/app.png",
