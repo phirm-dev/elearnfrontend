@@ -11,7 +11,7 @@
     "routes": [
         
       {
-        "src": "/(assets/.+|.+\\.css|.+\\.js)",
+        "src": "/(assets/.+|.+\\.css|.+\\.js|.+\\.json|.+\\.png|.+\\.jpg|.+\\.svg|.+\\.png|.+\\.|.+\\.ttf|.+\\.woff|.+\\.less|.+\\.scss|.+\\.eot)",
         "headers": { "cache-control": "max-age=31536000" },
         "dest": "/$1"
       },
@@ -25,11 +25,7 @@
         "headers": { "cache-control": "public, max-age=0, must-revalidate" },
         "dest": "/index.html"
       },
-      {
-        "src": "/(.*).json",
-        "headers": { "cache-control": "public, max-age=0, must-revalidate" },
-        "dest": "/$1.json"
-      }
+
 
     ],
     
