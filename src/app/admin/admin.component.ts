@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-admin',
@@ -103,6 +105,7 @@ export class AdminComponent implements OnInit {
 
   }
 
+  // admin variables
   courseEditCourse_name;
   courseEditCourse_code;
   courseEditCourse_price;
@@ -123,9 +126,13 @@ export class AdminComponent implements OnInit {
 
   addCourseToUser(newCourse) {
     this.service.addCourseToUser(newCourse).subscribe(res => {
-      if (res['statusText'] == 'Successfully added') {
+      if (res['statusCode'] == 200) {
         swal('Success', res['statusText'], 'success');
-      } else {
+      }
+      else if (res['statusText'] == 'Already purchased this course') {
+        swal('Warning', res['statusText'], 'warning');
+      }
+      else {
         swal('Error', 'An error occured', 'error');
       }
     });

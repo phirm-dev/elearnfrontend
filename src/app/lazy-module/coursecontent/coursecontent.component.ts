@@ -38,42 +38,85 @@ export class CoursecontentComponent implements OnInit {
     this.player = new Plyr('#plyrID', { captions: { active: true } });
 
 
-    //get the course code from url
+    // get the course code from url
     this.route.paramMap.subscribe(params => {
       this.course = params.get('course');
     });
 
-    //decode token and get user details
-    this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
-      this.user = response;
-      this.coursesPurchased = response[0].courses;
-      //check if this course is one of the courses purchased by the user
-      this.coursesPurchased.filter(course => {
-        return course.course_code == this.course;
-      }).map(course => {
-        // console.log(course);
-        this.expires = course.Expires
-        if (this.expires > Date.now()) {
-          this.expired = false;
-        } else if (this.expires < Date.now()) {
-          this.expired = true;
-          // console.log(course.course_code, 'This is what we delete!');
-          this.service.removeCourseFromArray(course._id, this.helper.decodeToken(this.token).username).subscribe(res => {
-            if (res['statusCode'] == 200) {
-              setTimeout(() => {
-                this.router.navigate(['/dashboard'])
-              }, 3000)
-            }
-          });
-        }
-        this.view = course;
+    // logic for checking subscription
+
+    // Get course id from local storage
+    var getToken = localStorage.getItem('available-courses');
+    const availableCourses = this.helper.decodeToken(getToken)['courses'];
+    const idx = availableCourses.findIndex(x => x.course_code == this.course);
+    const courseId = availableCourses[idx]._id;
+
+    // Get user id from  local storage
+    const userId = this.helper.decodeToken(this.token).id;
+
+    const userObj = {
+      userId: userId,
+      courseId: courseId
+    }
+    // make api call to validate user subscription
+    this.service.checkUserSubscription(userObj).subscribe(response => {
+      if (response['statusCode'] !== 400) {
+        console.log(response);
+        this.user = response;
+        this.coursesPurchased = response['courses'];
+        //check if this course is one of the courses purchased by the user
+        this.coursesPurchased.filter(course => {
+          return course.course_code == this.course;
+        }).map(course => {
+          this.view = course;
+          this.spinnerService.hide();
+          this.noCourses = course.number_of_courses;
+          this.noVideos = course.course_content;
+          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
+          this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+        })
+      } else {
         this.spinnerService.hide();
-        this.noCourses = course.number_of_courses;
-        this.noVideos = course.course_content;
-        var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
-        this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
-      })
-    });
+        this.expired = true;
+        setTimeout(() => {
+          this.router.navigate(['/dashboard'])
+        }, 3000);
+      }
+    })
+
+
+
+    //decode token and get user details
+    // this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
+    //   this.user = response;
+    //   this.coursesPurchased = response[0].courses;
+
+    //   this.coursesPurchased.filter(course => {
+    //     return course.course_code == this.course;
+    //   }).map(course => {
+
+    //     this.expires = course.Expires
+    //     if (this.expires > Date.now()) {
+    //       this.expired = false;
+    //     } else if (this.expires < Date.now()) {
+    //       this.expired = true;
+
+    //       this.service.removeCourseFromArray(course._id, this.helper.decodeToken(this.token).username).subscribe(res => {
+    //         if (res['statusCode'] == 200) {
+    //           setTimeout(() => {
+    //             this.router.navigate(['/dashboard'])
+    //           }, 3000)
+    //         }
+    //       });
+    //     }
+    //     this.view = course;
+    //     this.spinnerService.hide();
+    //     this.noCourses = course.number_of_courses;
+    //     this.noVideos = course.course_content;
+    //     var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
+    //     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    //   })
+    // });
 
     //get course comments
     this.service.getCourseComments(this.course).subscribe(res => {

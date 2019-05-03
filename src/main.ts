@@ -8,7 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.log('YO!, new update on browser!');
+console.log('YO!, new browser update!');
 
 if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
   //  do stuff here

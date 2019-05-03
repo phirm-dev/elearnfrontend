@@ -38,10 +38,15 @@ export class CourseDetailsComponent implements OnInit {
     this.paying = true;
     this.service.buyCourse(this.courseDetails[0].course_name, this.user.username).subscribe(res => {
       if (res['statusMessage'] == 'Purchase Successful') {
+        swal('success', res['statusMessage'], 'success');
         this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
       } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
         swal('Error', res['statusMessage'], 'error');
-      } else {
+      }
+      else if (res['statusMessage'] == 'Already purchased this course') {
+        swal('Error', res['statusMessage'], 'error');
+      }
+      else {
         swal('Error', 'Something went wrong', 'error');
       }
     });
@@ -102,7 +107,11 @@ export class CourseDetailsComponent implements OnInit {
         this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
       } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
         swal('Error', res['statusMessage'], 'error');
-      } else {
+      }
+      else if (res['statusMessage'] == 'Already purchased this course') {
+        swal('Error', res['statusMessage'], 'error');
+      }
+      else {
         swal('Error', 'Something went wrong', 'error');
       }
     });
@@ -119,6 +128,12 @@ export class CourseDetailsComponent implements OnInit {
       this.sanitizedUrl = '';
       document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
     }
+  }
+
+  contactMe() {
+    const num = '2349073337066';
+    const shareURL = `whatsapp://send?phone=${num}`;
+    location.href = shareURL;
   }
 
   share() {

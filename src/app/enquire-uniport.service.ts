@@ -38,6 +38,10 @@ export class EnquireUniportService {
     return this.http.get(this.url + username);
   }
 
+  checkUserSubscription(userDetails) {
+    return this.http.post(this.url + 'courses/check-subscription', userDetails);
+  }
+
   buyCourse(course, user) {
     return this.http.post(this.url + 'courses/buy', { username: user, course: course });
   }
