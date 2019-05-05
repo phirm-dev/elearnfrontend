@@ -84,40 +84,6 @@ export class CoursecontentComponent implements OnInit {
       }
     })
 
-
-
-    //decode token and get user details
-    // this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
-    //   this.user = response;
-    //   this.coursesPurchased = response[0].courses;
-
-    //   this.coursesPurchased.filter(course => {
-    //     return course.course_code == this.course;
-    //   }).map(course => {
-
-    //     this.expires = course.Expires
-    //     if (this.expires > Date.now()) {
-    //       this.expired = false;
-    //     } else if (this.expires < Date.now()) {
-    //       this.expired = true;
-
-    //       this.service.removeCourseFromArray(course._id, this.helper.decodeToken(this.token).username).subscribe(res => {
-    //         if (res['statusCode'] == 200) {
-    //           setTimeout(() => {
-    //             this.router.navigate(['/dashboard'])
-    //           }, 3000)
-    //         }
-    //       });
-    //     }
-    //     this.view = course;
-    //     this.spinnerService.hide();
-    //     this.noCourses = course.number_of_courses;
-    //     this.noVideos = course.course_content;
-    //     var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
-    //     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
-    //   })
-    // });
-
     //get course comments
     this.service.getCourseComments(this.course).subscribe(res => {
       this.comments = res;

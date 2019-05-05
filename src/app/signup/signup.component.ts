@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
 
 
   signUp(credentials) {
-    if (!credentials || credentials == '' || credentials.password == '' || credentials.email == '' || credentials.username == '' || credentials.confirmpassword == '') {
+    if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '' || credentials.confirmpassword == '') {
       swal('Error', 'Missing Details', 'error');
     }
     else if (credentials.password !== credentials.confirmpassword) {

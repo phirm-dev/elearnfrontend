@@ -99,24 +99,6 @@ export class CourseDetailsComponent implements OnInit {
 
   }
 
-
-  buyCourse(course, user) {
-    this.service.buyCourse(course, user).subscribe(res => {
-      if (res['statusMessage'] == 'Purchase Successful') {
-        swal('success', res['statusMessage'], 'success');
-        this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
-      } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else if (res['statusMessage'] == 'Already purchased this course') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else {
-        swal('Error', 'Something went wrong', 'error');
-      }
-    });
-  }
-
   watchVideo(video) {
     var vid = document.querySelector('video');
     var vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.m4v';
