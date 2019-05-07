@@ -135,4 +135,21 @@ export class CourseDetailsComponent implements OnInit {
       location.href = shareUrl;
     }
   }
+
+  buyCourse() {
+    this.service.buyCourse(this.courseDetails[0].course_name, this.user.username).subscribe(res => {
+      if (res['statusMessage'] == 'Purchase Successful') {
+        swal('success', res['statusMessage'], 'success');
+        this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
+      } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
+        swal('Error', res['statusMessage'], 'error');
+      }
+      else if (res['statusMessage'] == 'Already purchased this course') {
+        swal('Error', res['statusMessage'], 'error');
+      }
+      else {
+        swal('Error', 'Something went wrong', 'error');
+      }
+    });
+  }
 }

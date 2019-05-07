@@ -1,24 +1,23 @@
 <div class="container-fluid login_body">
-  <div class="text-center iconload" *ngIf="loader"><img src="assets/icons/favicon (2).png" style="width:140px" alt=""></div>
+  <div class="text-center iconload" *ngIf="loader"><img src="assets/icons/favicon (2).png" style="width:140px" alt="">
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12" style="margin-top:5vh">
         <div class="group">
           <div class="group-heading">👩‍💻 Register</div>
+          <br>
           <form #user="ngForm" (ngSubmit)="signUp(user.value)">
-            <span class="head">Username</span>
-            <input type="text" name="username" ngModel>
-            <span class="head">Email</span>
-            <input type="text" name="email" ngModel>
-            <span class="head">Phone Number</span>
-            <input type="text" name="phone" ngModel>
-            <span class="head">Password</span>
-            <input type="password" name="password" ngModel>
-            <span class="head">Confirm Password</span>
-            <input type="password" name="confirmpassword" ngModel>
-            <button class="signup-btn btn ">signup</button>
+            <input type="text" name="username" placeholder="Username" ngModel>
+            <input type="text" name="email" placeholder="Email" ngModel>
+            <input type="text" name="phone" placeholder="Phone Number" ngModel>
+            <input type="password" name="password" placeholder="Password" ngModel>
+            <input type="password" name="confirmpassword" placeholder="Confirm Password" ngModel>
+            <button class="signup-btn btn ">Sign Up</button>
             <br>
-            <a routerLink="/login" style="margin:14px;color:skyblue">Already have an account?</a>
+            <br>
+            <div class="text-center"> <a routerLink="/login" style="margin:14px;color:whitesmoke">Already have an
+                account?</a></div>
           </form>
         </div>
       </div>

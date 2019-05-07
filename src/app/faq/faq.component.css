@@ -1,3 +1,6 @@
+.container-fluid{
+    background: currentColor;
+}
 
 .box{
     text-transform: uppercase;

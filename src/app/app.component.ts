@@ -23,5 +23,4 @@ export class AppComponent {
     const shareURL = `whatsapp://send?phone=${num}`
     location.href = shareURL;
   }
-
 }

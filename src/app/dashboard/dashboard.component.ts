@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
 
     this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
       this.user = response;
+      console.log(response);
       this.coursesPurchased = response[0].courses;
     });
 

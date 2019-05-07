@@ -1,10 +1,15 @@
-.contact_body{
+.container-fluid {
+    background: currentColor;
+}
+
+.contact_body {
     margin-top: 67px;
     min-height: 80vh;
-    background: #fbfbfb;
+    background: currentColor;
     font-family: "varela round";
 }
-.box{
+
+.box {
     text-transform: uppercase;
     font-family: "varela round";
     margin: 14px auto;
@@ -16,10 +21,10 @@
     width: calc(100% - 14px);
 }
 
-.box:hover{
+.box:hover {
     filter: brightness(70%);
 }
 
-p{
+p {
     color: black !important;
 }
