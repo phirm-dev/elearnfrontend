@@ -49,23 +49,79 @@
                   {{vid}}</li>
               </ul>
             </div>
-            <h3 style="color:red; font-family: 'varela round'">PROMO! <span class="price-slash">N1500</span></h3>
-            <h5>N{{course.course_price / 100}}</h5>
+            <h3 style="color:red; font-family: 'varela round'">PROMO! <span>N{{course.course_price / 100}}</span></h3>
             <!-- <p>SINGLE PRICE</p> -->
             <!-- <button type="button" class="btn btn-success btn-block btn--col" angular-rave [PBFPubKey]=APIkey
               [customer_email]="user.email" [customer_firstname]="user.username" [country]="'NG'" [currency]="'NGN'"
               [amount]="course.course_price" [txref]="course._id" (callback)="paymentSuccess($event)" (onclose)="paymentClose($event)">Get
               Full Access</button> -->
-
-            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+              style="padding:12px">
+              Subscribe
+            </button>
+            <!-- <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
               [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
               (callback)="paymentDone($event)">Get
-              Full Access</angular4-paystack>
+              Full Access</angular4-paystack> -->
             <!-- <button (click)="buyCourse(courseDetails[0].course_name,user.username)">Buy</button> -->
             <br>
             <br>
-            <p>Having issues with payment?</p>
-            <button class="btn btn-success" (click)="contactMe()">Whatsapp Us</button>
+
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <!-- <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                  </div> -->
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <h3 class="text-center">Payment Methods</h3>
+                    <br>
+                    <p>
+                      <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price"
+                        [ref]=txtref [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
+                        (callback)="paymentDone($event)">Pay With ATM Card</angular4-paystack>
+                    </p>
+                    <br>
+                    <p>OR</p>
+                    <br>
+                    <h6>
+                      Transfer to account
+                    </h6>
+                    <p>
+                      0701194703
+                      <br>
+                      Chibuike Amadi Jeffrey
+                      <br>
+                      Access Bank
+                    </p>
+                    <br>
+                    <p style="color:red">N/B</p>
+                    <p style="color:brown"> After transfer make a screenshot of the debit alert and send to the whatsapp
+                      number below for verification.</p>
+                    <p style="color:green">09073337066</p>
+                    <p>
+                      <button class="btn btn-success" (click)="contactMe()"> Click here to whatsapp us</button>
+                    </p>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
           </div>
           <!-- <video controls oncontextmenu="return false" id="player" playsinline  class="rethis.service.buyCourse(course, user).subscribe(res => {sp-img course-preview" src="assets/videos/{{course.course_code}}/intro.mp4"></video> -->
           <h3 class="text-capitalize">
@@ -99,3 +155,28 @@
   <!-- <img src="assets/images/favicon (1).png" alt=""> -->
   <p><i class="fas fa-share-alt"></i> Share </p>
 </a>
+
+<!-- modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Add a course</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Fucking Modal</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

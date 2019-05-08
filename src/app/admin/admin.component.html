@@ -40,13 +40,15 @@
             <i class="fas fa-envelope"></i>
             <br>{{user.email}}</td>
           <td>
-            <button class="btn btn-info" data-toggle="modal" data-target="#myModal" (click)="getUser(user.username)">Update</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#myModal"
+              (click)="getUser(user.username)">Update</button>
           </td>
           <td>
             <button class="btn btn-danger" (click)="deleteUser(user.username)">Delete</button>
           </td>
           <td>
-            <button class="btn btn-success" data-toggle="modal" data-target="#myModal0" (click)="getUser(user.username)">Add
+            <button class="btn btn-success" data-toggle="modal" data-target="#myModal0"
+              (click)="getUser(user.username)">Add
               course to this user</button>
           </td>
         </tr>
@@ -66,15 +68,17 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <form #user="ngForm" (ngSubmit)="editUser(user.value,username)" class="form-group mt-2 login_form" style="border-radius: 5px"
-              autocomplete="off">
+            <form #user="ngForm" (ngSubmit)="editUser(user.value,username)" class="form-group mt-2 login_form"
+              style="border-radius: 5px" autocomplete="off">
               <label for="username" class="text-center" style="width: 100%">Username</label>
-              <input name="username" ngModel type="text" id="username" [ngModel]="username" class="form-control text-center">
+              <input name="username" ngModel type="text" id="username" [ngModel]="username"
+                class="form-control text-center">
               <div class="form-group mt-2">
                 <label for="email" class="text-center" style="width: 100%">Email</label>
                 <input ngModel name="email" type="email" id="email" [ngModel]="email" class="form-control text-center">
                 <div class="submit mt-2">
-                  <button class="btn btn-primary btn-lg btn-block mt-4" style="width: 60%;margin: 0px auto;">Update</button>
+                  <button class="btn btn-primary btn-lg btn-block mt-4"
+                    style="width: 60%;margin: 0px auto;">Update</button>
                 </div>
               </div>
             </form>
@@ -100,15 +104,17 @@
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <form #course="ngForm" (ngSubmit)="addCourseToUser(course.value)" class="form-group mt-2 login_form" style="border-radius: 5px"
-              autocomplete="off">
+            <form #course="ngForm" (ngSubmit)="addCourseToUser(course.value)" class="form-group mt-2 login_form"
+              style="border-radius: 5px" autocomplete="off">
               <label for="username" class="text-center" style="width: 100%">Username</label>
-              <input name="username" ngModel type="text" id="username" [ngModel]="username" class="form-control text-center">
+              <input name="username" ngModel type="text" id="username" [ngModel]="username"
+                class="form-control text-center">
               <label for="coursecode" class="text-center" style="width: 100%">Course Code</label>
               <input name="course_code" ngModel type="text" id="coursecode" class="form-control text-center">
               <div class="form-group mt-2">
                 <div class="submit mt-2">
-                  <button class="btn btn-primary btn-lg btn-block mt-4" style="width: 60%;margin: 0px auto;">Add Course</button>
+                  <button class="btn btn-primary btn-lg btn-block mt-4" style="width: 60%;margin: 0px auto;">Add
+                    Course</button>
                 </div>
               </div>
             </form>
@@ -149,8 +155,8 @@
 
               <!-- Modal body -->
               <div class="modal-body">
-                <form #course="ngForm" (ngSubmit)="addCourse(course.value)" class="form-group mt-2 login_form" style="border-radius: 5px"
-                  autocomplete="off">
+                <form #course="ngForm" (ngSubmit)="addCourse(course.value)" class="form-group mt-2 login_form"
+                  style="border-radius: 5px" autocomplete="off">
                   <label for="course_name" class="text-center" style="width: 100%">Course Name</label>
                   <input name="course_name" ngModel type="text" id="course_name" class="form-control text-center">
                   <div class="form-group mt-2">
@@ -197,7 +203,8 @@
           </td>
           <td>{{course.course_code}}</td>
           <td>
-            <button class="btn btn-info" data-toggle="modal" data-target="#myModal2" (click)="getCourse(course.course_code)">Update</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#myModal2"
+              (click)="getCourse(course.course_code)">Update</button>
           </td>
           <td>
             <button class="btn btn-danger" (click)="deleteCourse(course.course_code)">Delete</button>
@@ -217,24 +224,31 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <form #course="ngForm" (ngSubmit)="editCourse(course.value)" class="form-group mt-2 login_form" style="border-radius: 5px"
-              autocomplete="off">
+            <form #course="ngForm" (ngSubmit)="editCourse(course.value)" class="form-group mt-2 login_form"
+              style="border-radius: 5px" autocomplete="off">
               <label for="course_name" class="text-center" style="width: 100%">Course Name</label>
-              <input name="course_name" ngModel type="text" [ngModel]="courseEditCourse_name" id="course_name" class="form-control text-center">
+              <input name="course_name" ngModel type="text" [ngModel]="courseEditCourse_name" id="course_name"
+                class="form-control text-center">
               <div class="form-group mt-2">
                 <label for="text" class="text-center" style="width: 100%">Course Code</label>
-                <input ngModel name="course_code" type="email" [ngModel]="courseEditCourse_code" id="text" class="form-control text-center">
+                <input ngModel name="course_code" type="email" [ngModel]="courseEditCourse_code" id="text"
+                  class="form-control text-center">
                 <label for="price" class="text-center" style="width: 100%">Course Price</label>
-                <input ngModel name="course_price" type="text" [ngModel]="courseEditCourse_price" id="text" class="form-control text-center">
+                <input ngModel name="course_price" type="text" [ngModel]="courseEditCourse_price" id="text"
+                  class="form-control text-center">
                 <label for="number" class="text-center mt-2" style="width: 100%">Number of Videos</label>
-                <input ngModel name="number_of_courses" type="number" id="number" [ngModel]="courseEditNumber" class="form-control text-center">
-                <label for="content" class="text-center mt-2" style="width: 100%">Course Contents seperated by commas</label>
-                <input ngModel name="course_content" type="text" [ngModel]="coursesEdit" id="content" class="form-control text-center">
+                <input ngModel name="number_of_courses" type="number" id="number" [ngModel]="courseEditNumber"
+                  class="form-control text-center">
+                <label for="content" class="text-center mt-2" style="width: 100%">Course Contents seperated by
+                  commas</label>
+                <input ngModel name="course_content" type="text" [ngModel]="coursesEdit" id="content"
+                  class="form-control text-center">
                 <label for="content" class="text-center mt-2" style="width: 100%">Course Description</label>
                 <input ngModel name="course_description" [ngModel]="courseEditDescription" type="text" id="content"
                   class="form-control text-center">
                 <div class="submit mt-2">
-                  <button class="btn btn-primary btn-lg btn-block mt-4" style="width: 60%;margin: 0px auto;">Submit</button>
+                  <button class="btn btn-primary btn-lg btn-block mt-4"
+                    style="width: 60%;margin: 0px auto;">Submit</button>
                 </div>
               </div>
             </form>

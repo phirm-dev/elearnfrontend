@@ -138,3 +138,7 @@ vg-overlay-play .vg-overlay-play {
 .iconload>img {
     margin-top: 40vh;
 }
+
+.price {
+    color: black;
+}
