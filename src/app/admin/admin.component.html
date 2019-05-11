@@ -40,6 +40,9 @@
             <i class="fas fa-envelope"></i>
             <br>{{user.email}}</td>
           <td>
+            <i class="fas fa-phone"></i>
+            <br>{{user?.phone}}</td>
+          <td>
             <button class="btn btn-info" data-toggle="modal" data-target="#myModal"
               (click)="getUser(user.username)">Update</button>
           </td>
