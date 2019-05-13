@@ -90,7 +90,6 @@ export class CourseDetailsComponent implements OnInit {
 
     var token = localStorage.getItem('token');
     this.user = this.helper.decodeToken(token);
-    console.log(this.user.username);
 
     //get user details
     this.service.getUserDetails(this.user.username).subscribe(res => {

@@ -12,6 +12,9 @@ export class EnquireUniportService {
 
   url = environment.url
   helper = new JwtHelperService();
+  token = localStorage.getItem('token');
+  decodedToken = this.helper.decodeToken(this.token);
+
   constructor(private http: HttpClient) { }
 
   register(credentials) {
@@ -97,6 +100,10 @@ export class EnquireUniportService {
   updateUser(newUser, username) {
     var token = localStorage.getItem('admintoken');
     return this.http.post(this.url + 'admin/user/' + username + '/update', { token: token, username: newUser.username, email: newUser.email });
+  }
+
+  editUser(user) {
+    return this.http.post(this.url + 'user/update/' + this.decodedToken.id, user);
   }
 
   deleteUser(username) {

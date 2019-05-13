@@ -61,7 +61,6 @@ export class CoursecontentComponent implements OnInit {
     // make api call to validate user subscription
     this.service.checkUserSubscription(userObj).subscribe(response => {
       if (response['statusCode'] !== 400) {
-        console.log(response);
         this.user = response;
         this.coursesPurchased = response['courses'];
         //check if this course is one of the courses purchased by the user

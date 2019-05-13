@@ -99,6 +99,11 @@
     font-weight: 400;
 }
 
+.login_form {
+    width: 50%;
+    margin: 0px auto;
+}
+
 @media(max-width:355px) {
     .nav-pills .nav-link {
         font-size: 14px;
@@ -114,5 +119,8 @@
     }
     .scale {
         font-size: 19px;
+    }
+    .login_form {
+        width: 100%;
     }
 }

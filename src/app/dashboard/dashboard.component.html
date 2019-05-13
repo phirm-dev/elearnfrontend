@@ -98,12 +98,14 @@
         <div class="row">
           <div class="col-lg-4 mb-4" *ngFor="let coursePurchased of coursesPurchased">
             <div class="card">
-              <div class="card-header bg-dark text-center text-white text-uppercase">{{coursePurchased.course_code}}</div>
+              <div class="card-header bg-dark text-center text-white text-uppercase">{{coursePurchased.course_code}}
+              </div>
               <div class="card-body text-center">
                 <p style="font-weight: bold">{{coursePurchased.course_name}}</p>
               </div>
               <div class="card-footer bg-dark text-center text-black">
-                <a class="btn btn-light" routerLink="/tutorials/coursecontent/{{coursePurchased.course_code}}">Checkout</a>
+                <a class="btn btn-light"
+                  routerLink="/tutorials/coursecontent/{{coursePurchased.course_code}}">Checkout</a>
               </div>
             </div>
           </div>
@@ -127,8 +129,22 @@
           </tbody>
         </table> -->
         <div class="box">
-          <p class="text-center" style="word-break:break-all">{{decodedToken.username}}</p>
-          <p class="text-center"><button class="btn btn-danger" (click)="logOut()" style="margin: 0px auto;">Logout</button></p>
+          <form #user="ngForm" class="form-group mt-2 login_form" (ngSubmit)="editUser(user.value)" style="border-radius: 5px;" autocomplete="off">
+            <label for="email" class="text-center" style="width: 100%">Email</label>
+            <input name="email" ngModel type="email" id="email" [ngModel]="decodedToken.email" class="form-control text-center">
+            <br>
+            <div class="form-group mt-2">
+              <label for="phone" class="text-center" style="width: 100%">Phone Number</label>
+              <input ngModel name="phone" type="text" id="phone" [ngModel]="decodedToken.phone" class="form-control text-center">
+              <div class="submit mt-2">
+                <button class="btn btn-info btn-block mt-4" style="width: 100%">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="box">
+          <p class="text-center"><button class="btn btn-danger" (click)="logOut()"
+              style="margin: 0px auto;">Logout</button></p>
         </div>
         <a href="https://phirmware.github.io/cgpa-calculator" target="blank" style="text-decoration:none;">
           <div class="box">

@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
 
     this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
       this.user = response;
-      console.log(response);
       this.coursesPurchased = response[0].courses;
     });
 
@@ -51,6 +50,20 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  editUser(user) {
+    if (!user.phone || !user.email) {
+      swal('Error', 'Incomplete Credentials', 'error');
+    } else {
+      this.service.editUser(user).subscribe(response => {
+        if(response['statusCode'] == 400){
+          swal('Error',response['statusText'],'error');
+        } else{
+          localStorage.setItem('token', response['token']);
+          swal('Success','Successfuly Updated','success');
+        }
+      });
+    }
+  }
 
 
 

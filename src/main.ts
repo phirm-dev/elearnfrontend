@@ -8,7 +8,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.log('YO!, new browser update!');
+console.log(`https://jefftutors.com`);
+
+console.log(`Wanna work with me? contact me on twitter at
+
+https://twitter.com/phirmware
+
+`)
 
 if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
   //  do stuff here
