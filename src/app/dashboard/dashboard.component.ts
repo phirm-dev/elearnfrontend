@@ -50,20 +50,20 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  editUser(user) {
-    if (!user.phone || !user.email) {
-      swal('Error', 'Incomplete Credentials', 'error');
-    } else {
-      this.service.editUser(user).subscribe(response => {
-        if(response['statusCode'] == 400){
-          swal('Error',response['statusText'],'error');
-        } else{
-          localStorage.setItem('token', response['token']);
-          swal('Success','Successfuly Updated','success');
-        }
-      });
-    }
-  }
+  // editUser(user) {
+  //   if (!user.phone || !user.email) {
+  //     swal('Error', 'Incomplete Credentials', 'error');
+  //   } else {
+  //     this.service.editUser(user).subscribe(response => {
+  //       if(response['statusCode'] == 400){
+  //         swal('Error',response['statusText'],'error');
+  //       } else{
+  //         localStorage.setItem('token', response['token']);
+  //         swal('Success','Successfuly Updated','success');
+  //       }
+  //     });
+  //   }
+  // }
 
 
 

@@ -120,6 +120,9 @@
     .scale {
         font-size: 19px;
     }
+}
+
+@media(max-width:600px) {
     .login_form {
         width: 100%;
     }
