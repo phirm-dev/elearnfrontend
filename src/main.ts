@@ -8,6 +8,12 @@ if (environment.production) {
   enableProdMode();
 }
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/ngsw-worker.js');
+  });
+}
+
 console.log(`https://jefftutors.com`);
 
 console.log(`Wanna work with me? contact me on twitter at
