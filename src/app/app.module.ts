@@ -20,6 +20,8 @@ import { FAQComponent } from './faq/faq.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { ContactComponent } from './contact/contact.component';
 import { PlyrModule } from 'ngx-plyr';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { component: HomeComponent, path: "" },
@@ -56,7 +58,8 @@ const routes: Routes = [
     PlyrModule,
     Ng4LoadingSpinnerModule.forRoot(),
     AngularRaveModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [RouterModule],
   providers: [
