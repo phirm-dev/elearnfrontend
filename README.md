@@ -1,6 +1,6 @@
 # EnquireUniport Angular Version
 
-[![Build Status](https://travis-ci.com/phirmware/jefftutors-ng.svg?token=pcVqpYhRxapmwmqKgVPX&branch=master)](https://travis-ci.com/phirmware/jefftutors-ng)
+[![Build Status](https://phirmware.visualstudio.com/phirmware/_apis/build/status/phirmware.jefftutors-ng?branchName=master)](https://phirmware.visualstudio.com/phirmware/_build/latest?definitionId=1&branchName=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
