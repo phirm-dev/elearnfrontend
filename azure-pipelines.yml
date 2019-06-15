@@ -17,5 +17,5 @@ steps:
 
 - script: |
     npm i -g now
-    now --token=koZLm2CSzWHTNCCqphW9sGY3 --target production
+    now --token=$NOW_TOKEN  --target production
   displayName: 'Install Now and deploy to Production'
