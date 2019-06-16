@@ -22,7 +22,6 @@ https://twitter.com/phirmware
 
 `)
 
-console.log("New Update");
 if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
   //  do stuff here
   alert('You are on UCBrowser, use chrome browser for the full experience!'); 
