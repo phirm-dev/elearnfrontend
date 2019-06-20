@@ -1,91 +1,205 @@
-<header class="masthead text-center text-white" style="background: url(assets/img/home.webp) no-repeat center center fixed;background-size: cover;">
-  <div class="masthead-content">
+<!-- ##### Hero Area Start ##### -->
+<section class="hero-area bg-img bg-overlay-2by5" style="background-image: url(assets/img/bg-img/bg1.jpg);">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <!-- Hero Content -->
+        <div class="hero-content text-center">
+          <h2>Study Online</h2>
+          <a (click)="nav()" class="btn clever-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### Hero Area End ##### -->
+
+<!-- ##### Cool Facts Area Start ##### -->
+<section class="cool-facts-area section-padding-100-0">
+  <div class="container">
+    <div class="row">
+      <!-- Single Cool Facts Area -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="250ms">
+          <div class="icon">
+            <img src="assets/img/core-img/docs.png" alt="">
+          </div>
+          <h2><span class="counter">4</span></h2>
+          <h5>Months Access</h5>
+        </div>
+      </div>
+
+      <!-- Single Cool Facts Area -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
+          <div class="icon">
+            <img src="assets/img/core-img/star.png" alt="">
+          </div>
+          <h2><span class="counter">3</span></h2>
+          <h5>Dedicated Tutors</h5>
+        </div>
+      </div>
+
+      <!-- Single Cool Facts Area -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="750ms">
+          <div class="icon">
+            <img src="assets/img/core-img/events.png" alt="">
+          </div>
+          <h2><span class="counter">12</span></h2>
+          <h5>Hours Assistance</h5>
+        </div>
+      </div>
+
+      <!-- Single Cool Facts Area -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="1000ms">
+          <div class="icon">
+            <img src="assets/img/core-img/earth.png" alt="">
+          </div>
+          <h2><span class="counter">{{courses.length}}</span></h2>
+          <h5>Available Courses</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### Cool Facts Area End ##### -->
+
+<!-- ##### Popular Courses Start ##### -->
+<section class="popular-courses-area section-padding-100-0" style="background-image: url(assets/img/core-img/texture.png);">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading">
+          <h3>Available Online Courses</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- Single Popular Course -->
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let course of courses">
+        <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
+          <img src="assets/img/bg-img/e3.jpg" alt="">
+          <!-- Course Content -->
+          <div class="course-content">
+            <h4>{{course.course_name}}</h4>
+            <div class="meta d-flex align-items-center">
+              <a href="#">{{course.course_code}}</a>
+              <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+              <!-- <a href="#">Art &amp; Design</a> -->
+            </div>
+            <p>
+              {{course.course_description}}
+            </p>
+          </div>
+          <!-- Seat Rating Fee -->
+          <div class="seat-rating-fee d-flex justify-content-between">
+            <div class="seat-rating h-100 d-flex align-items-center">
+              <div class="seat">
+                <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
+              </div>
+              <div class="rating">
+                <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
+              </div>
+            </div>
+            <div class="course-fee h-100">
+              <a (click)="nav()">N{{course.course_price / 100}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### Popular Courses End ##### -->
+
+<!-- ##### Best Tutors Start ##### -->
+
+<!-- ##### Best Tutors End ##### -->
+
+<!-- ##### Register Now Start ##### -->
+<section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
+  style="background-image: url(/assets/img/core-img/texture.png);">
+  <!-- Register Contact Form -->
+  <div class="register-contact-form mb-100 wow fadeInUp" data-wow-delay="250ms">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="forms">
+            <h4></h4>
+            
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn clever-btn w-100">Register</button>
+                </div>
+              </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Now Countdown -->
+  <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+    <h3>Register Now</h3>
+    <p>Create an account with Jefftutors and get access to your tutorial videos any time any where.</p>
+    <!-- Register Countdown -->
+    <div class="register-countdown">
+      <div class="events-cd d-flex flex-wrap" data-countdown="2019/03/01"></div>
+    </div>
+  </div>
+</section>
+<!-- ##### Register Now End ##### -->
+
+<!-- ##### Upcoming Events Start ##### -->
+<!-- ##### Upcoming Events End ##### -->
+
+<!-- ##### Blog Area Start ##### -->
+<!-- ##### Blog Area End ##### -->
+
+<!-- ##### Footer Area Start ##### -->
+<footer class="footer-area">
+  <!-- Top Footer Area -->
+  <div class="top-footer-area">
     <div class="container">
-      <h3 class="masthead-heading mb-0" style="color:black">Study Online</h3>
-      <!-- <h2 class="masthead-subheading mb-0" style="color:black">any place any time</h2> -->
-      <br>
-      <span id="heading-text" class="text-left"><i class="fas fa-clock"></i> Learn at any time</span>
-      <br>
-      <span id="heading-text" class="text-left"><i class="fas fa-credit-card"></i> Subscribe for a course</span>
-      <br>
-      <span id="heading-text" class="text-left"><i class="fas fa-graduation-cap"></i> Get exam tips</span>
-      <br>
-      <span id="heading-text" class="text-left" style="font-weight:bold">Ace your papers</span>
-      <br>
-      <a class="btn btn-secondary btn-xl rounded-pill mt-5" (click)="nav()">Start Learning</a><br>
-    </div>
-  </div>
-  <!-- <div class="bg-circle-1 bg-circle"></div>
-  <div class="bg-circle-2 bg-circle"></div>
-  <div class="bg-circle-3 bg-circle"></div>
-  <div class="bg-circle-4 bg-circle"></div> -->
-</header>
-
-<section>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2">
-        <div class="p-5">
-          <img class="img-fluid rounded-circle" src="assets/images/slice.jpg" alt="">
-        </div>
-      </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="p-5">
-          <h2 class="display-4">Learn at your comfort...</h2>
-          <p>Tired of waiting for tutorials after classes , get courses online at your comfort anywhere and enjoy
-            learning .</p>
+      <div class="row">
+        <div class="col-12">
+          <!-- Footer Logo -->
+          <!-- <div class="footer-logo">
+            <a href="index.html"><img src="assets/img/core-img/logo2.png" alt=""></a>
+          </div> -->
+          <!-- Copywrite -->
+          <p><a href="#">
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+              with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </a>
+          </p>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="p-5">
-          <img class="img-fluid rounded-circle" src="assets/images/slice1.jpg" alt="">
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="p-5">
-          <h2 class="display-4">24 hours access to learning...</h2>
-          <p>Are you a night reader, get into the learning feel any time you want to study.</p>
-        </div>
-      </div>
+  <!-- Bottom Footer Area -->
+  <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <a href="#"><span>Phone:</span> +234 907 333 7066</a>
+      <a href="#"><span>Email:</span> jefftutors@gmail.com</a>
+    </div>
+    <!-- Follow Us -->
+    <div class="follow-us">
+      <span>Follow us</span>
+      <a href="https://web.facebook.com/Jefftutors-2327029197577617"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/jefftutors/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
     </div>
   </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2">
-        <div class="p-5">
-          <img class="img-fluid rounded-circle" src="assets/images/slice2.jpg" alt="">
-        </div>
-      </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="p-5">
-          <h2 class="display-4">Ace your exams</h2>
-          <p>Get tips and concepts to ace your exams right here with the courses we offer. <a (click)="nav()" class="btn btn-primary">Start
-              learning</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <div class="valuation-float" id="cgpa">
-  <a href="https://phirmware.github.io/cgpa-calculator" target="blank" style="text-decoration:none"><h4 class="text-center">Calculate your CGPA</h4></a>
-</div> -->
-
-<!-- <a href="https://phirmware.github.io/cgpa-calculator" class="by">
-  <img src="assets/images/favicon (1).png" alt="">
-  <p>Calculate your CGPA</p>
-</a>
-
-<a (click)="contactMe()" class="contactus">
-  <p style="color:#6f6f6f"><i class="fab fa-whatsapp" style="color:green;font-weight:bold;font-size:20px;margin:4px"></i> Whatsapp Us</p>
-</a> -->
+</footer>
