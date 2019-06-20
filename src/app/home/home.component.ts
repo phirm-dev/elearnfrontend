@@ -30,8 +30,6 @@ export class HomeComponent implements OnInit {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
     }
-
-    console.log(this.courses);
   }
 
   nav() {
