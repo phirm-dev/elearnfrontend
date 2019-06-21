@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import swal from 'sweetalert'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { EnquireUniportService } from '../enquire-uniport.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,7 @@ export class HomeComponent implements OnInit {
   fromStorage = localStorage.getItem('available-courses');
   courses;
 
-  constructor(private router: Router, private service: EnquireUniportService) { }
+  constructor(private router: Router, private service: EnquireUniportService,private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     if (this.helper.isTokenExpired(this.fromStorage)) {
@@ -29,6 +31,26 @@ export class HomeComponent implements OnInit {
     } else {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
+    }
+  }
+
+  signUp(credentials) {
+    if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '') {
+      swal('Error', 'Missing Details', 'error');
+    }
+    else {
+      this.spinnerService.show();
+      this.service.register(credentials).subscribe(res => {
+        if (res['statusCode'] == 200 && res['token']) {
+          // get token and automatically navigate user to dashboard
+          localStorage.setItem('token', res['token']);
+          this.spinnerService.hide();
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.spinnerService.hide();
+          swal('Error', res['message'], 'error');
+        }
+      });
     }
   }
 
