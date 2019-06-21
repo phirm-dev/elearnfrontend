@@ -1,26 +1,61 @@
-<div class="container-fluid login_body">
-  <div class="text-center iconload" *ngIf="loader"><img src="assets/icons/favicon (2).png" style="width:140px" alt="">
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12" style="margin-top:5vh">
-        <div class="group">
-          <div class="group-heading">👩‍💻 Register</div>
-          <br>
-          <form #user="ngForm" (ngSubmit)="signUp(user.value)">
-            <input type="text" name="username" placeholder="Username" ngModel>
-            <input type="text" name="email" placeholder="Email" ngModel>
-            <input type="text" name="phone" placeholder="Phone Number" ngModel>
-            <input type="password" name="password" placeholder="Password" ngModel>
-            <input type="password" name="confirmpassword" placeholder="Confirm Password" ngModel>
-            <button class="signup-btn btn ">Sign Up</button>
-            <br>
-            <br>
-            <div class="text-center"> <a routerLink="/login" style="margin:14px;color:whitesmoke">Already have an
-                account?</a></div>
-          </form>
+<section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
+  style="background-image: url(/assets/img/core-img/texture.png);min-height: 100vh;">
+  <!-- Register Contact Form -->
+  <div class="register-contact-form mb-100 wow fadeInUp" data-wow-delay="250ms">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="forms">
+            <h4>Register</h4>
+            <form #user="ngForm" (ngSubmit)="signUp(user.value)">
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="text" placeholder="Username" name="username" ngModel>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" ngModel>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" ngModel>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="site" placeholder="Password" name="password"
+                      ngModel>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-12">
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" name="confirmpassword"
+                      ngModel>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn clever-btn w-100">Register</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- Register Now Countdown -->
+  <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+    <h3>Register Now</h3>
+    <p>Create an account with Jefftutors and get access to your tutorial videos any time, any where.</p>
+    <br>
+    <p><a routerLink="/login" style="color:blue;">Already have an account?</a></p>
+    <!-- Register Countdown -->
+    <div class="register-countdown">
+      <div class="events-cd d-flex flex-wrap" data-countdown="2019/03/01"></div>
+    </div>
+  </div>
+</section>
