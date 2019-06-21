@@ -99,15 +99,18 @@
           <!-- Seat Rating Fee -->
           <div class="seat-rating-fee d-flex justify-content-between">
             <div class="seat-rating h-100 d-flex align-items-center">
-              <div class="seat">
+              <!-- <div class="seat">
                 <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
-              </div>
+              </div> -->
               <div class="rating">
                 <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
               </div>
+              <div class="seat">
+                <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
+              </div>
             </div>
             <div class="course-fee h-100">
-              <a (click)="nav()">N{{course.course_price / 100}}</a>
+              <a routerLink="/tutorials/course/{{course.course_code}}">view</a>
             </div>
           </div>
         </div>
@@ -150,11 +153,12 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div class="form-group">
-                    <input type="password" class="form-control" id="site" placeholder="Password" name="password" ngModel>
+                    <input type="password" class="form-control" id="site" placeholder="Password" name="password"
+                      ngModel>
                   </div>
                 </div>
                 <div class="col-12">
-                  <button  class="btn clever-btn w-100">Register</button>
+                  <button class="btn clever-btn w-100">Register</button>
                 </div>
               </div>
             </form>
@@ -181,4 +185,3 @@
 
 <!-- ##### Blog Area Start ##### -->
 <!-- ##### Blog Area End ##### -->
-

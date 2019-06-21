@@ -10,7 +10,7 @@ import * as Plyr from 'plyr';
 @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
-  styleUrls: ['./course-details.component.css', '../../../assets/libs/bootstrap/css/bootstrap.min.css', '../../../assets/libs/material-design-iconic-font/css/material-design-iconic-font.min.css', '../../../assets/libs/jquery-ui/jquery-ui.min.css', '../../../assets/libs/rslides/responsiveslides.css', '../../../assets/libs/slick/slick.css', '../../../assets/css/main.css']
+  styleUrls: ['./course-details.component.css']
 })
 
 export class CourseDetailsComponent implements OnInit {
@@ -70,6 +70,7 @@ export class CourseDetailsComponent implements OnInit {
     //get course details
     this.service.getCourse(this.course).subscribe(res => {
       this.courseDetails = res;
+      console.log(this.courseDetails);
       for (let i = 0; i < this.freeVidNo; i++) {
         this.video.push(res[0].course_content[i]);
       }
@@ -92,9 +93,9 @@ export class CourseDetailsComponent implements OnInit {
     this.user = this.helper.decodeToken(token);
 
     //get user details
-    this.service.getUserDetails(this.user.username).subscribe(res => {
-      this.userPurchasedCourses = res[0].courses;
-    });
+    // this.service.getUserDetails(this.user.username).subscribe(res => {
+    //   this.userPurchasedCourses = res[0].courses;
+    // });
 
   }
 

@@ -1,182 +1,639 @@
-<div id="course-single" class="page course_detail" *ngFor="let course of courseDetails">
+<section *ngFor="let course of courseDetails">
+  <!-- ##### Breadcumb Area Start ##### -->
+  <div class="breadcumb-area">
+    <!-- Breadcumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Courses</a></li>
+        <li class="breadcrumb-item"><a href="#">{{course.course_code}}</a></li>
+      </ol>
+    </nav>
+  </div>
+  <!-- ##### Breadcumb Area End ##### -->
 
-  <main style="min-height:80vh;">
-
-    <div class="page-heading text-center" style="background: #272727;font-family: 'varela round'">
-      <div class="container">
-        <h2 style="color: white; font-family: 'varela round'" class="text-capitalize">
-          {{course.course_name}}
-        </h2>
-        <p class="breadcrumbs" style="font-family: 'varela round'">
-          <a routerLink="/">Home</a>
-          <i class="zmdi zmdi-chevron-right"></i>
-          <a routerLink="/dashboard">Dashboard</a>
-          <i class="zmdi zmdi-chevron-right"></i>
-          <a>{{course.course_name}}</a>
-          <!-- <i class="zmdi zmdi-chevron-right"></i>
-          <span>Adobe Photoshop CC for Professionals</span> -->
-        </p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <!-- <img src="assets/images/preview.jpg" alt="Course" class="resp-img course-preview"> -->
-          <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl" autoplay
-            controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;">
-          </video>
-
-          <p id="vidTitle" style="
+  <!-- ##### Single Course Intro Start ##### -->
+  <div class="single-course-intro d-flex align-items-center justify-content-center"
+    style="background-image: url(/assets/img/core-img/texture.png);background: aliceblue;">
+    <!-- Content -->
+    <div class="single-course-intro-content text-center">
+      <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl" autoplay
+        controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;">
+      </video>
+      <p id="vidTitle" style="
           font-size: 12px;
           margin-left: 15px;
-          font-family: 'varela round';
+          font-family: inherit;
           margin-bottom: 10px;
       ">Intro</p>
+    </div>
+  </div>
+  <!-- ##### Single Course Intro End ##### -->
 
-          <!-- <div class='skip-button'>custom skip ad button</div> -->
-          <div class="order text-center">
-            <span class="views" style="
-            font-size: 16px;
-            font-weight: bold;
-            font-family: 'varela round';
-            line-height: 3;
-        ">Free
-              Sample Videos</span>
-            <div class="sample-videos" style="margin-left:-40px">
-              <ul class="sample" style="list-style:none;text-align:left">
-                <li *ngFor="let vid of video" (click)="watchVideo(vid)"><i class="fas fa-play"
-                    style="margin-right:16px;"></i>
-                  {{vid}}</li>
+  <!-- ##### Courses Content Start ##### -->
+  <div class="single-course-content section-padding-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="course--content">
+
+            <div class="clever-tabs-content">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
+                    aria-selected="true">Curriculum</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
+                    aria-selected="false">Description</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
+                    aria-selected="true">Reviews</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4"
+                    aria-selected="true">Members</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="tab--5" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5"
+                    aria-selected="true">Forum</a>
+                </li> -->
               </ul>
-            </div>
-            <h3 style="color:red; font-family: 'varela round'">PROMO! <span>N{{course.course_price / 100}}</span></h3>
-            <!-- <p>SINGLE PRICE</p> -->
-            <!-- <button type="button" class="btn btn-success btn-block btn--col" angular-rave [PBFPubKey]=APIkey
-              [customer_email]="user.email" [customer_firstname]="user.username" [country]="'NG'" [currency]="'NGN'"
-              [amount]="course.course_price" [txref]="course._id" (callback)="paymentSuccess($event)" (onclose)="paymentClose($event)">Get
-              Full Access</button> -->
-            <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-              style="padding:12px">
-              Subscribe
-            </button>
-            <!-- <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
-              [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
-              (callback)="paymentDone($event)">Get
-              Full Access</angular4-paystack> -->
-            <!-- <button (click)="buyCourse(courseDetails[0].course_name,user.username)">Buy</button> -->
-            <br>
-            <br>
 
+              <div class="tab-content" id="myTabContent">
+                <!-- Tab Text -->
+                <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                  <div class="clever-description">
 
-            <!-- The Modal -->
-            <div class="modal" id="myModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
+                    <!-- About Course -->
+                    <div class="about-course mb-30">
+                      <h4>About this course</h4>
+                      <p>{{course.course_description}}</p>
+                    </div>
 
-                  <!-- Modal Header -->
-                  <!-- <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
-                  </div> -->
+                    <!-- All Instructors -->
+                    <div class="all-instructors mb-30">
+                      <h4>All Instructors</h4>
 
-                  <!-- Modal body -->
-                  <div class="modal-body">
-                    <h3 class="text-center">Payment Methods</h3>
-                    <br>
-                    <p>
-                      <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price"
-                        [ref]=txtref [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
-                        (callback)="paymentDone($event)">Pay With ATM Card</angular4-paystack>
-                    </p>
-                    <br>
-                    <p>OR</p>
-                    <br>
-                    <h6>
-                      Transfer to account
-                    </h6>
-                    <p>
-                      0701194703
-                      <br>
-                      Chibuike Amadi Jeffrey
-                      <br>
-                      Access Bank
-                    </p>
-                    <br>
-                    <p style="color:red">N/B</p>
-                    <p style="color:brown"> After transfer make a screenshot of the debit alert and send to the whatsapp
-                      number below for verification.</p>
-                    <p style="color:green">09073337066</p>
-                    <p>
-                      <button class="btn btn-success" (click)="contactMe()"> Click here to whatsapp us</button>
-                    </p>
+                      <div class="row">
+                        <!-- Single Instructor -->
+                        <div class="col-lg-6">
+                          <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                              <img src="assets/img/tutor.jpg" alt="">
+                            </div>
+                            <div class="instructor-info">
+                              <h5>Amadi Chibiuke</h5>
+                              <span>Teacher</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="clever-faqs">
+                      <h4>FAQs</h4>
+
+                      <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                          <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                              data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How do I subscribe for
+                              a course?.
+                              <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                              <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </a></h6>
+                          <div id="collapseOne" class="accordion-content collapse show">
+                            <p>You can either transfer to the bank account or pay online using your ATM.</p>
+                          </div>
+                        </div>
+
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                          <h6>
+                            <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                              data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">How long does the subscription last?
+                              <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                              <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </a>
+                          </h6>
+                          <div id="collapseTwo" class="accordion-content collapse">
+                            <p>Subscription for a course lasts for 4 months , thats the maximum length of a full semester.</p>
+                          </div>
+                        </div>
+
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                          <h6>
+                            <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
+                              data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What is the price for this course?
+                              <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                              <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </a>
+                          </h6>
+                          <div id="collapseThree" class="accordion-content collapse">
+                            <p>The price for this course is N{{course.course_price / 100}}</p>
+                          </div>
+                        </div>
+
+                        <!-- Single Accordian Area -->
+                        <!-- <div class="panel single-accordion">
+                          <h6>
+                            <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed"
+                              data-parent="#accordion" data-toggle="collapse" href="#collapseFour">Do i need to take the
+                              courses in a specific order?
+                              <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                              <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            </a>
+                          </h6>
+                          <div id="collapseFour" class="accordion-content collapse">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lectus eu felis semper
+                              finibus ac eget ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                              vulputate id justo quis facilisis.</p>
+                          </div>
+                        </div> -->
+                      </div>
+
+                    </div>
                   </div>
+                </div>
 
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <!-- Tab Text -->
+                <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                  <div class="clever-curriculum">
+
+                    <!-- About Curriculum -->
+                    <!-- <div class="about-curriculum mb-30">
+                      <h4>Syllabus</h4>
+                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
+                        lorem
+                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
+                        ultrices ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula
+                        lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra
+                        dolor. In et suscipit ex. Pellentesque aliquet velit tortor, eget placerat mi scelerisque a.
+                        Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum
+                        enim.</p>
+                    </div> -->
+
+                    <!-- Curriculum Level -->
+                    <div class="curriculum-level mb-30">
+                      <h4 class="d-flex justify-content-between"><span>Content</span> <span></span></h4>
+                      <h5>Free Preview Videos</h5>
+                      <p>To get full access hit the subscribe button.</p>
+
+                      <ul class="curriculum-list">
+                        <li>
+                          <ul>
+                            <li *ngFor="let vid of video" (click)="watchVideo(vid)">
+                              <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video: <span>{{vid}}</span></span>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
+                </div>
 
+                <!-- Tab Text -->
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                  <div class="clever-review">
+
+                    <!-- About Review -->
+                    <div class="about-review mb-30">
+                      <h4>Reviews</h4>
+                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
+                        lorem
+                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
+                        ultrices</p>
+                    </div>
+
+                    <!-- Ratings -->
+                    <div class="clever-ratings d-flex align-items-center mb-30">
+
+                      <div class="total-ratings text-center d-flex align-items-center justify-content-center">
+                        <div class="ratings-text">
+                          <h2>4.5</h2>
+                          <div class="ratings--">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                          </div>
+                          <span>Rated 5 out of 3 Ratings</span>
+                        </div>
+                      </div>
+
+                      <div class="rating-viewer">
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>5 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>80%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>4 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>20%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>3 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>2 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>1 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Single Review -->
+                    <div class="single-review mb-30">
+                      <div class="d-flex justify-content-between mb-30">
+                        <!-- Review Admin -->
+                        <div class="review-admin d-flex">
+                          <div class="thumb">
+                            <img src="assets/img/bg-img/t1.png" alt="">
+                          </div>
+                          <div class="text">
+                            <h6>Sarah Parker</h6>
+                            <span>Sep 29, 2017 at 9:48 am</span>
+                          </div>
+                        </div>
+                        <!-- Ratings -->
+                        <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
+                        sagittis.</p>
+                    </div>
+
+                    <!-- Single Review -->
+                    <div class="single-review mb-30">
+                      <div class="d-flex justify-content-between mb-30">
+                        <!-- Review Admin -->
+                        <div class="review-admin d-flex">
+                          <div class="thumb">
+                            <img src="assets/img/bg-img/t1.png" alt="">
+                          </div>
+                          <div class="text">
+                            <h6>Sarah Parker</h6>
+                            <span>Sep 29, 2017 at 9:48 am</span>
+                          </div>
+                        </div>
+                        <!-- Ratings -->
+                        <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
+                        sagittis.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab Text -->
+                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab--4">
+                  <div class="clever-members">
+
+                    <!-- About Members -->
+                    <div class="about-members mb-30">
+                      <h4>Members</h4>
+                      <p>Here are the contributors to the success of this platform.</p>
+                    </div>
+
+                    <!-- All Members -->
+                    <div class="all-instructors mb-30">
+                      <div class="row">
+                        <!-- Single Members -->
+                        <div class="col-lg-6">
+                          <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                              <img src="assets/img/daisy.webp" alt="">
+                            </div>
+                            <div class="instructor-info">
+                              <h5>Daisy Diamond</h5>
+                              <span>Facilitator</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Single Members -->
+                        <div class="col-lg-6">
+                          <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                              <img src="assets/img/tutor.jpg" alt="">
+                            </div>
+                            <div class="instructor-info">
+                              <h5>Amadi Chibuike</h5>
+                              <span>Teacher</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab Text -->
+                <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab--5">
+                  <div class="clever-review">
+
+                    <!-- About Review -->
+                    <div class="about-review mb-30">
+                      <h4>Reviews</h4>
+                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
+                        lorem
+                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
+                        ultrices</p>
+                    </div>
+
+                    <!-- Ratings -->
+                    <div class="clever-ratings d-flex align-items-center mb-30">
+
+                      <div class="total-ratings text-center d-flex align-items-center justify-content-center">
+                        <div class="ratings-text">
+                          <h2>4.5</h2>
+                          <div class="ratings--">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                          </div>
+                          <span>Rated 5 out of 3 Ratings</span>
+                        </div>
+                      </div>
+
+                      <div class="rating-viewer">
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>5 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>80%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>4 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>20%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>3 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>2 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                        <!-- Rating -->
+                        <div class="single-rating mb-15 d-flex align-items-center">
+                          <span>1 STARS</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>0%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Single Review -->
+                    <div class="single-review mb-30">
+                      <div class="d-flex justify-content-between mb-30">
+                        <!-- Review Admin -->
+                        <div class="review-admin d-flex">
+                          <div class="thumb">
+                            <img src="assets/img/bg-img/t1.png" alt="">
+                          </div>
+                          <div class="text">
+                            <h6>Sarah Parker</h6>
+                            <span>Sep 29, 2017 at 9:48 am</span>
+                          </div>
+                        </div>
+                        <!-- Ratings -->
+                        <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
+                        sagittis.</p>
+                    </div>
+
+                    <!-- Single Review -->
+                    <div class="single-review mb-30">
+                      <div class="d-flex justify-content-between mb-30">
+                        <!-- Review Admin -->
+                        <div class="review-admin d-flex">
+                          <div class="thumb">
+                            <img src="assets/img/bg-img/t1.png" alt="">
+                          </div>
+                          <div class="text">
+                            <h6>Sarah Parker</h6>
+                            <span>Sep 29, 2017 at 9:48 am</span>
+                          </div>
+                        </div>
+                        <!-- Ratings -->
+                        <div class="ratings">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
+                        sagittis.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-
-
           </div>
-          <!-- <video controls oncontextmenu="return false" id="player" playsinline  class="rethis.service.buyCourse(course, user).subscribe(res => {sp-img course-preview" src="assets/videos/{{course.course_code}}/intro.mp4"></video> -->
-          <h3 class="text-capitalize">
-            {{course.course_name}}
-          </h3>
-          <p class="class-details">
-            <span class="lessons">
-              <i class="zmdi zmdi-assignment"></i>{{course.number_of_courses}} Lessons</span>
-            <!-- <span class="duration">
-              <i class="zmdi zmdi-time"></i>5hr</span> -->
-            <span class="views"><i class="zmdi zmdi-eye"></i>{{course.views}} Views</span>
-            <span class="tag"><i class="zmdi zmdi-label"></i>4 Months Subscription</span>
-          </p>
-          <h4>COURSE DETAILS</h4>
-          <p class="abs" style="font-size:15px;
-          font-family: 'varela round';
-          font-weight: 600;
-      ">
-            {{course.course_description}}
-          </p>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="course-sidebar">
+            <!-- Buy Course -->
+            <a href="#" class="btn clever-btn mb-30 w-100" data-toggle="modal" data-target="#myModal">Subscribe</a>
+
+            <!-- Widget -->
+            <div class="sidebar-widget">
+              <h4>Course Features</h4>
+              <ul class="features-list">
+                <li>
+                  <h6><i class="fa fa-file" aria-hidden="true"></i>Course Code </h6>
+                  <h6 style="text-transform:uppercase">{{course.course_code}}</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fa-file" aria-hidden="true"></i>Course Name </h6>
+                  <h6>{{course.course_name}}</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fas fa-money" aria-hidden="true"></i>Course Price </h6>
+                  <h6>N{{course.course_price / 100}}</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Subscription</h6>
+                  <h6>4 Months</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fa-bell" aria-hidden="true"></i> Lectures</h6>
+                  <h6>{{course.number_of_courses}}</h6>
+                </li>
+                <!-- <li>
+                  <h6><i class="fa fa-file" aria-hidden="true"></i> Quizzes</h6>
+                  <h6>3</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Pass Percentage</h6>
+                  <h6>60</h6>
+                </li>
+                <li>
+                  <h6><i class="fa fa-thumbs-down" aria-hidden="true"></i> Max Retakes</h6>
+                  <h6>5</h6>
+                </li> -->
+              </ul>
+            </div>
+
+            <!-- Widget -->
+            <!-- <div class="sidebar-widget">
+              <h4>Certification</h4>
+              <img src="assets/img/bg-img/cer.png" alt="">
+            </div> -->
+
+            <!-- Widget -->
+          </div>
         </div>
       </div>
     </div>
-  </main>
-  <br>
-  <br>
-  <br>
+  </div>
+  <!-- ##### Courses Content End ##### -->
+</section>
 
-</div>
-<a (click)="share()" class="contactus">
-  <!-- <img src="assets/images/favicon (1).png" alt=""> -->
-  <p><i class="fas fa-share-alt"></i> Share </p>
-</a>
 
-<!-- modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title text-center">Add a course</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The Modal -->
+<div class="modal text-center" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <!-- <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+        </div> -->
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h3 class="text-center" *ngIf="user">Payment Methods</h3>
+          <br>
+          <p *ngIf="user">
+            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price"
+              [ref]=txtref [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
+              (callback)="paymentDone($event)">Pay With ATM Card</angular4-paystack>
+          </p>
+          <br>
+          <p *ngIf="user">OR</p>
+          <br *ngIf="user">
+          <h6>
+            Transfer to account
+          </h6>
+          <p>
+            0701194703
+            <br>
+            Chibuike Amadi Jeffrey
+            <br>
+            Access Bank
+          </p>
+          <br>
+          <p style="color:red">N/B</p>
+          <p style="color:brown"> After transfer make a screenshot of the debit alert and send to the whatsapp
+            number below for verification.</p>
+          <p style="color:green">09073337066</p>
+          <p>
+            <button class="btn btn-success" (click)="contactMe()"> Click here to whatsapp us</button>
+          </p>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
       </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <p>Fucking Modal</p>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
     </div>
   </div>
-</div>

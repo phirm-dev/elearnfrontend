@@ -1,3 +1,15 @@
 nav{
+    background: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+.navbar-dark .navbar-toggler{
     background: black;
+}
+
+.navbar-dark .navbar-brand{
+    color: black;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: black;
 }
