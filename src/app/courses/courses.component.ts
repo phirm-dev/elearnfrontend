@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { EnquireUniportService } from '../enquire-uniport.service';
+import { CartService } from '../cart-service.service';
 
 @Component({
   selector: 'app-courses',
@@ -15,7 +16,7 @@ export class CoursesComponent implements OnInit {
   fromStorage = localStorage.getItem('available-courses');
   courses;
 
-  constructor(private service :EnquireUniportService) { }
+  constructor(private service: EnquireUniportService, private cartService: CartService) { }
 
   ngOnInit() {
     if (this.helper.isTokenExpired(this.fromStorage)) {
@@ -30,6 +31,11 @@ export class CoursesComponent implements OnInit {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
     }
+  }
+
+  addToCart(item) {
+    this.cartService.addToCart(item);
+    swal("Success","Added to cart","success");
   }
 
 }

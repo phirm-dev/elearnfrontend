@@ -5,8 +5,8 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard">Courses</a></li>
-        <li class="breadcrumb-item"><a href="#">{{course.course_code}}</a></li>
+        <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+        <li class="breadcrumb-item"><a>{{course.course_code}}</a></li>
       </ol>
     </nav>
   </div>
@@ -115,13 +115,15 @@
                         <div class="panel single-accordion">
                           <h6>
                             <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
-                              data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">How long does the subscription last?
+                              data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">How long does the
+                              subscription last?
                               <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                               <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                             </a>
                           </h6>
                           <div id="collapseTwo" class="accordion-content collapse">
-                            <p>Subscription for a course lasts for 4 months , thats the maximum length of a full semester.</p>
+                            <p>Subscription for a course lasts for 4 months , thats the maximum length of a full
+                              semester.</p>
                           </div>
                         </div>
 
@@ -129,7 +131,8 @@
                         <div class="panel single-accordion">
                           <h6>
                             <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
-                              data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What is the price for this course?
+                              data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What is the price
+                              for this course?
                               <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                               <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                             </a>
@@ -188,7 +191,8 @@
                         <li>
                           <ul>
                             <li *ngFor="let vid of video" (click)="watchVideo(vid)" style="cursor:pointer">
-                              <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video: <span>{{vid}}</span></span>
+                              <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video:
+                                <span>{{vid}}</span></span>
                             </li>
                           </ul>
                         </li>
@@ -369,21 +373,21 @@
                           </div>
                         </div>
 
-                         <!-- Single Members -->
-                         <div class="col-lg-6">
-                            <div class="single-instructor d-flex align-items-center mb-30">
-                              <div class="instructor-thumb">
-                                <img src="assets/img/chibs.jpg" alt="">
-                              </div>
-                              <div class="instructor-info">
-                                <h5>Ojukwu Chibuzor</h5>
-                                <span>Founder / Developer</span>
-                              </div>
+                        <!-- Single Members -->
+                        <div class="col-lg-6">
+                          <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                              <img src="assets/img/chibs.jpg" alt="">
+                            </div>
+                            <div class="instructor-info">
+                              <h5>Ojukwu Chibuzor</h5>
+                              <span>Founder / Developer</span>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Single Members -->
-                         <!-- <div class="col-lg-6">
+                        <!-- Single Members -->
+                        <!-- <div class="col-lg-6">
                             <div class="single-instructor d-flex align-items-center mb-30">
                               <div class="instructor-thumb">
                                 <img src="assets/img/obinna.jpeg" alt="">
@@ -395,18 +399,18 @@
                             </div>
                           </div> -->
 
-                          <!-- Single Members -->
-                         <div class="col-lg-6">
-                            <div class="single-instructor d-flex align-items-center mb-30">
-                              <div class="instructor-thumb">
-                                <img src="assets/img/ledum.jpg" alt="">
-                              </div>
-                              <div class="instructor-info">
-                                <h5>Ibaakee Ledum</h5>
-                                <span>Developer</span>
-                              </div>
+                        <!-- Single Members -->
+                        <div class="col-lg-6">
+                          <div class="single-instructor d-flex align-items-center mb-30">
+                            <div class="instructor-thumb">
+                              <img src="assets/img/ledum.jpg" alt="">
+                            </div>
+                            <div class="instructor-info">
+                              <h5>Ibaakee Ledum</h5>
+                              <span>Developer</span>
                             </div>
                           </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -553,7 +557,6 @@
           <div class="course-sidebar">
             <!-- Buy Course -->
             <a href="#" class="btn clever-btn mb-30 w-100" data-toggle="modal" data-target="#myModal">Subscribe</a>
-
             <!-- Widget -->
             <div class="sidebar-widget">
               <h4>Course Features</h4>
@@ -606,28 +609,9 @@
     </div>
   </div>
   <!-- ##### Courses Content End ##### -->
-</section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- The Modal -->
-<div class="modal text-center" id="myModal">
+  <!-- The Modal -->
+  <div class="modal text-center" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -641,8 +625,8 @@
           <h3 class="text-center" *ngIf="user">Payment Methods</h3>
           <br>
           <p *ngIf="user">
-            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price"
-              [ref]=txtref [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
+            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
+              [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
               (callback)="paymentDone($event)">Pay With ATM Card</angular4-paystack>
           </p>
           <br>
@@ -676,3 +660,4 @@
       </div>
     </div>
   </div>
+</section>

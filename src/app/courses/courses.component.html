@@ -45,14 +45,15 @@
               <!-- <div class="seat">
                   <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
                 </div> -->
-              <div class="rating">
+              <!-- <div class="rating">
                 <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
-              </div>
+              </div> -->
               <div class="seat">
                 <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
               </div>
             </div>
             <div class="course-fee h-100">
+              <a style="background:green;cursor: pointer;" (click)="addToCart(course)">+<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
               <a routerLink="/tutorials/course/{{course.course_code}}">view</a>
             </div>
           </div>

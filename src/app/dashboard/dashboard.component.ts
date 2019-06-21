@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
 import { EnquireUniportService } from '../enquire-uniport.service';
+import { CartService } from '../cart-service.service'
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css', '../../assets/vendor/bootstrap/css/bootstrap.min.css']
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
@@ -20,16 +21,15 @@ export class DashboardComponent implements OnInit {
   coursesPurchased;
   helper = new JwtHelperService();
   fromStorage = localStorage.getItem('available-courses');
+  cartItems;
 
-  constructor(private router: Router, private service: EnquireUniportService) { }
+  constructor(private router: Router, private service: EnquireUniportService , private cartService : CartService) { }
 
   ngOnInit() {
 
     window.scrollTo(0, 0);
 
     this.decodedToken = this.helper.decodeToken(this.token);
-
-
 
     this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
       this.user = response;
@@ -48,6 +48,13 @@ export class DashboardComponent implements OnInit {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
     }
+
+    this.cartItems = this.cartService.getItemsFromCart();
+  }
+
+  removeFromCart(item){
+    this.cartService.removeItemFromCart(item);
+    swal("Info","Removed from cart","warning");
   }
 
   // editUser(user) {
@@ -64,6 +71,9 @@ export class DashboardComponent implements OnInit {
   //     });
   //   }
   // }
+
+
+
 
 
 

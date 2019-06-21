@@ -4,6 +4,7 @@ import swal from 'sweetalert'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { CartService } from '../cart-service.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   fromStorage = localStorage.getItem('available-courses');
   courses;
 
-  constructor(private router: Router, private service: EnquireUniportService,private spinnerService: Ng4LoadingSpinnerService) { }
+  constructor(private router: Router, private service: EnquireUniportService, private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService) { }
 
   ngOnInit() {
     if (this.helper.isTokenExpired(this.fromStorage)) {
@@ -52,6 +53,11 @@ export class HomeComponent implements OnInit {
         }
       });
     }
+  }
+
+  addToCart(item) {
+    this.cartService.addToCart(item);
+    swal("Success","Added to cart","success");
   }
 
   nav() {
