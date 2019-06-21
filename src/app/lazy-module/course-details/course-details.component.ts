@@ -30,7 +30,7 @@ export class CourseDetailsComponent implements OnInit {
   paying = false;
   sanitizedUrl;
   video = [];
-  freeVidNo = 3;
+  freeVidNo = 4;
 
   constructor(private service: EnquireUniportService, private route: ActivatedRoute, private router: Router, private spinnerService: Ng4LoadingSpinnerService, private sanitizer: DomSanitizer) { }
 
@@ -105,6 +105,7 @@ export class CourseDetailsComponent implements OnInit {
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     vid.autoplay = true;
     document.getElementById('vidTitle').textContent = video;
+    window.scrollTo(0,0);
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here
       this.sanitizedUrl = '';
