@@ -8,7 +8,13 @@ export class CartService {
   cart = [];
 
   addToCart(item) {
+    var index = this.cart.indexOf(item);
+    if(index !== -1){
+      return false;
+    }
     this.cart.push(item);
+    console.log(this.cart);
+    return true;
   }
 
   getItemsFromCart() {

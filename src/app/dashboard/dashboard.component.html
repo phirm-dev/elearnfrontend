@@ -90,7 +90,7 @@
 
                 <!-- Tab Text -->
                 <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
-                  <h5 class="text-center">Your Cart</h5>
+                  <h5 class="text-center"></h5>
                   <div *ngIf="cartItems.length<1">
                     <img src="assets/img/emptycart.png">
                     <p class="text-center">Your cart is empty</p>
@@ -107,7 +107,7 @@
                           <!-- <a href="#">Art &amp; Design</a> -->
                         </div>
                         <p>
-                          {{item.course_description}}
+                          <!-- {{item.course_description}} -->
                         </p>
                       </div>
                       <!-- Seat Rating Fee -->
@@ -146,6 +146,7 @@
 
                       <div class="total-ratings text-center d-flex align-items-center justify-content-center">
                         <div class="ratings-text">
+                          <button class="btn btn-danger" click="logOut()">Logout</button>
                           <!-- <h2>4.5</h2>
                           <div class="ratings--">
                             <i class="fa fa-star" aria-hidden="true"></i>

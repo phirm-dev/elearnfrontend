@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   fromStorage = localStorage.getItem('available-courses');
   cartItems;
 
-  constructor(private router: Router, private service: EnquireUniportService , private cartService : CartService) { }
+  constructor(private router: Router, private service: EnquireUniportService, private cartService: CartService) { }
 
   ngOnInit() {
 
@@ -52,9 +52,17 @@ export class DashboardComponent implements OnInit {
     this.cartItems = this.cartService.getItemsFromCart();
   }
 
-  removeFromCart(item){
-    this.cartService.removeItemFromCart(item);
-    swal("Info","Removed from cart","warning");
+  removeFromCart(item) {
+    swal('warning', "Are you sure you want to remove this item from your cart?", 'warning', {
+      buttons: ["No", "Yes"],
+    }).then(value => {
+      if (value == true) {
+        this.cartService.removeItemFromCart(item);
+        swal("Info", "Removed from cart", "warning");
+      } else if (value == null) {
+        swal('You Declined!');
+      }
+    })
   }
 
   // editUser(user) {

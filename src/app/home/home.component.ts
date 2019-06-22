@@ -56,8 +56,12 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(item) {
-    this.cartService.addToCart(item);
-    swal("Success","Added to cart","success");
+    var cartAdded = this.cartService.addToCart(item);
+    if (cartAdded) {
+      swal("Success", "Added to cart", "success");
+    } else {
+      swal("", "Already in cart", "warning");
+    }
   }
 
   nav() {
