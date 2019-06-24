@@ -36,11 +36,11 @@
             <a class="nav-link" routerLink="/courses">Courses</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" *ngIf="isLoggedIn()"  id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-user" aria-hidden="true"></i> {{decodedToken.username}}
+              <i class="fa fa-user" aria-hidden="true"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div id="smallnav" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart<sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup> </a>
               <a class="dropdown-item" routerLink="/dashboard">Dashboard</a>
               <div class="dropdown-divider"></div>

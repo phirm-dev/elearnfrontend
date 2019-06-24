@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('available-courses');
+    document.getElementById('smallnav').classList.toggle('show');
     this.router.navigate(['/login']);
   }
 }
