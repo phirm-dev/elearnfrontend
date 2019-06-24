@@ -15,6 +15,7 @@ export class CoursesComponent implements OnInit {
   helper = new JwtHelperService();
   fromStorage = localStorage.getItem('available-courses');
   courses;
+  lengthOfCart = this.cartService.lengthOfCart;
 
   constructor(private service: EnquireUniportService, private cartService: CartService) { }
 
@@ -36,6 +37,7 @@ export class CoursesComponent implements OnInit {
   addToCart(item) {
     var cartAdded = this.cartService.addToCart(item);
     if (cartAdded) {
+      this.lengthOfCart ++;
       swal("Success", "Added to cart", "success");
     } else {
       swal("","Already in cart", "warning");

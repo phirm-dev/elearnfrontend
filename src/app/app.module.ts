@@ -23,11 +23,13 @@ import { PlyrModule } from 'ngx-plyr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CoursesComponent } from './courses/courses.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { component: HomeComponent, path: "" },
   { component: ContactComponent, path: "contact" },
   { component: LoginComponent, path: "login" },
+  { component: CartComponent, path: "cart" },
   { component: SignupComponent, path: "signup" },
   { component: CoursesComponent, path: "courses" },
   { component: FAQComponent, path: "FAQ's" },
@@ -51,7 +53,8 @@ const routes: Routes = [
     NotFoundComponent,
     FAQComponent,
     ContactComponent,
-    CoursesComponent
+    CoursesComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

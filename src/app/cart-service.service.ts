@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   cart = [];
+  lengthOfCart = 0;
 
   addToCart(item) {
     var index = this.cart.indexOf(item);
@@ -13,7 +14,8 @@ export class CartService {
       return false;
     }
     this.cart.push(item);
-    console.log(this.cart);
+    this.lengthOfCart ++;
+    // console.log(this.cart);
     return true;
   }
 
@@ -23,6 +25,11 @@ export class CartService {
 
   removeItemFromCart(item) {
     let index = this.cart.indexOf(item);
+    this.lengthOfCart --;
     this.cart.splice(index, 1);
+  }
+
+  getLengthOfCart(){
+    return this.lengthOfCart;
   }
 }

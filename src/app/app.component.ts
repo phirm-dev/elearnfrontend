@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import swal from 'sweetalert';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
+import { CartService } from './cart-service.service';
 
 
 @Component({
@@ -8,9 +10,18 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   helper = new JwtHelperService();
+  decodedToken;
+  token = localStorage.getItem('token');
+  @Input() lengthOfCart = this.cartService.lengthOfCart;
   // template: String = '<img src="https://cdn.dribbble.com/users/563824/screenshots/4155980/untitled-11.gif" />';
+
+  constructor(private router: Router, private cartService: CartService) { }
+
+  ngOnInit() {
+    this.decodedToken = this.helper.decodeToken(this.token);
+  }
 
   isLoggedIn() {
     var token = localStorage.getItem('token');
@@ -22,5 +33,16 @@ export class AppComponent {
     const num = '2349036229746'
     const shareURL = `whatsapp://send?phone=${num}`
     location.href = shareURL;
+  }
+
+  toggleNav() {
+    document.getElementById('wrapper').classList.toggle('toggled');
+    // $("#wrapper").toggleClass("toggled");
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('available-courses');
+    this.router.navigate(['/login']);
   }
 }

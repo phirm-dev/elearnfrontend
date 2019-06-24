@@ -57,6 +57,9 @@ export class EnquireUniportService {
     var token = localStorage.getItem('token');
     if (token) {
       var isTokenExpired = this.helper.isTokenExpired(token);
+      if (isTokenExpired == true) {
+        localStorage.removeItem('token');
+      }
       return !isTokenExpired;
     }
     return false;

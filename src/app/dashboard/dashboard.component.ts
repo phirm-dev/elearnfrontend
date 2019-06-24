@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   helper = new JwtHelperService();
   fromStorage = localStorage.getItem('available-courses');
   cartItems;
+  lengthOfCart = this.cartService.lengthOfCart;
 
   constructor(private router: Router, private service: EnquireUniportService, private cartService: CartService) { }
 
@@ -57,6 +58,7 @@ export class DashboardComponent implements OnInit {
       buttons: ["No", "Yes"],
     }).then(value => {
       if (value == true) {
+        this.lengthOfCart --;
         this.cartService.removeItemFromCart(item);
         swal("Info", "Removed from cart", "warning");
       } else if (value == null) {
@@ -64,6 +66,8 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
+
+  
 
   // editUser(user) {
   //   if (!user.phone || !user.email) {
