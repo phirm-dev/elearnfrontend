@@ -13,3 +13,11 @@ nav{
 .navbar-dark .navbar-nav .nav-link{
     color: black;
 }
+
+img{
+    height: 24px;
+}
+
+#sidebar-wrapper .sidebar-heading{
+    font-weight: bold;
+}
