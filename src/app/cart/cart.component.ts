@@ -10,6 +10,7 @@ import { CartService } from '../cart-service.service'
 })
 export class CartComponent implements OnInit {
   cartItems;
+  lengthOfCart = this.cartService.lengthOfCart;
 
   constructor(private cartService: CartService) { }
 
