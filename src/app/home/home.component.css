@@ -1,5 +1,10 @@
-@media(max-width: 767px){
-    #hideMobile{
+@media(max-width: 767px) {
+    #hideMobile {
         display: none;
     }
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
 }

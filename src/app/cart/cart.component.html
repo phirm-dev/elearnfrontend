@@ -1,3 +1,16 @@
+ <!-- ##### Breadcumb Area Start ##### -->
+ <div class="breadcumb-area">
+    <!-- Breadcumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+        <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li>
+      </ol>
+    </nav>
+  </div>
+  <!-- ##### Breadcumb Area End ##### -->
+  
 <div class="container">
   <div class="row">
     <div class="col-lg-3"></div>

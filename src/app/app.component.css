@@ -1,23 +1,34 @@
-nav{
+nav {
     background: white;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
-.navbar-dark .navbar-toggler{
+
+.navbar-dark .navbar-toggler {
     background: black;
 }
 
-.navbar-dark .navbar-brand{
+.navbar-dark .navbar-brand {
     color: black;
 }
 
-.navbar-dark .navbar-nav .nav-link{
+.navbar-dark .navbar-nav .nav-link {
     color: black;
 }
 
-img{
+img {
     height: 24px;
 }
 
-#sidebar-wrapper .sidebar-heading{
+#jeff-logo{
+    font-family: 'varela round';
+}
+
+#sidebar-wrapper .sidebar-heading {
     font-weight: bold;
+}
+
+@media(min-width:775px) {
+    #jeff-logo {
+        display: none;
+    }
 }
