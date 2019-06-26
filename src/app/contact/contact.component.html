@@ -1,22 +1,63 @@
-<div class="container-fluid contact_body">
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-      <!-- <a class="box">
-        <p class="m-0 text-center text-white small"> <i class="fab fa-phone"></i> +2349073337066</p>
-      </a> -->
-      <a href="https://www.instagram.com/jefftutors/" target="blank" class="box">
-        <p class="m-0 text-center text-white small"> <i style="color:palevioletred" class="fab fa-instagram"></i>
-          Instagram</p>
-      </a>
-      <a href="https://web.facebook.com/Jefftutors-2327029197577617" target="blank" class="box">
-        <p class="m-0 text-center text-white small"> <i style="color:blue" class="fab fa-facebook"></i> Facebook</p>
-      </a>
-      <a class="box">
-        <p class="m-0 text-center text-white small" (click)="contactMe()"> <i style="color:green" class="fab fa-whatsapp"></i>
-          Whatsapp Us</p>
-      </a>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb-area">
+  <!-- Breadcumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+      <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down"
+          aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span
+            class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li>
+    </ol>
+  </nav>
 </div>
+<!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area">
+  <div class="container">
+    <div class="row">
+      <!-- Contact Info -->
+      <div class="col-12 col-lg-6">
+        <div class="contact--info mt-50 mb-100">
+          <h4>Contact Info</h4>
+          <ul class="contact-list">
+            <li>
+              <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Business Hours</h6>
+              <h6>8:00 AM - 18:00 PM</h6>
+            </li>
+            <li>
+              <h6><i class="fa fa-phone" aria-hidden="true"></i>Whatsapp Number</h6>
+              <h6>+234 907 333 7066</h6>
+            </li>
+            <!-- <li>
+              <h6><i class="fa fa-envelope" aria-hidden="true"></i> Email</h6>
+              <h6>info@clever.com</h6>
+            </li>
+            <li>
+              <h6><i class="fa fa-map-pin" aria-hidden="true"></i> Address</h6>
+              <h6>10 Suffolk st Soho, London, UK</h6>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-12 col-lg-6">
+        <div class="contact-form">
+          <h4>Get In Touch</h4>
+          <div class="col-12">
+            <a href="https://web.facebook.com/Jefftutors-2327029197577617" target="blank"
+              class="btn clever-btn w-100">Facebook</a>
+            <br>
+            <br>
+            <a style="background:palevioletred" href="https://www.instagram.com/jefftutors/" target="blank"
+              class="btn clever-btn w-100">Instagram</a>
+            <br>
+            <br>
+            <a style="color:white;background:green" (click)="contactMe()" class="btn clever-btn w-100">Whatsapp us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

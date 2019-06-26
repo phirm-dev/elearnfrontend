@@ -21,6 +21,10 @@
     width: calc(100% - 14px);
 }
 
+.contact-form{
+    margin-top: 25px;
+}
+
 .box:hover {
     filter: brightness(70%);
 }

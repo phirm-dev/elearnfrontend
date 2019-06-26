@@ -1,82 +1,14 @@
-<div class="container-fluid" style="margin-top: 67px;">
-  <div style="font-family:'varela round'">
-    <h2 class="mt-3 text-center scale" style="text-decoration:underline;color: white;">FAQ'S</h2>
-  </div>
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-      <!-- <p class="text-center" style="font-family: 'varela round'">
-      It is not of he that readeth but of he who has the will to carry either hybrid or digital into the exam hall</p> -->
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> What is Jefftutors?.</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> Jefftutors is a platform that was created to make
-          learning easier for students along with other side benefits. There are available courses that are constantly
-          updated
-          for the benefit of students.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> How do I subscribe for a course?.</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> You can pay for a course using two options, either
-          your bank account or your ATM card.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> How long does my subscription last?.</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> Subscription for a course lasts for 4 months(a
-          semester), during this time you have full access to all the contents of the course.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> What if I do not understand after watching a
-          video ?.</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> Free tutorials will be organized for the courses
-          you subscribed for better explanations, contact us through any of the mediums on our <a
-            routerLink="/contact">contact
-            page.</a>.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> How much data do i spend watching the videos ?</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> The size of the videos are as small as possible to
-          avoid high data consumption, also after streaming the videos , you don't spend as much data streaming it
-          again.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> What is the price per course?</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> Prices may vary per course, the price of the
-          course is boldly written on the course page above the subscribe button.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Question:</span> Who supplied the course content?</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span> Course content was supplied by students that aced
-          the respective courses.</p>
-      </div>
-      <div class="box">
-        <p><span style="color:red;font-weight: bold">Q:</span> Are all topics covered in the respective courses?</p>
-        <p><span style="color:green;font-weight:bold">Answer:</span>Jefftutors aims to give you the best content
-          available,not all topics in your respective text-books are going to be considered by your lecturers while
-          setting your exam questions, Jefftutors saves you this stress by
-          bringing to you the topics that are majorly considered by your lecturers while setting your questions. </p>
+<!-- ##### Regular Page Area Start ##### -->
+<div class="regular-page-area section-padding-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div *ngFor="let pair of faq" class="page-content">
+          <h4>{{pair.question}}.</h4>
+          <p>{{pair.answer}}.</p>
+        </div>
       </div>
     </div>
-    <div class="col-lg-2"></div>
   </div>
 </div>
-<a (click)="contactMe()" class="contactus">
-  <!-- <img src="assets/images/favicon (1).png" alt=""> -->
-  <p style="color:#6f6f6f"><i class="fab fa-whatsapp"
-      style="color:green;font-weight:bold;font-size:20px;margin:4px"></i>
-    Whatsapp Us</p>
-</a>
-
-<!-- ##### Regular Page Area Start ##### -->
-<!-- <div class="regular-page-area section-padding-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-content">
-                    <h4>Community Guidelines</h4>
-                    <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum lorem dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis ultrices ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra dolor. In et suscipit ex. Pellentesque aliquet velit tortor, eget placerat mi scelerisque a. Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum enim.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <!-- ##### Regular Page Area End ##### -->

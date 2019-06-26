@@ -18,6 +18,40 @@ export class FAQComponent implements OnInit {
     {
       question: ` How do I subscribe for a course?`, answer: ` You can pay for a course using two options, either
       your bank account or your ATM card`
+    },
+    {
+      question: ` How long does my subscription last?.`,
+      answer: `Subscription for a course lasts for 4 months(a
+        semester), during this time you have full access to all the contents of the course`
+    },
+    {
+      question: `What if I do not understand after watching a
+      video ?.`,
+      answer: ` Free tutorials will be organized for the courses
+      you subscribed for better explanations, contact us through any of the mediums on our contact page.`
+    },
+    {
+      question: ` How much data do i spend watching the videos ?`,
+      answer: ` The size of the videos are as small as possible to
+      avoid high data consumption, also after streaming the videos , you don't spend as much data streaming it
+      again.`
+    },
+    {
+      question: ` What is the price per course?`,
+      answer: `Prices may vary per course, the price of the
+      course is boldly written on the course page above the subscribe button`
+    },
+    {
+      question: `Who supplied the course content?`,
+      answer: ` Course content was supplied by students that aced
+      the respective courses.`
+    },
+    {
+      question: ` Are all topics covered in the respective courses?`,
+      answer: `Jefftutors aims to give you the best content
+      available,not all topics in your respective text-books are going to be considered by your lecturers while
+      setting your exam questions, Jefftutors saves you this stress by
+      bringing to you the topics that are majorly considered by your lecturers while setting your questions.`
     }
   ]
 
