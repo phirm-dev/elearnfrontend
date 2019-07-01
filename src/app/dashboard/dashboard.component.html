@@ -50,7 +50,7 @@
                 <!-- Tab Text -->
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
                   <!-- Single Popular Course -->
-                  <div *ngIf="coursesPurchased.length < 1">
+                  <div *ngIf="coursesPurchased?.length < 1">
                     <img src="assets/img/empty.png">
                     <p class="text-center">You haven't subscribed for any course.</p>
                   </div>

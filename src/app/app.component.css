@@ -33,3 +33,9 @@ img {
         display: none;
     }
 }
+
+@media(max-width:992px){
+    #hideMenuBtn{
+        display: none;
+    }
+}

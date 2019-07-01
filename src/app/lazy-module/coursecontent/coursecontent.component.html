@@ -1,4 +1,5 @@
-<div class="text-center iconload animated slideOutUp"><img src="assets/icons/favicon (2).png" style="width:140px;" alt=""></div>
+<div class="text-center iconload animated slideOutUp"><img src="assets/icons/favicon (2).png" style="width:140px;"
+    alt=""></div>
 <div class="expired-view" *ngIf="expired">
   <div class="container">
     <div class="row">
@@ -61,8 +62,8 @@
               </div>
               <div class="option-wrapper">
                 <ul class="option-items" style="border-radius:5px;margin-left: 30px">
-                  <li class="option-item scrolly" style="border-radius:5px;background: #fbfbfb;border: none;" *ngFor="let vid of noVideos"
-                    (click)="watchCourse(vid,view.course_code)">
+                  <li class="option-item scrolly" style="border-radius:5px;background: #fbfbfb;border: none;"
+                    *ngFor="let vid of noVideos" (click)="watchCourse(vid,view.course_code)">
                     <a style="font-family:'varela round';font-size: x-small;">{{vid}}</a>
                   </li>
                   <br>
@@ -107,14 +108,18 @@
           <div class="big-comment-box">
             <input type="text" #bigcomment class="form-control">
             <br>
-            <button class="btn btn-secondary btn-large" style="margin: 0px auto" (click)="makeComment(bigcomment,view.course_code)">submit</button>
+            <button class="btn btn-secondary btn-large" style="margin: 0px auto"
+              (click)="makeComment(bigcomment,view.course_code)">submit</button>
           </div>
-          <button class="text-mobile btn btn-secondary comment-mobile-btn" (click)="animateComment()">Make a comment</button>
           <div style="z-index:7000" id="talkBox" class="commentBox animated slideOutDown faster">
-
+            <h4 style="
+            margin-top: 0px;
+            color: white;
+        ">Make a comment</h4>
             <input type="text" #comment class="form-control">
             <br>
-            <button class="btn btn-secondary btn-large" style="margin: 0px auto" (click)="makeCommentMobile(comment,view.course_code)">submit</button>
+            <button class="btn btn-secondary btn-large" style="margin: 0px auto"
+              (click)="makeCommentMobile(comment,view.course_code)">submit</button>
             <button class="btn btn-danger" (click)="cancelComment()">Cancel</button>
 
           </div>

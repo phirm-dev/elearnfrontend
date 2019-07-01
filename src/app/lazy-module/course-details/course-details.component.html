@@ -17,7 +17,7 @@
     style="background-image: url(/assets/img/core-img/texture.png);background: aliceblue;">
     <!-- Content -->
     <div class="single-course-intro-content text-center">
-      <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl" autoplay
+      <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl"
         controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;">
       </video>
       <p id="vidTitle" style="
@@ -190,7 +190,7 @@
                       <ul class="curriculum-list">
                         <li>
                           <ul>
-                            <li *ngFor="let vid of video" (click)="watchVideo(vid)" style="cursor:pointer">
+                            <li class="single-instructor" *ngFor="let vid of video" (click)="watchVideo(vid)" style="cursor:pointer;padding: 12px;">
                               <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video:
                                 <span>{{vid}}</span></span>
                             </li>
