@@ -70,7 +70,7 @@ export class CourseDetailsComponent implements OnInit {
     //get course details
     this.service.getCourse(this.course).subscribe(res => {
       this.courseDetails = res;
-      console.log(this.courseDetails);
+      // console.log(this.courseDetails);
       for (let i = 0; i < this.freeVidNo; i++) {
         this.video.push(res[0].course_content[i]);
       }
@@ -90,7 +90,13 @@ export class CourseDetailsComponent implements OnInit {
     });
 
     var token = localStorage.getItem('token');
-    this.user = this.helper.decodeToken(token);
+    if(token){
+      var isTokenExpired = this.helper.isTokenExpired(token);
+      if (isTokenExpired == true) {
+        localStorage.removeItem('token');
+      }
+      this.user = this.helper.decodeToken(token);
+    }
 
     //get user details
     // this.service.getUserDetails(this.user.username).subscribe(res => {

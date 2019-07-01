@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private service: EnquireUniportService, private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService) { }
 
   ngOnInit() {
+    this.service.isLoggedIn();
+
+    
     if (this.helper.isTokenExpired(this.fromStorage)) {
       console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
