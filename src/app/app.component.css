@@ -3,6 +3,10 @@ nav {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+.top-footer-area{
+    padding: 10px;
+}
+
 .navbar-dark .navbar-toggler {
     background: black;
 }
