@@ -556,7 +556,8 @@
         <div class="col-12 col-lg-4">
           <div class="course-sidebar">
             <!-- Buy Course -->
-            <a href="#" class="btn clever-btn mb-30 w-100" data-toggle="modal" data-target="#myModal">Subscribe</a>
+            <a *ngIf="user" href="#" class="btn clever-btn mb-30 w-100" data-toggle="modal" data-target="#myModal">Subscribe</a>
+            <a *ngIf="!user" routerLink="/signup" class="btn clever-btn mb-30 w-100">Subscribe</a>
             <!-- Widget -->
             <div class="sidebar-widget">
               <h4>Course Features</h4>

@@ -1,21 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import swal from 'sweetalert';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import { CartService } from '../cart-service.service'
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartItems;
   lengthOfCart = this.cartService.lengthOfCart;
+  cartPrice;
+  helper = new JwtHelperService();
+  user;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getItemsFromCart();
+
+    this.cartPrice = this.cartService.addPriceOfItems();
+
+    var token = localStorage.getItem('token');
+    if(token){
+      var isTokenExpired = this.helper.isTokenExpired(token);
+      if (isTokenExpired == true) {
+        localStorage.removeItem('token');
+      }
+      this.user = this.helper.decodeToken(token);
+    }
+  }
+
+  ngOnDestroy(){
+    this.cartPrice = this.cartService.revertPriceOfCart();
   }
 
   removeFromCart(item) {
@@ -30,5 +49,11 @@ export class CartComponent implements OnInit {
       }
     })
   }
+
+  payFromCart(){
+
+  }
+
+
 
 }

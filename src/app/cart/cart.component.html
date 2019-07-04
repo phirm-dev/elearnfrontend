@@ -1,15 +1,17 @@
- <!-- ##### Breadcumb Area Start ##### -->
-        <div class="breadcumb-area">
-          <!-- Breadcumb -->
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-              <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
-              <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li>
-            </ol>
-          </nav>
-        </div>
-        <!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb-area">
+  <!-- Breadcumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+      <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down"
+          aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span
+            class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li>
+    </ol>
+  </nav>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
 <div class="container">
   <div class="row">
     <div class="col-lg-3"></div>
@@ -41,7 +43,7 @@
                 <i class="fa fa-user" aria-hidden="true"></i> {{item.views}}
               </div>
               <div class="rating">
-                <i class="fa fa-video-camera" aria-hidden="true"></i> {{item.number_of_courses}}
+                <i class="fa fas fa-money" aria-hidden="true"></i> N{{item.course_price / 100}}
               </div>
               <!-- <div class="seat">
                       <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
@@ -54,6 +56,16 @@
           </div>
         </div>
       </div>
+      <br>
+      <br>
+      <div class="text-center">
+        <button  class="btn btn-primary" *ngIf="cartItems.length>0 && user">Pay
+          {{cartPrice}}</button>
+        <button routerLink="/signup" class="btn btn-primary" *ngIf="cartItems.length>0 && !user">Pay
+          {{cartPrice}}</button>
+      </div>
+      <br>
+      <br>
     </div>
     <div class="col-lg-3"></div>
   </div>

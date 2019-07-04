@@ -7,6 +7,7 @@ export class CartService {
 
   cart = [];
   lengthOfCart = 0;
+  price = 0;
 
   addToCart(item) {
     var index = this.cart.indexOf(item);
@@ -31,5 +32,22 @@ export class CartService {
 
   getLengthOfCart(){
     return this.lengthOfCart;
+  }
+
+  addPriceOfItems(){
+    for(let i = 0; i < this.cart.length ; i ++){
+      console.log(this.cart[i].course_price/100);
+      this.price += this.cart[i].course_price/100;
+    }
+    return this.price;
+  }
+
+  revertPriceOfCart(){
+    this.price = 0;
+    return this.price;
+  }
+
+  payFromCart(){
+    
   }
 }
