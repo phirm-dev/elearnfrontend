@@ -145,4 +145,8 @@ export class EnquireUniportService {
   increaseViews(id) {
     return this.http.get(this.url + 'courses/views/' + id);
   }
+
+  buyFromCart(ids) {
+    console.log(ids, 'From Service');
+  }
 }

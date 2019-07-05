@@ -25,7 +25,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <button class="btn btn-primary" id="menu-toggle" (click)="toggleNav()">Menu</button>
-      <div style="margin-left:-30px;font-weight:bold;font-size:15px;outline: none;" id="jeff-logo" routerLink="/"><img src="assets/icons/app.png" alt=""> JEFFTUTORS</div>
+      <div style="margin-left:-30px;font-weight:bold;font-size:15px;outline: none;" id="jeff-logo" routerLink="/"><img
+          src="assets/icons/app.png" alt=""> JEFFTUTORS</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,9 +41,9 @@
           <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/courses">Courses</a>
           </li> -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart</a>
-          </li>
+          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" *ngIf="isLoggedIn()" id="navbarDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +70,7 @@
       <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional,
         and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the
         menu when clicked.</p> -->
+      <ng4-loading-spinner> </ng4-loading-spinner>
       <router-outlet></router-outlet>
     </div>
   </div>
@@ -119,4 +121,3 @@
     </div>
   </div>
 </footer>
-<ng4-loading-spinner> </ng4-loading-spinner>

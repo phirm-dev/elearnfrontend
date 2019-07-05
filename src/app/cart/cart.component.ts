@@ -16,7 +16,7 @@ export class CartComponent implements OnInit, OnDestroy {
   helper = new JwtHelperService();
   user;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private service: EnquireUniportService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getItemsFromCart();
@@ -24,7 +24,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartPrice = this.cartService.addPriceOfItems();
 
     var token = localStorage.getItem('token');
-    if(token){
+    if (token) {
       var isTokenExpired = this.helper.isTokenExpired(token);
       if (isTokenExpired == true) {
         localStorage.removeItem('token');
@@ -33,7 +33,7 @@ export class CartComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.cartPrice = this.cartService.revertPriceOfCart();
   }
 
@@ -50,8 +50,12 @@ export class CartComponent implements OnInit, OnDestroy {
     })
   }
 
-  payFromCart(){
-
+  payFromCart() {
+    var ids = [];
+    this.cartItems.forEach(item => {
+      ids.push(item._id);
+    });
+    this.service.buyFromCart(ids);
   }
 
 

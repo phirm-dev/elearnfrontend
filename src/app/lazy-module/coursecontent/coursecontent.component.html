@@ -108,7 +108,7 @@
           <div class="big-comment-box">
             <input type="text" #bigcomment class="form-control">
             <br>
-            <button class="btn btn-secondary btn-large" style="margin: 0px auto"
+            <button class="btn btn-success btn-large" style="margin: 0px auto"
               (click)="makeComment(bigcomment,view.course_code)">submit</button>
           </div>
           <div style="z-index:7000" id="talkBox" class="commentBox animated slideOutDown faster">
@@ -118,9 +118,8 @@
         ">Make a comment</h4>
             <input type="text" #comment class="form-control">
             <br>
-            <button class="btn btn-secondary btn-large" style="margin: 0px auto"
+            <button class="btn btn-success btn-large" style="margin: 0px auto"
               (click)="makeCommentMobile(comment,view.course_code)">submit</button>
-            <button class="btn btn-danger" (click)="cancelComment()">Cancel</button>
 
           </div>
         </div>

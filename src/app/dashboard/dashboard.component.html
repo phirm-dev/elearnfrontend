@@ -26,12 +26,12 @@
                   <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
                     aria-selected="false">Subscribed</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
                     aria-selected="true"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup
                       *ngIf="lengthOfCart > 0"><span
                         class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                   <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
                     aria-selected="true"><i class="fa fa-user" aria-hidden="true"></i></a>
@@ -119,9 +119,9 @@
                             <!-- Seat Rating Fee -->
                             <div class="seat-rating-fee d-flex justify-content-between">
                               <div class="seat-rating h-100 d-flex align-items-center">
-                                <div class="seat">
+                                <!-- <div class="seat">
                                   <i class="fa fa-user" aria-hidden="true"></i> {{item.views}}
-                                </div>
+                                </div> -->
                                 <div class="rating">
                                   <i class="fa fa-video-camera" aria-hidden="true"></i> {{item.number_of_courses}}
                                 </div>
@@ -151,7 +151,7 @@
                   <div class="clever-review">
                     <!-- About Review -->
                     <div class="about-review mb-30 text-center">
-                      <i class="fa fa-user" aria-hidden="true"></i> {{decodedToken.username}}
+                      <p class="text-center">Profile</p>
                     </div>
 
                     <!-- Ratings -->
@@ -159,6 +159,8 @@
 
                       <div class="total-ratings text-center d-flex align-items-center justify-content-center">
                         <div class="ratings-text">
+                            <p class="text-center"><i class="fa fa-user" aria-hidden="true"></i> {{decodedToken.username}}</p>
+                            <p class="text-center"> {{decodedToken.email}}</p>
                           <button class="btn btn-danger" (click)="logOut()">Logout</button>
                           <!-- <h2>4.5</h2>
                           <div class="ratings--">
@@ -171,7 +173,7 @@
                           <span>Rated 5 out of 3 Ratings</span> -->
                         </div>
                       </div>
-
+                      
                     </div>
                   </div>
                 </div>

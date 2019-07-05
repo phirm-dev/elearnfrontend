@@ -29,7 +29,7 @@ const routes: Routes = [
   { component: HomeComponent, path: "" },
   { component: ContactComponent, path: "contact" },
   { component: LoginComponent, path: "login" },
-  { component: CartComponent, path: "cart" },
+//  { component: CartComponent, path: "cart" },
   { component: SignupComponent, path: "signup" },
   { component: CoursesComponent, path: "courses" },
   { component: FAQComponent, path: "FAQ's" },
