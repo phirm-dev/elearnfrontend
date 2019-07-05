@@ -1,11 +1,14 @@
-<div class="text-center iconload animated slideOutUp"><img src="assets/icons/favicon (2).png" style="width:140px;"
-    alt=""></div>
 <div class="expired-view" *ngIf="expired">
   <div class="container">
     <div class="row">
       <h3 style="font-family: 'varela round'">Your Subscription for this Course has Expired</h3>
     </div>
   </div>
+</div>
+
+<div class="text-center" *ngIf="!view">
+  <img src="assets/img/loading.gif" alt="">
+  <p class="text-center">Loading.....</p>
 </div>
 
 <body id="course-single" class="page course_detail" *ngIf="view && !expired" style="font-family:'varela round'">

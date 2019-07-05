@@ -18,7 +18,7 @@ export class CourseDetailsComponent implements OnInit {
   public player;
   user;
   course;
-  courseDetails;
+  courseDetails = null;
   numberOfViews;
   helper = new JwtHelperService();
   userPurchasedCourses;
@@ -32,7 +32,7 @@ export class CourseDetailsComponent implements OnInit {
   video = [];
   freeVidNo = 4;
 
-  constructor(private service: EnquireUniportService, private route: ActivatedRoute, private router: Router, private spinnerService: Ng4LoadingSpinnerService, private sanitizer: DomSanitizer) { }
+  constructor(private service: EnquireUniportService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
 
   paymentDone(response) {
     this.paying = true;
@@ -58,7 +58,6 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.spinnerService.show();
 
     this.player = new Plyr('#plyrID', { captions: { active: true } });
 
@@ -77,7 +76,6 @@ export class CourseDetailsComponent implements OnInit {
       // console.log(this.video);
       this.numberOfViews = res[0].views;
 
-      this.spinnerService.hide();
       var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/intro.m4v`;
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
 

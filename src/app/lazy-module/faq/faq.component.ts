@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css', '../../assets/libs/bootstrap/css/bootstrap.min.css']
+  styleUrls: ['./faq.component.css']
 })
 export class FAQComponent implements OnInit {
 

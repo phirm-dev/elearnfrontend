@@ -16,9 +16,7 @@ import { AdminAuthGuard } from './admin-auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AngularRaveModule } from 'angular-rave';
 import { Angular4PaystackModule } from 'angular4-paystack';
-import { FAQComponent } from './faq/faq.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { ContactComponent } from './contact/contact.component';
 import { PlyrModule } from 'ngx-plyr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -27,12 +25,10 @@ import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { component: HomeComponent, path: "" },
-  { component: ContactComponent, path: "contact" },
   { component: LoginComponent, path: "login" },
 //  { component: CartComponent, path: "cart" },
   { component: SignupComponent, path: "signup" },
   { component: CoursesComponent, path: "courses" },
-  { component: FAQComponent, path: "FAQ's" },
   { path: 'tutorials', loadChildren: './lazy-module/lazy-module.module#LazyModuleModule' },
   { component: DashboardComponent, path: "dashboard", canActivate: [Authguard] },
   { component: AdminComponent, path: 'admin', canActivate: [AdminAuthGuard] },
@@ -51,8 +47,6 @@ const routes: Routes = [
     AdminComponent,
     AdminloginComponent,
     NotFoundComponent,
-    FAQComponent,
-    ContactComponent,
     CoursesComponent,
     CartComponent
   ],

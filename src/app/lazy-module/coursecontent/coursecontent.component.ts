@@ -20,7 +20,7 @@ export class CoursecontentComponent implements OnInit {
   course;
   helper = new JwtHelperService();
   token = localStorage.getItem('token');
-  view;
+  view = null;
   noCourses;
   noVideos: any[];
   comments: any;
@@ -29,11 +29,10 @@ export class CoursecontentComponent implements OnInit {
   videoLocationUrl = 'https://global-cdn.jefftutors.com';
   sanitizedUrl;
 
-  constructor(private router: Router, private service: EnquireUniportService, private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService, private sanitizer: DomSanitizer) { }
+  constructor(private router: Router, private service: EnquireUniportService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
 
   ngOnInit() {
-    this.spinnerService.show();
 
     this.player = new Plyr('#plyrID', { captions: { active: true } });
 
@@ -68,14 +67,12 @@ export class CoursecontentComponent implements OnInit {
           return course.course_code == this.course;
         }).map(course => {
           this.view = course;
-          this.spinnerService.hide();
           this.noCourses = course.number_of_courses;
           this.noVideos = course.course_content;
           var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
           this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
         })
       } else {
-        this.spinnerService.hide();
         this.expired = true;
         setTimeout(() => {
           this.router.navigate(['/dashboard'])

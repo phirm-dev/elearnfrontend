@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   decodedToken;
   token = localStorage.getItem('token');
   user;
-  coursesPurchased;
+  coursesPurchased = null;
   helper = new JwtHelperService();
   fromStorage = localStorage.getItem('available-courses');
   cartItems;

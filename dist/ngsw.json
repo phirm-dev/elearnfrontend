@@ -7,11 +7,11 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/0.f24640912876ff4c3b60.js",
+        "/0.f888a0167014c367bb6b.js",
         "/index.html",
-        "/main.25d0045d2583aee4b192.js",
+        "/main.17d1dc20fc0a83e0cbc9.js",
         "/polyfills.8acc8e918321edfb6ec6.js",
-        "/runtime.11f77e0804411ed89edf.js",
+        "/runtime.cfd6580652f2b82f1c56.js",
         "/styles.80d45c91545c74773169.css"
       ],
       "patterns": [
@@ -195,6 +195,8 @@
         "/assets/img/emptycart.png",
         "/assets/img/home-background.jpg",
         "/assets/img/ledum.jpg",
+        "/assets/img/loading.gif",
+        "/assets/img/loading.png",
         "/assets/img/logo-alt.png",
         "/assets/img/logo.png",
         "/assets/img/obinna.jpeg",
@@ -371,7 +373,7 @@
     }
   ],
   "hashTable": {
-    "/0.f24640912876ff4c3b60.js": "71d9468b77287800a49d1580992a2a733c77c83b",
+    "/0.f888a0167014c367bb6b.js": "d83316753c44e2a25a6bae451b7c0548bb7d6997",
     "/assets/css/animate.css": "2e70ccc82e0ed3de2fd87409e6ca66e7b1a2d285",
     "/assets/css/animate.min.css": "b11aacb1868d4f4b9c9a14fe7668de2e24e7b96f",
     "/assets/css/bootstrap.min.css": "c421925f2b38e153d6f1704d67d3a28df9c3e5fa",
@@ -538,6 +540,8 @@
     "/assets/img/emptycart.png": "d347ebd3546d0f6ab2067efacab06c341e41ab2d",
     "/assets/img/home-background.jpg": "da92a4d92c2e1f6bc94b74fe3842043e3b9b6bc6",
     "/assets/img/ledum.jpg": "ac2456c1c0cf221ac2b18b69d9f8e94ccee72133",
+    "/assets/img/loading.gif": "42494db8e4329bd63bcc82f796995ddc6054a211",
+    "/assets/img/loading.png": "befd2ceffce7f0b319b9c610b14470c83ebddf44",
     "/assets/img/logo-alt.png": "f65e634e61eb8074f521410cf35108e22a8fac78",
     "/assets/img/logo.png": "44b1fb17aed85905821538f12f9facae967e7b52",
     "/assets/img/obinna.jpeg": "7636a0c652a4b9c915b96efeafad8359fdb8cbd2",
@@ -696,10 +700,10 @@
     "/assets/vendor/morrisjs/morris.css": "d3abba53f3750327f77066db2868de01382ce86b",
     "/assets/vendor/morrisjs/morris.js": "582e763141f9a6b1490ba8af9b37c7cd95255992",
     "/assets/vendor/morrisjs/morris.min.js": "f40a80188a0422041f59284940c46d86c163a279",
-    "/index.html": "919dd3aebcd4bc65c45049228d7688464d6dbe45",
-    "/main.25d0045d2583aee4b192.js": "141efeeb337e99a34e0f2e5f136102582ab862fd",
+    "/index.html": "1074271bfc1de4f368b243170bce989957817b50",
+    "/main.17d1dc20fc0a83e0cbc9.js": "bf8e65b4fe359c47010f5ae689d48027c3a3e904",
     "/polyfills.8acc8e918321edfb6ec6.js": "900d435fce187152edd7b4e21f36c5c0712d2b85",
-    "/runtime.11f77e0804411ed89edf.js": "82d57fbcec32b71d7fb82b395a9d90b37b90eeef",
+    "/runtime.cfd6580652f2b82f1c56.js": "6d1f2df440c50a4be3107ef12ed5fac232349691",
     "/styles.80d45c91545c74773169.css": "8d988855534965c10830a582ff98cc6e392067ed"
   },
   "navigationUrls": [

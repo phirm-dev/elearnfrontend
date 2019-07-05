@@ -1,3 +1,7 @@
+<div class="text-center" *ngIf="!courseDetails">
+  <img src="assets/img/loading.gif" alt="">
+  <p class="text-center">Loading.....</p>
+</div>
 <section *ngFor="let course of courseDetails">
   <!-- ##### Breadcumb Area Start ##### -->
   <div class="breadcumb-area">

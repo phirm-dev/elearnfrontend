@@ -10,10 +10,14 @@ import { VgImaAdsModule } from 'videogular2/ima-ads';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
 import { Angular4PaystackModule } from 'angular4-paystack';
+import { FAQComponent } from './faq/faq.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: 'course/:course', component: CourseDetailsComponent },
-  { path: 'coursecontent/:course', component: CoursecontentComponent }
+  { path: 'coursecontent/:course', component: CoursecontentComponent },
+  { path: "FAQ's", component: FAQComponent },
+  { component: ContactComponent, path: "contact" }
 ]
 
 @NgModule({
@@ -30,8 +34,10 @@ const routes: Routes = [
   ],
   declarations: [
     CoursecontentComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    FAQComponent,
+    ContactComponent
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class LazyModuleModule { }
