@@ -3,7 +3,7 @@ nav {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-.top-footer-area{
+.top-footer-area {
     padding: 10px;
 }
 
@@ -19,12 +19,16 @@ nav {
     color: black;
 }
 
+.container-fluid {
+    margin-top: 70px;
+}
+
 img {
     height: 20px;
     margin-bottom: 8px;
 }
 
-#jeff-logo{
+#jeff-logo {
     font-family: 'varela round';
 }
 
@@ -32,14 +36,27 @@ img {
     font-weight: bold;
 }
 
+/* 
 @media(min-width:775px) {
     #jeff-logo {
         display: none;
     }
+} */
+
+@media(min-width:990px) {
+    #jeff-logo {
+        margin-left: 40%;
+    }
 }
 
-@media(max-width:992px){
-    #hideMenuBtn{
+@media(max-width:990px) {
+    #jeff-logo {
+        margin-left: -30px;
+    }
+}
+
+@media(max-width:992px) {
+    #hideMenuBtn {
         display: none;
     }
 }
