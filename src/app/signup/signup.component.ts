@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import swal from 'sweetalert'
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import MicroModal from 'micromodal';
 
 @Component({
   selector: 'app-signup',
@@ -15,16 +16,24 @@ export class SignupComponent implements OnInit {
   }
 
   loader = false;
+  modalTitle = '';
+  modalText = '';
+
   ngOnInit() {
   }
 
-
   signUp(credentials) {
     if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '' || credentials.confirmpassword == '') {
-      swal('Error', 'Missing Details', 'error');
+      // swal('Error', 'Missing Details', 'error');
+      this.modalTitle = 'Missing Details'
+      this.modalText = 'Fill in all inputs to login';
+      MicroModal.show('modal-1');
     }
     else if (credentials.password !== credentials.confirmpassword) {
-      swal('Error', 'Passwords do not match', 'error');
+      // swal('Error', 'Passwords do not match', 'error');
+      this.modalTitle = 'Incorrect Details'
+      this.modalText = 'Passwords do not match';
+      MicroModal.show('modal-1');
     }
     else {
       this.spinnerService.show();
@@ -36,7 +45,10 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         } else {
           this.spinnerService.hide();
-          swal('Error', res['message'], 'error');
+          // swal('Error', res['message'], 'error');
+          this.modalTitle = 'Error'
+          this.modalText = res['message'];
+          MicroModal.show('modal-1');
         }
       });
     }

@@ -6,6 +6,7 @@ import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as Plyr from 'plyr';
+import MicroModal from 'micromodal';
 
 @Component({
   selector: 'app-course-details',
@@ -88,7 +89,7 @@ export class CourseDetailsComponent implements OnInit {
     });
 
     var token = localStorage.getItem('token');
-    if(token){
+    if (token) {
       var isTokenExpired = this.helper.isTokenExpired(token);
       if (isTokenExpired == true) {
         localStorage.removeItem('token');
@@ -109,7 +110,7 @@ export class CourseDetailsComponent implements OnInit {
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     vid.autoplay = true;
     document.getElementById('vidTitle').textContent = video;
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here
       this.sanitizedUrl = '';
@@ -156,5 +157,10 @@ export class CourseDetailsComponent implements OnInit {
         swal('Error', 'Something went wrong', 'error');
       }
     });
+  }
+
+  openModal() {
+    console.log('clicked');
+    MicroModal.show('modal-1');
   }
 }
