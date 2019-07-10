@@ -69,7 +69,18 @@ export class CoursecontentComponent implements OnInit {
           this.view = course;
           this.noCourses = course.number_of_courses;
           this.noVideos = course.course_content;
-          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.m4v';
+
+          var vidExtension = 'mp4';
+
+          if (course.course_code == 'mth120') {
+            vidExtension = 'm4v';
+          }
+          
+          if (course.course_code == 'mth124') {
+            vidExtension = 'mp4';
+          }
+
+          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.' + vidExtension;
           this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
         })
       } else {
@@ -94,7 +105,14 @@ export class CoursecontentComponent implements OnInit {
   //change the video in view
   watchCourse(no, course) {
     var vid = document.querySelector('video');
-    var vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.m4v';
+    var vidExtension = 'mp4';
+    if (course == 'mth120') {
+      vidExtension = 'm4v';
+    }
+    if (course == 'mth124') {
+      vidExtension = 'mp4';
+    }
+    var vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     vid.autoplay = true;
     window.scrollTo(0, 200);

@@ -76,7 +76,15 @@ export class CourseDetailsComponent implements OnInit {
       // console.log(this.video);
       this.numberOfViews = res[0].views;
 
-      var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/intro.m4v`;
+      // first video option
+      var vidExtension = 'mp4';
+      if (this.course == 'mth120') {
+        vidExtension = 'm4v';
+      }
+      if (this.course == 'mth124') {
+        vidExtension = 'mp4';
+      }
+      var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/intro.${vidExtension}`;
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
 
       // increase views by 1
@@ -105,9 +113,24 @@ export class CourseDetailsComponent implements OnInit {
 
   watchVideo(video) {
     var vid = document.querySelector('video');
-    var vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.m4v';
+
+    var vidExtension = 'mp4';
+    if (this.course == 'mth120') {
+      vidExtension = 'm4v';
+    }
+    if (this.course == 'mth124') {
+      vidExtension = 'mp4';
+    }
+
+
+    // First video opiton
+    var vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
-    vid.autoplay = true;
+
+    // Auto play video
+    vid.load();
+    vid.play();
+
     document.getElementById('vidTitle').textContent = video;
     window.scrollTo(0, 0);
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
