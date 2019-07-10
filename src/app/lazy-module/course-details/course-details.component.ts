@@ -15,7 +15,6 @@ import MicroModal from 'micromodal';
 })
 
 export class CourseDetailsComponent implements OnInit {
-
   public player;
   user;
   course;
