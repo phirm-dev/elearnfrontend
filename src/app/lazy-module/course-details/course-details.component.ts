@@ -160,7 +160,6 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   openModal() {
-    console.log('clicked');
     MicroModal.show('modal-1');
   }
 }

@@ -97,7 +97,7 @@ export class CoursecontentComponent implements OnInit {
     var vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.m4v';
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     vid.autoplay = true;
-    //window.scrollTo(0, 200);
+    window.scrollTo(0, 200);
     document.getElementById('vidTitle').textContent = no;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here

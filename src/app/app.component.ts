@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   toggleNav() {
     document.getElementById('wrapper').classList.toggle('toggled');
     // $("#wrapper").toggleClass("toggled");
+    window.scrollTo(0, 0);
   }
 
   logOut() {
