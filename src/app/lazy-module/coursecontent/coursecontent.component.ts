@@ -75,12 +75,13 @@ export class CoursecontentComponent implements OnInit {
           if (course.course_code == 'mth120') {
             vidExtension = 'm4v';
           }
-          
+
           if (course.course_code == 'mth124') {
             vidExtension = 'mp4';
           }
 
-          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + 'intro' + '.' + vidExtension;
+          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
+          console.log(vidUrl);
           this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
         })
       } else {

@@ -7,11 +7,11 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/0.f888a0167014c367bb6b.js",
+        "/0.76a5ed67be6177b6e7a4.js",
         "/index.html",
-        "/main.17d1dc20fc0a83e0cbc9.js",
+        "/main.2248e7776752c8127bbb.js",
         "/polyfills.8acc8e918321edfb6ec6.js",
-        "/runtime.cfd6580652f2b82f1c56.js",
+        "/runtime.3325fde41b65cbbb5f68.js",
         "/styles.80d45c91545c74773169.css"
       ],
       "patterns": [
@@ -187,6 +187,10 @@
         "/assets/img/course06.jpg",
         "/assets/img/course07.jpg",
         "/assets/img/course08.jpg",
+        "/assets/img/course_images/chm131/img.jpeg",
+        "/assets/img/course_images/mth110/img.jpeg",
+        "/assets/img/course_images/mth120/img.jpeg",
+        "/assets/img/course_images/mth124/img.jpeg",
         "/assets/img/cta1-background.jpg",
         "/assets/img/cta2-background.jpg",
         "/assets/img/daisy.webp",
@@ -373,7 +377,7 @@
     }
   ],
   "hashTable": {
-    "/0.f888a0167014c367bb6b.js": "d83316753c44e2a25a6bae451b7c0548bb7d6997",
+    "/0.76a5ed67be6177b6e7a4.js": "a91a2cd432f5a4bd34dc9556b97144710e914041",
     "/assets/css/animate.css": "2e70ccc82e0ed3de2fd87409e6ca66e7b1a2d285",
     "/assets/css/animate.min.css": "b11aacb1868d4f4b9c9a14fe7668de2e24e7b96f",
     "/assets/css/bootstrap.min.css": "c421925f2b38e153d6f1704d67d3a28df9c3e5fa",
@@ -532,6 +536,10 @@
     "/assets/img/course06.jpg": "781f556cb9c0bd9f18ae204f4f725e8270a04c17",
     "/assets/img/course07.jpg": "b34393e2e3000b591711edee1ebdb4bbf27a1b8b",
     "/assets/img/course08.jpg": "f898517652b1c5cba1687e090e61e2e3cb324db9",
+    "/assets/img/course_images/chm131/img.jpeg": "464650baa2f955afade7a96ec56a9aaea3301605",
+    "/assets/img/course_images/mth110/img.jpeg": "464650baa2f955afade7a96ec56a9aaea3301605",
+    "/assets/img/course_images/mth120/img.jpeg": "3466f582a1ffcc159e7ed133e1d0ed83ce79b34c",
+    "/assets/img/course_images/mth124/img.jpeg": "711401f925ee3f9148eb85352b98ac6e1c6679dd",
     "/assets/img/cta1-background.jpg": "f74da1da867b7fbeb747972859b1c77b5ee51292",
     "/assets/img/cta2-background.jpg": "a74e001934bd364c48f9fa67bdfbc965cb99ed0a",
     "/assets/img/daisy.webp": "39a3b5447f52049ded83273432c571107b550f1c",
@@ -700,10 +708,10 @@
     "/assets/vendor/morrisjs/morris.css": "d3abba53f3750327f77066db2868de01382ce86b",
     "/assets/vendor/morrisjs/morris.js": "582e763141f9a6b1490ba8af9b37c7cd95255992",
     "/assets/vendor/morrisjs/morris.min.js": "f40a80188a0422041f59284940c46d86c163a279",
-    "/index.html": "1074271bfc1de4f368b243170bce989957817b50",
-    "/main.17d1dc20fc0a83e0cbc9.js": "bf8e65b4fe359c47010f5ae689d48027c3a3e904",
+    "/index.html": "d0f702714fa14dc49ddf2e59c1dfe60274c8756b",
+    "/main.2248e7776752c8127bbb.js": "68fd5ea4af9ec2a0de013e7f8792fd228a83a71f",
     "/polyfills.8acc8e918321edfb6ec6.js": "900d435fce187152edd7b4e21f36c5c0712d2b85",
-    "/runtime.cfd6580652f2b82f1c56.js": "6d1f2df440c50a4be3107ef12ed5fac232349691",
+    "/runtime.3325fde41b65cbbb5f68.js": "b7b082309c945bd89ff49e500ee0f197e8ba9455",
     "/styles.80d45c91545c74773169.css": "8d988855534965c10830a582ff98cc6e392067ed"
   },
   "navigationUrls": [

@@ -84,7 +84,8 @@ export class CourseDetailsComponent implements OnInit {
       if (this.course == 'mth124') {
         vidExtension = 'mp4';
       }
-      var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/intro.${vidExtension}`;
+      var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
+      console.log(vidUrl);
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
 
       // increase views by 1
