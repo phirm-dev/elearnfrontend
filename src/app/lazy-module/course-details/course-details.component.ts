@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import swal from 'sweetalert';
 import { EnquireUniportService } from 'src/app/enquire-uniport.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as Plyr from 'plyr';
 import MicroModal from 'micromodal';

@@ -28,17 +28,20 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    // scroll to top of page
     window.scrollTo(0, 0);
 
     this.decodedToken = this.helper.decodeToken(this.token);
 
+    // Get user details
     this.service.getUserDetails(this.helper.decodeToken(this.token).username).subscribe(response => {
       this.user = response;
       this.coursesPurchased = response[0].courses;
     });
 
+
+    // get courses token from server if expired
     if (this.helper.isTokenExpired(this.fromStorage)) {
-      console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
         localStorage.setItem('available-courses', this.availableCourses);
@@ -46,48 +49,9 @@ export class DashboardComponent implements OnInit {
         this.courses = this.helper.decodeToken(getToken)['courses'];
       });
     } else {
-      console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
     }
-
-    this.cartItems = this.cartService.getItemsFromCart();
   }
-
-  removeFromCart(item) {
-    swal('warning', "Are you sure you want to remove this item from your cart?", 'warning', {
-      buttons: ["No", "Yes"],
-    }).then(value => {
-      if (value == true) {
-        this.lengthOfCart --;
-        this.cartService.removeItemFromCart(item);
-        swal("Info", "Removed from cart", "warning");
-      } else if (value == null) {
-        swal('You Declined!');
-      }
-    })
-  }
-
-  
-
-  // editUser(user) {
-  //   if (!user.phone || !user.email) {
-  //     swal('Error', 'Incomplete Credentials', 'error');
-  //   } else {
-  //     this.service.editUser(user).subscribe(response => {
-  //       if(response['statusCode'] == 400){
-  //         swal('Error',response['statusText'],'error');
-  //       } else{
-  //         localStorage.setItem('token', response['token']);
-  //         swal('Success','Successfuly Updated','success');
-  //       }
-  //     });
-  //   }
-  // }
-
-
-
-
-
 
 
   logOut() {

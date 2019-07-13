@@ -1,6 +1,7 @@
 nav {
     background: white;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); */
+    border: none !important;
 }
 
 .top-footer-area {
@@ -20,7 +21,7 @@ nav {
 }
 
 .container-fluid {
-    margin-top: 70px;
+    margin-top: 54px;
 }
 
 img {
@@ -30,6 +31,11 @@ img {
 
 #jeff-logo {
     font-family: 'varela round';
+}
+
+#sidebar-wrapper{
+    margin-top: -5px;
+    border: none !important;
 }
 
 #sidebar-wrapper .sidebar-heading {

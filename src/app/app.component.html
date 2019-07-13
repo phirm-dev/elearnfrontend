@@ -1,5 +1,4 @@
 <div class="d-flex" id="wrapper">
-
   <!-- Sidebar -->
   <div class="bg-light border-right sticky-top" id="sidebar-wrapper">
     <div class="sidebar-heading" routerLink="/"> <img src="assets/icons/app.png" alt=""> Jefftutors </div>
@@ -8,8 +7,10 @@
         class="list-group-item list-group-item-action bg-light">My Dashboard</a>
       <a routerLink="/courses" (click)="toggleNav()" class="list-group-item list-group-item-action bg-light">Courses</a>
       <!-- <a routerLink="/" (click)="toggleNav()" class="list-group-item list-group-item-action bg-light">Payment Methods</a> -->
-      <a routerLink="/tutorials/FAQ's" (click)="toggleNav()" class="list-group-item list-group-item-action bg-light">FAQ</a>
-      <a routerLink="/tutorials/contact" (click)="toggleNav()" class="list-group-item list-group-item-action bg-light">Contact
+      <a routerLink="/tutorials/FAQ's" (click)="toggleNav()"
+        class="list-group-item list-group-item-action bg-light">FAQ</a>
+      <a routerLink="/tutorials/contact" (click)="toggleNav()"
+        class="list-group-item list-group-item-action bg-light">Contact
         Us</a>
       <!-- <a routerLink="/cart" (click)="toggleNav()"  class="list-group-item list-group-item-action bg-light"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart<sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></a> -->
       <a routerLink="/signup" (click)="toggleNav()" *ngIf="!isLoggedIn()"

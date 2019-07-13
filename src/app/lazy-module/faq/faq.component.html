@@ -1,5 +1,5 @@
 <!-- ##### Regular Page Area Start ##### -->
-<div class="regular-page-area section-padding-100">
+<!-- <div class="regular-page-area section-padding-100">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -10,5 +10,31 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- ##### Regular Page Area End ##### -->
+
+
+<div class="clever-faqs">
+  <br>
+  <h4 class="text-center">FAQs</h4>
+  <br>
+
+  <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <!-- Single Accordian Area -->
+    <div class="panel single-accordion" *ngFor="let pair of faq">
+      <h6>
+        <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapse" data-parent="#accordion"
+          data-toggle="collapse" href="#collapse{{pair.number}}">
+          {{pair.number}}. {{pair.question}}
+          <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+          <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+        </a>
+      </h6>
+      <div id="collapse{{pair.number}}" class="accordion-content collapse">
+        <p>{{pair.answer}}.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
