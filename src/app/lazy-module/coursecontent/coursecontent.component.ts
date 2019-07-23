@@ -103,7 +103,7 @@ export class CoursecontentComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  //change the video in view
+  // change the video in view
   watchCourse(no, course) {
     var vid = document.querySelector('video');
     var vidExtension = 'mp4';

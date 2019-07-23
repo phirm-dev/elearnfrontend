@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 })
 export class EnquireUniportService {
 
-  url = environment.url
+  url = environment.url;
   helper = new JwtHelperService();
   token = localStorage.getItem('token');
   decodedToken = this.helper.decodeToken(this.token);
@@ -18,11 +18,11 @@ export class EnquireUniportService {
   constructor(private http: HttpClient) { }
 
   register(credentials) {
-    return this.http.post(this.url + 'signup', credentials);
+    return this.http.post(this.url + 'users/signup', credentials);
   }
 
   login(credentials) {
-    return this.http.post(this.url + 'login', credentials);
+    return this.http.post(this.url + 'users/login', credentials);
   }
 
   getCourse(course) {
@@ -38,7 +38,7 @@ export class EnquireUniportService {
   }
 
   getUserDetails(username) {
-    return this.http.get(this.url + username);
+    return this.http.get(this.url + 'users/' + username);
   }
 
   checkUserSubscription(userDetails) {
@@ -135,7 +135,7 @@ export class EnquireUniportService {
   }
 
   makeComment(username, comment, course) {
-    return this.http.post(this.url + 'user/comment', { authur: username, comment: comment, course_code: course });
+    return this.http.post(this.url + 'users/user/comment', { authur: username, comment: comment, course_code: course });
   }
 
   getCourseComments(name) {

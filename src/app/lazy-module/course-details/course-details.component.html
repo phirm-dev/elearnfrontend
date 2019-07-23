@@ -1,5 +1,8 @@
 <div class="text-center" *ngIf="!courseDetails">
-  <img src="assets/img/loading.gif" alt="">
+  <img src="assets/img/loading.gif" alt="" style="
+  margin-top: 13%;
+  width: 200px;
+">
   <p class="text-center">Loading.....</p>
 </div>
 <section *ngFor="let course of courseDetails">
@@ -632,7 +635,7 @@
           <p *ngIf="user">
             <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
               [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
-              (callback)="paymentDone($event)">Pay With ATM Card</angular4-paystack>
+              (callback)="paymentDone($event)">Pay {{course.course_price/100}} With ATM Card</angular4-paystack>
           </p>
           <br>
           <p *ngIf="user">Having Issues Paying Online? </p>

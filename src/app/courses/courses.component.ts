@@ -14,7 +14,7 @@ export class CoursesComponent implements OnInit {
   availableCourses;
   helper = new JwtHelperService();
   fromStorage = localStorage.getItem('available-courses');
-  courses;
+  courses = null;
   lengthOfCart = this.cartService.lengthOfCart;
 
   constructor(private service: EnquireUniportService, private cartService: CartService) { }
@@ -31,16 +31,6 @@ export class CoursesComponent implements OnInit {
     } else {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
-    }
-  }
-
-  addToCart(item) {
-    var cartAdded = this.cartService.addToCart(item);
-    if (cartAdded) {
-      this.lengthOfCart ++;
-      swal("Success", "Added to cart", "success");
-    } else {
-      swal("","Already in cart", "warning");
     }
   }
 

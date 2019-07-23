@@ -29,7 +29,7 @@ export class FAQComponent implements OnInit {
     },
     {
       number: 4,
-      question: `What if I do not understand after watching a
+      question: `What if I do not understand after watching a 
       video ?.`,
       answer: ` Free tutorials will be organized for the courses
       you subscribed for better explanations, contact us through any of the mediums on our contact page.`
