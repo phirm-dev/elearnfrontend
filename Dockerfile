@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.10
 
 WORKDIR /app
 
@@ -6,11 +6,10 @@ COPY ./dist /app
 
 LABEL maintainer="Obinna Odirionye"
 
-RUN apk add --no-cache nodejs 
-RUN apk add --no-cache npm 
-RUN npm i -g http-server
-
+RUN echo "**** Installing Python v3 ****" && \
+    apk add --no-cache python3 && \ 
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
 
 EXPOSE 3000
 
-ENTRYPOINT ["http-server", "-p 3000"]
+CMD  ["python",  "-m", "http.server", "3000"]

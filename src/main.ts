@@ -14,11 +14,16 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-console.log(`https://jefftutors.com`);
-
 console.log(`Wanna work with me? contact me on twitter at
 
 https://twitter.com/phirmware
+
+`)
+console.log(`https://jefftutors.com`);
+
+console.log(`Wanna work with me on Infrastructure? Contact me via
+
+https://twitter.com/_nerdeveloper
 
 `)
 
