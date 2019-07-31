@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url : 'http://localhost:3000/api/'
+  url : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
 };
 
 /*
