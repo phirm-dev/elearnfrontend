@@ -1,3 +1,6 @@
+# Server implementation with python Server
+# Created: Obinna Odirionye
+
 import SimpleHTTPServer, SocketServer
 import urlparse, os
 
