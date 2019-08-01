@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login(credentials) {
     if (!credentials || credentials == '' || credentials.password == '' || credentials.email == '' || credentials.username == '') {
       // swal('Error', 'Missing Details', 'error');
-      this.modalTitle = 'Missing Details'
+      this.modalTitle = 'Missing Details';
       this.modalText = 'Fill in all inputs to login';
       MicroModal.show('modal-1');
     } else {
