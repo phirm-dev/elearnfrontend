@@ -24,16 +24,16 @@ import { CoursesComponent } from './courses/courses.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
-  { component: HomeComponent, path: "" },
-  { component: LoginComponent, path: "login" },
+  { component: HomeComponent, path: '' },
+  { component: LoginComponent, path: 'login' },
 //  { component: CartComponent, path: "cart" },
-  { component: SignupComponent, path: "signup" },
-  { component: CoursesComponent, path: "courses" },
+  { component: SignupComponent, path: 'signup' },
+  { component: CoursesComponent, path: 'courses' },
   { path: 'tutorials', loadChildren: './lazy-module/lazy-module.module#LazyModuleModule' },
-  { component: DashboardComponent, path: "dashboard", canActivate: [Authguard] },
+  { component: DashboardComponent, path: 'dashboard', canActivate: [Authguard] },
   { component: AdminComponent, path: 'admin', canActivate: [AdminAuthGuard] },
   { component: AdminloginComponent, path: 'admin/login' },
-  { component: NotFoundComponent, path: "**" }
+  { component: NotFoundComponent, path: '**' }
 ];
 
 
