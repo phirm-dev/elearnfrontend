@@ -1,7 +1,7 @@
-import http.server, SocketServer
+import SimpleHTTPServer, SocketServer
 import urlparse, os
 
-PORT = 9000
+PORT = 8080
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
