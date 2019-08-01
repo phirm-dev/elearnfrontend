@@ -22,7 +22,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CoursesComponent } from './courses/courses.component';
 import { CartComponent } from './cart/cart.component';
-import { HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 const routes: Routes = [
   { component: HomeComponent, path: "" },
@@ -66,7 +65,7 @@ const routes: Routes = [
   providers: [
     Authguard,
     AdminAuthGuard,
-    { provide: LocationStrategy, useClass: HashLocationStrategy}
+  
   ],
   bootstrap: [AppComponent]
 })
