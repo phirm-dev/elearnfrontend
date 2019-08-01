@@ -9,7 +9,7 @@
       "urls": [
         "/0.12067f75cb9fe02c3c1b.js",
         "/index.html",
-        "/main.57e345856169e3eb9224.js",
+        "/main.6b96109c94f252778f47.js",
         "/polyfills.8acc8e918321edfb6ec6.js",
         "/runtime.1d7e3241f1c0599679b7.js",
         "/styles.80d45c91545c74773169.css"
@@ -708,8 +708,8 @@
     "/assets/vendor/morrisjs/morris.css": "d3abba53f3750327f77066db2868de01382ce86b",
     "/assets/vendor/morrisjs/morris.js": "582e763141f9a6b1490ba8af9b37c7cd95255992",
     "/assets/vendor/morrisjs/morris.min.js": "f40a80188a0422041f59284940c46d86c163a279",
-    "/index.html": "fe7f4893d355d7c2568977f065be0b726250e5f1",
-    "/main.57e345856169e3eb9224.js": "ea46dc3fb518f099b60832f63ed5ff6b5736b28b",
+    "/index.html": "a8f13f05ae7ba7762387b77612a262abe08146ca",
+    "/main.6b96109c94f252778f47.js": "a1528743199766057a84fff1434e1a68406149bf",
     "/polyfills.8acc8e918321edfb6ec6.js": "900d435fce187152edd7b4e21f36c5c0712d2b85",
     "/runtime.1d7e3241f1c0599679b7.js": "5c368875c31ac91424c9adb8933a903b0fc324d7",
     "/styles.80d45c91545c74773169.css": "8d988855534965c10830a582ff98cc6e392067ed"
