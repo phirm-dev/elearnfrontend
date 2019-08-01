@@ -18,18 +18,19 @@ export class HomeComponent implements OnInit {
   fromStorage = localStorage.getItem('available-courses');
   courses;
 
+  // tslint:disable-next-line: max-line-length
   constructor(private router: Router, private service: EnquireUniportService, private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService) { }
 
   ngOnInit() {
     this.service.isLoggedIn();
 
-    
+
     if (this.helper.isTokenExpired(this.fromStorage)) {
       console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
         localStorage.setItem('available-courses', this.availableCourses);
-        var getToken = localStorage.getItem('available-courses');
+        const getToken = localStorage.getItem('available-courses');
         this.courses = this.helper.decodeToken(getToken)['courses'];
       });
     } else {
@@ -41,8 +42,7 @@ export class HomeComponent implements OnInit {
   signUp(credentials) {
     if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '') {
       swal('Error', 'Missing Details', 'error');
-    }
-    else {
+    } else {
       this.spinnerService.show();
       this.service.register(credentials).subscribe(res => {
         if (res['statusCode'] == 200 && res['token']) {
@@ -58,14 +58,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  addToCart(item) {
-    var cartAdded = this.cartService.addToCart(item);
-    if (cartAdded) {
-      swal("Success", "Added to cart", "success");
-    } else {
-      swal("", "Already in cart", "warning");
-    }
-  }
+  // addToCart(item) {
+  //   var cartAdded = this.cartService.addToCart(item);
+  //   if (cartAdded) {
+  //     swal("Success", "Added to cart", "success");
+  //   } else {
+  //     swal("", "Already in cart", "warning");
+  //   }
+  // }
 
   nav() {
     var token = localStorage.getItem('token');
@@ -78,8 +78,8 @@ export class HomeComponent implements OnInit {
   }
 
   contactMe() {
-    const num = '2349036229746'
-    const shareURL = `whatsapp://send?phone=${num}`
+    const num = '2349036229746';
+    const shareURL = `whatsapp://send?phone=${num}`;
     location.href = shareURL;
   }
 
