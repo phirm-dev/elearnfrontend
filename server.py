@@ -1,4 +1,4 @@
-import SimpleHTTPServer, SocketServer
+import http.server, SocketServer
 import urlparse, os
 
 PORT = 9000
