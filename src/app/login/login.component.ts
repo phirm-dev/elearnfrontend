@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         } else {
           this.spinnerService.hide();
-          this.modalTitle = 'Error'
+          this.modalTitle = 'Error';
           this.modalText = res['statusText'];
           MicroModal.show('modal-1');
           // swal('Error', res['statusText'], 'error');
