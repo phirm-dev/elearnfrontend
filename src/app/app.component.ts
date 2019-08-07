@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import swal from 'sweetalert';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { CartService } from './cart-service.service';
 
 
 @Component({
@@ -14,24 +12,22 @@ export class AppComponent implements OnInit {
   helper = new JwtHelperService();
   decodedToken;
   token = localStorage.getItem('token');
-  @Input() lengthOfCart = this.cartService.lengthOfCart;
-  // template: String = '<img src="https://cdn.dribbble.com/users/563824/screenshots/4155980/untitled-11.gif" />';
 
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.decodedToken = this.helper.decodeToken(this.token);
   }
 
   isLoggedIn() {
-    var token = localStorage.getItem('token');
-    var isTokenExpired = this.helper.isTokenExpired(token);
+    const token = localStorage.getItem('token');
+    const isTokenExpired = this.helper.isTokenExpired(token);
     return !isTokenExpired;
   }
 
   contactMe() {
-    const num = '2349036229746'
-    const shareURL = `whatsapp://send?phone=${num}`
+    const num = '2349036229746';
+    const shareURL = `whatsapp://send?phone=${num}`;
     location.href = shareURL;
   }
 

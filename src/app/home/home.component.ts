@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
       console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
+        console.log(res);
         localStorage.setItem('available-courses', this.availableCourses);
         const getToken = localStorage.getItem('available-courses');
         this.courses = this.helper.decodeToken(getToken)['courses'];
@@ -68,8 +69,8 @@ export class HomeComponent implements OnInit {
   // }
 
   nav() {
-    var token = localStorage.getItem('token');
-    var isTokenExpired = this.helper.isTokenExpired(token);
+    const token = localStorage.getItem('token');
+    const isTokenExpired = this.helper.isTokenExpired(token);
     if (!isTokenExpired) {
       this.router.navigate(['/dashboard']);
     } else {

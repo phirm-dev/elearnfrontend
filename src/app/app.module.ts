@@ -65,7 +65,7 @@ const routes: Routes = [
   providers: [
     Authguard,
     AdminAuthGuard,
-  
+
   ],
   bootstrap: [AppComponent]
 })

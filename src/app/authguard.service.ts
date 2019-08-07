@@ -7,10 +7,10 @@ import { Router , CanActivate } from '@angular/router';
 })
 export class Authguard implements CanActivate {
 
-  constructor(private service : EnquireUniportService , private router:Router) { }
+  constructor(private service: EnquireUniportService , private router: Router) { }
 
-  canActivate(){
-    if(this.service.isLoggedIn()) return true;
+  canActivate() {
+    if (this.service.isLoggedIn()) { return true; }
     this.router.navigate(['/login']);
     return false;
   }

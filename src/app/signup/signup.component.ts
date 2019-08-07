@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EnquireUniportService } from '../enquire-uniport.service';
-import swal from 'sweetalert'
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import MicroModal from 'micromodal';
 
@@ -25,17 +24,15 @@ export class SignupComponent implements OnInit {
   signUp(credentials) {
     if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '' || credentials.confirmpassword == '') {
       // swal('Error', 'Missing Details', 'error');
-      this.modalTitle = 'Missing Details'
+      this.modalTitle = 'Missing Details';
       this.modalText = 'Fill in all inputs to login';
       MicroModal.show('modal-1');
-    }
-    else if (credentials.password !== credentials.confirmpassword) {
+    } else if (credentials.password !== credentials.confirmpassword) {
       // swal('Error', 'Passwords do not match', 'error');
       this.modalTitle = 'Incorrect Details'
       this.modalText = 'Passwords do not match';
       MicroModal.show('modal-1');
-    }
-    else {
+    } else {
       this.spinnerService.show();
       this.service.register(credentials).subscribe(res => {
         if (res['statusCode'] == 200 && res['token']) {
@@ -46,7 +43,7 @@ export class SignupComponent implements OnInit {
         } else {
           this.spinnerService.hide();
           // swal('Error', res['message'], 'error');
-          this.modalTitle = 'Error'
+          this.modalTitle = 'Error';
           this.modalText = res['message'];
           MicroModal.show('modal-1');
         }
