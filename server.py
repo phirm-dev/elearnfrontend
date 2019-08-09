@@ -17,15 +17,30 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           # File exists, serve it up
           SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self);
        else:
-          # send index.hmtl
+          # send index.html
           self.send_response(200)
           self.send_header('Content-Type', 'text/html')
           self.end_headers()
           with open('index.html', 'r') as fin:
             self.copyfile(fin, self.wfile)
+            
+    def do_POST(self):
 
-    def log_message(self, format, *args):
-        return
+         # Parse query data to find out what was requested
+         parsedParams = urlparse.urlparse(self.path)
+   
+         # See if the file requested exists
+         if os.access('.' + os.sep + parsedParams.path, os.R_OK):
+            # File exists, serve it up
+            SimpleHTTPServer.SimpleHTTPRequestHandler.do_POST(self);
+         else:
+            # send index.html
+            self.send_response()
+            self.send_header()
+            self.end_headers()
+
+   #  def log_message(self, format, *args):
+   #      return
 
 Handler = MyHandler
 
