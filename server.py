@@ -35,7 +35,6 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             SimpleHTTPServer.SimpleHTTPRequestHandler.do_POST(self);
          else:
             # send index.html
-            self.send_response()
             self.send_header()
             self.end_headers()
 
