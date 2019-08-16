@@ -24,22 +24,10 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           with open('index.html', 'r') as fin:
             self.copyfile(fin, self.wfile)
             
-    def do_POST(self):
+    
 
-         # Parse query data to find out what was requested
-         parsedParams = urlparse.urlparse(self.path)
-   
-         # See if the file requested exists
-         if os.access('.' + os.sep + parsedParams.path, os.R_OK):
-            # File exists, serve it up
-            SimpleHTTPServer.SimpleHTTPRequestHandler.do_POST(self);
-         else:
-            # send index.html
-            self.send_header()
-            self.end_headers()
-
-   #  def log_message(self, format, *args):
-   #      return
+    def log_message(self, format, *args):
+        return
 
 Handler = MyHandler
 
