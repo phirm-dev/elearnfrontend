@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import swal from 'sweetalert'
+import swal from 'sweetalert';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';

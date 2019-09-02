@@ -58,6 +58,9 @@ export class CartComponent implements OnInit, OnDestroy {
     this.service.buyFromCart(ids);
   }
 
+  addNumber(num) {
+    return num + 1;
+  }
 
 
 }
