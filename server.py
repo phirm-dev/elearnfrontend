@@ -17,12 +17,14 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           # File exists, serve it up
           SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self);
        else:
-          # send index.hmtl
+          # send index.html
           self.send_response(200)
           self.send_header('Content-Type', 'text/html')
           self.end_headers()
           with open('index.html', 'r') as fin:
             self.copyfile(fin, self.wfile)
+            
+    
 
     def log_message(self, format, *args):
         return
