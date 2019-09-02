@@ -6,7 +6,7 @@ COPY ./dist /app
 
 LABEL maintainer="Obinna Odirionye"
 
-RUN apk add nodejs
+RUN apk add npm
 
 RUN npm i -g http-server
    
