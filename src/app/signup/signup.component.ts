@@ -33,8 +33,15 @@ export class SignupComponent implements OnInit {
       this.modalText = 'Passwords do not match';
       MicroModal.show('modal-1');
     } else {
+      const userCredentials = {
+        username: credentials.username.trim(),
+        email: credentials.email.trim(),
+        phone: credentials.phone.trim(),
+        password: credentials.password.trim()
+      };
+
       this.spinnerService.show();
-      this.service.register(credentials).subscribe(res => {
+      this.service.register(userCredentials).subscribe(res => {
         if (res['statusCode'] == 200 && res['token']) {
           // get token and automatically navigate user to dashboard
           localStorage.setItem('token', res['token']);

@@ -35,8 +35,7 @@
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
               <!-- <a href="#">Art &amp; Design</a> -->
             </div>
-            <p>
-              {{course.course_description.substring(0,50)}}...
+            <p [innerHTML]="course.course_description.substring(0,100)">
             </p>
           </div>
           <!-- Seat Rating Fee -->

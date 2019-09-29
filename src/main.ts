@@ -8,17 +8,15 @@ if (environment.production) {
   enableProdMode();
 }
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('/ngsw-worker.js');
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', function () {
+//     navigator.serviceWorker.register('/ngsw-worker.js');
+//   });
+// }
 
-console.log(`Wanna work with me? contact me on twitter at
+console.log(`Wanna work with me? contact me on twitter at https://twitter.com/phirmware`);
 
-https://twitter.com/phirmware
 
-`)
 console.log(`https://jefftutors.com`);
 
 console.log(`Wanna work with me on Infrastructure? Contact me via

@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { CoursesComponent } from './courses/courses.component';
 import { CartComponent } from './cart/cart.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 const routes: Routes = [
   { component: HomeComponent, path: '' },
@@ -57,6 +58,7 @@ const routes: Routes = [
     HttpClientModule,
     Angular4PaystackModule,
     PlyrModule,
+    CKEditorModule,
     Ng4LoadingSpinnerModule.forRoot(),
     AngularRaveModule,
     RouterModule.forRoot(routes),

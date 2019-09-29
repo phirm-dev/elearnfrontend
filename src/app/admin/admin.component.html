@@ -215,17 +215,40 @@
         </tr>
       </tbody>
     </table>
-    <div class="modal fade" id="myModal2">
+    <form #course="ngForm" (ngSubmit)="editCourse(course.value)" class="form-group mt-2 login_form"
+      style="border-radius: 5px" autocomplete="off">
+      <label for="course_name" class="text-center" style="width: 100%">Course Name</label>
+      <input name="course_name" ngModel type="text" [ngModel]="courseEditCourse_name" id="course_name"
+        class="form-control text-center">
+      <div class="form-group mt-2">
+        <label for="text" class="text-center" style="width: 100%">Course Code</label>
+        <input ngModel name="course_code" type="email" [ngModel]="courseEditCourse_code" id="text"
+          class="form-control text-center">
+        <label for="price" class="text-center" style="width: 100%">Course Price</label>
+        <input ngModel name="course_price" type="text" [ngModel]="courseEditCourse_price" id="text"
+          class="form-control text-center">
+        <label for="number" class="text-center mt-2" style="width: 100%">Number of Videos</label>
+        <input ngModel name="number_of_courses" type="number" id="number" [ngModel]="courseEditNumber"
+          class="form-control text-center">
+        <label for="content" class="text-center mt-2" style="width: 100%">Course Contents seperated by
+          commas</label>
+        <input ngModel name="course_content" type="text" [ngModel]="coursesEdit" id="content"
+          class="form-control text-center">
+        <label for="content" class="text-center mt-2" style="width: 100%">Course Description</label>
+        <ckeditor ngModel [config]="editorConfig" [editor]="Editor" name="course_description"
+          [ngModel]="courseEditDescription" id="content"></ckeditor>
+        <div class="submit mt-2">
+          <button class="btn btn-primary btn-lg btn-block mt-4" style="width: 60%;margin: 0px auto;">Submit</button>
+        </div>
+      </div>
+    </form>
+    <!-- <div class="modal fade" id="myModal2">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
-          <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title text-center">Edit a course</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-
-          <!-- Modal body -->
           <div class="modal-body">
             <form #course="ngForm" (ngSubmit)="editCourse(course.value)" class="form-group mt-2 login_form"
               style="border-radius: 5px" autocomplete="off">
@@ -247,8 +270,8 @@
                 <input ngModel name="course_content" type="text" [ngModel]="coursesEdit" id="content"
                   class="form-control text-center">
                 <label for="content" class="text-center mt-2" style="width: 100%">Course Description</label>
-                <input ngModel name="course_description" [ngModel]="courseEditDescription" type="text" id="content"
-                  class="form-control text-center">
+                <ckeditor ngModel [config]="editorConfig" [editor]="Editor" name="course_description"
+                  [ngModel]="courseEditDescription" id="content"></ckeditor>
                 <div class="submit mt-2">
                   <button class="btn btn-primary btn-lg btn-block mt-4"
                     style="width: 60%;margin: 0px auto;">Submit</button>
@@ -256,13 +279,12 @@
               </div>
             </form>
           </div>
-          <!-- Modal footer -->
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <br>
   </div>
   <div class="container tab-pane active" *ngSwitchCase="'page4'">

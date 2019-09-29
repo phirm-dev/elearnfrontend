@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EnquireUniportService } from '../enquire-uniport.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
+import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 
 
 @Component({
@@ -18,6 +19,10 @@ export class AdminComponent implements OnInit {
   email: String;
   courses;
   comments;
+  Editor = BalloonEditor;
+  editorConfig = {
+    placeholder: 'Type the content here!',
+  };
 
   constructor(private service: EnquireUniportService, private router: Router) { }
 
