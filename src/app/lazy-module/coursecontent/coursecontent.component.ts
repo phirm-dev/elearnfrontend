@@ -29,7 +29,9 @@ export class CoursecontentComponent implements OnInit {
   videoLocationUrl = 'https://global-cdn.jefftutors.com';
   sanitizedUrl;
 
-  constructor(private router: Router, private service: EnquireUniportService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
+  constructor(private router: Router,
+    private service: EnquireUniportService,
+    private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class CoursecontentComponent implements OnInit {
     // logic for checking subscription
 
     // Get course id from local storage
-    var getToken = localStorage.getItem('available-courses');
+    const getToken = localStorage.getItem('available-courses');
     const availableCourses = this.helper.decodeToken(getToken)['courses'];
     const idx = availableCourses.findIndex(x => x.course_code == this.course);
     const courseId = availableCourses[idx]._id;
@@ -55,8 +57,9 @@ export class CoursecontentComponent implements OnInit {
 
     const userObj = {
       userId: userId,
-      courseId: courseId
-    }
+      courseId: courseId,
+      token: this.token,
+    };
     // make api call to validate user subscription
     this.service.checkUserSubscription(userObj).subscribe(response => {
       if (response['statusCode'] !== 400) {
@@ -87,12 +90,17 @@ export class CoursecontentComponent implements OnInit {
       } else {
         this.expired = true;
         setTimeout(() => {
-          this.router.navigate(['/dashboard'])
+          this.router.navigate(['/dashboard']);
         }, 3000);
       }
-    })
+    }, (error: Response) => {
+      if (error.status === 403) {
+        alert('You are logged in another device, logout and log in again, ensure no one has your password.')
+        this.router.navigate(['/dashboard']);
+      }
+    });
 
-    //get course comments
+    // get course comments
     this.service.getCourseComments(this.course).subscribe(res => {
       this.comments = res;
     });
