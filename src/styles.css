@@ -24,6 +24,10 @@
   background: #282c34
 }
 
+.container-fluid{
+  padding: 0px !important;
+}
+
 @font-face {
   font-family: 'FontAwesome';
   src: url('assets/fonts/fontawesome-webfont.eot?v=4.7.0');
