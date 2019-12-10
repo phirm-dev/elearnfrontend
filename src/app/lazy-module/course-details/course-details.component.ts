@@ -143,7 +143,8 @@ export class CourseDetailsComponent implements OnInit {
   contactMe() {
     const num = '2349073337066';
     const shareURL = `whatsapp://send?phone=${num}`;
-    location.href = shareURL;
+    const whatsappUrl = `https://wa.me/${num}`;
+    location.href = whatsappUrl;
   }
 
   share() {
