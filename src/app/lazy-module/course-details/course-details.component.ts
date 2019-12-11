@@ -6,6 +6,7 @@ import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as Plyr from 'plyr';
 import MicroModal from 'micromodal';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-course-details',
@@ -36,23 +37,16 @@ export class CourseDetailsComponent implements OnInit {
   paymentDone(response) {
     this.paying = true;
     this.service.buyCourse(this.courseDetails[0].course_name, this.user.username).subscribe(res => {
-      if (res['statusMessage'] == 'Purchase Successful') {
         swal('success', res['statusMessage'], 'success');
         this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
-      } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else if (res['statusMessage'] == 'Already purchased this course') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else {
-        swal('Error', 'Something went wrong', 'error');
-      }
+    }, (error: HttpErrorResponse) => {
+      swal('Error', `${error.error.message}
+       Contact customer care for support`);
     });
   }
 
   paymentCancel(event) {
-    //nothing happens for now
+    // nothing happens for now
     swal('You closed payment page');
   }
 
@@ -167,18 +161,12 @@ export class CourseDetailsComponent implements OnInit {
 
   buyCourse() {
     this.service.buyCourse(this.courseDetails[0].course_name, this.user.username).subscribe(res => {
-      if (res['statusMessage'] == 'Purchase Successful') {
         swal('success', res['statusMessage'], 'success');
         this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
-      } else if (res['statusMessage'] == 'An error occured during purchase!, Try again') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else if (res['statusMessage'] == 'Already purchased this course') {
-        swal('Error', res['statusMessage'], 'error');
-      }
-      else {
-        swal('Error', 'Something went wrong', 'error');
-      }
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+      swal('Error', `${error.error.message}
+       Contact customer care for support`);
     });
   }
 
