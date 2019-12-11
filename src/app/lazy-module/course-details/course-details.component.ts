@@ -22,9 +22,9 @@ export class CourseDetailsComponent implements OnInit {
   numberOfViews;
   helper = new JwtHelperService();
   userPurchasedCourses;
-  //public APIkey: string = "FLWPUBK-9fc35f1dd34ad3dcdbb261730b89fc3a-X";
+  // public APIkey: string = "FLWPUBK-9fc35f1dd34ad3dcdbb261730b89fc3a-X";
   videoLocationUrl = 'https://global-cdn.jefftutors.com';
-  //testPublicKey = 'pk_test_bed1c8f4a96cf7c72d846de9bb66c915e6994bc4';
+  // testPublicKey = 'pk_test_bed1c8f4a96cf7c72d846de9bb66c915e6994bc4';
   livePublicKey = 'pk_live_dc10c90ee39b637a8fd23a969bdd23b96bd9e876';
   txtref = '' + Math.floor((Math.random() * 1000000000) + 1);
   paying = false;
@@ -32,7 +32,8 @@ export class CourseDetailsComponent implements OnInit {
   video = [];
   freeVidNo = 4;
 
-  constructor(private service: EnquireUniportService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
+  constructor(private service: EnquireUniportService, private route: ActivatedRoute,
+     private router: Router, private sanitizer: DomSanitizer) { }
 
   paymentDone(response) {
     this.paying = true;
@@ -54,12 +55,12 @@ export class CourseDetailsComponent implements OnInit {
 
     this.player = new Plyr('#plyrID', { captions: { active: true } });
 
-    //get course from route parameter
+    // get course from route parameter
     this.route.paramMap.subscribe(params => {
       this.course = params.get('course');
     });
 
-    //get course details
+    // get course details
     this.service.getCourse(this.course).subscribe(res => {
       this.courseDetails = res;
       // console.log(this.courseDetails);
@@ -89,16 +90,16 @@ export class CourseDetailsComponent implements OnInit {
       });
     });
 
-    var token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token) {
-      var isTokenExpired = this.helper.isTokenExpired(token);
-      if (isTokenExpired == true) {
+      const isTokenExpired = this.helper.isTokenExpired(token);
+      if (isTokenExpired === true) {
         localStorage.removeItem('token');
       }
       this.user = this.helper.decodeToken(token);
     }
 
-    //get user details
+    // get user details
     // this.service.getUserDetails(this.user.username).subscribe(res => {
     //   this.userPurchasedCourses = res[0].courses;
     // });
@@ -106,9 +107,9 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   watchVideo(video) {
-    var vid = document.querySelector('video');
+    const vid = document.querySelector('video');
 
-    var vidExtension = 'mp4';
+    let vidExtension = 'mp4';
     if (this.course == 'mth120') {
       vidExtension = 'm4v';
     }
@@ -116,9 +117,10 @@ export class CourseDetailsComponent implements OnInit {
       vidExtension = 'mp4';
     }
 
+    window.scrollTo(0, 0);
 
     // First video opiton
-    var vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
+    const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
 
     // Auto play video
@@ -126,7 +128,6 @@ export class CourseDetailsComponent implements OnInit {
     vid.play();
 
     document.getElementById('vidTitle').textContent = video;
-    window.scrollTo(0, 0);
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here
       this.sanitizedUrl = '';
@@ -152,7 +153,7 @@ export class CourseDetailsComponent implements OnInit {
         console.log('Shared');
       }).catch(() => {
         console.log('Error Sharing');
-      })
+      });
     } else {
       const shareUrl = `whatsapp://send?text=${encodeURIComponent(shareText)}`;
       location.href = shareUrl;
