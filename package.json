@@ -38,6 +38,7 @@
     "micromodal": "^0.4.0",
     "ng4-loading-spinner": "^1.2.3",
     "ngx-plyr": "^1.2.2",
+    "now": "^16.6.3",
     "plyr": "^3.5.4",
     "rxjs": "6.3.2",
     "sweetalert": "^2.1.2",
