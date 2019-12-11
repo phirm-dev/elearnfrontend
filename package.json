@@ -7,7 +7,9 @@
     "angular:test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "now-build": "ng build --prod"
+    "now-build": "ng build --prod",
+    "now-token": "7lAKbubvwfvB3XdTaehvKpQ7",
+    "deploy": "now --token=$NOW_TOKEN"
   },
   "private": true,
   "dependencies": {
