@@ -214,7 +214,7 @@
                             <li class="single-instructor" *ngFor="let vid of video" (click)="watchVideo(vid)"
                               style="cursor:pointer;padding: 12px;">
                               <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video:
-                                <span>{{vid.replace('_', ' ').toUpperCase()}}</span></span>
+                                <span>{{removeUnderscores(vid.toUpperCase())}}</span></span>
                             </li>
                           </ul>
                         </li>

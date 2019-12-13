@@ -67,7 +67,7 @@
                 <ul class="option-items" style="border-radius:5px;margin-left: 30px">
                   <li class="option-item scrolly" style="border-radius:5px;background: #fbfbfb;border: none;"
                     *ngFor="let vid of noVideos" (click)="watchCourse(vid,view.course_code)">
-                    <a style="font-family:'varela round';font-size: x-small;">{{vid}}</a>
+                    <a style="font-family:'varela round';font-size: x-small;">{{removeUnderscores(vid.toUpperCase())}}</a>
                   </li>
                   <br>
                 </ul>

@@ -110,6 +110,11 @@ export class CoursecontentComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
+  removeUnderscores(str: string) {
+    const newStr = str.replace(/_/g, ' ');
+    return newStr;
+  }
+
   // change the video in view
   watchCourse(no, course) {
     const vid = document.querySelector('video');

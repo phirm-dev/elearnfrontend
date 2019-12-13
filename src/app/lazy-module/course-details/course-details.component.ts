@@ -127,11 +127,11 @@ export class CourseDetailsComponent implements OnInit {
     vid.load();
     vid.play();
 
-    document.getElementById('vidTitle').textContent = video;
+    // document.getElementById('vidTitle').textContent = video;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here
       this.sanitizedUrl = '';
-      document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
+      // document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
     }
   }
 
@@ -140,6 +140,11 @@ export class CourseDetailsComponent implements OnInit {
     const shareURL = `whatsapp://send?phone=${num}`;
     const whatsappUrl = `https://wa.me/${num}`;
     location.href = whatsappUrl;
+  }
+
+  removeUnderscores(str: string) {
+    const newStr = str.replace(/_/g, ' ');
+    return newStr;
   }
 
   share() {
