@@ -20,7 +20,6 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit() {
     if (!this.fromStorage || this.helper.isTokenExpired(this.fromStorage)) {
-      console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
         localStorage.setItem('available-courses', this.availableCourses);
@@ -28,7 +27,6 @@ export class CoursesComponent implements OnInit {
         this.courses = this.helper.decodeToken(getToken)['courses'];
       });
     } else {
-      console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
     }
   }
