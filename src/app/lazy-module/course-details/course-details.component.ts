@@ -24,7 +24,7 @@ export class CourseDetailsComponent implements OnInit {
   userPurchasedCourses;
   // public APIkey: string = "FLWPUBK-9fc35f1dd34ad3dcdbb261730b89fc3a-X";
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
-  videoLocationUrl = 'https://storage.cloud.google.com/globally-cdn-jefftutors/';
+  videoLocationUrl = 'https://storage.googleapis.com/globally-cdn-jefftutors';
   // testPublicKey = 'pk_test_bed1c8f4a96cf7c72d846de9bb66c915e6994bc4';
   livePublicKey = 'pk_live_dc10c90ee39b637a8fd23a969bdd23b96bd9e876';
   txtref = '' + Math.floor((Math.random() * 1000000000) + 1);

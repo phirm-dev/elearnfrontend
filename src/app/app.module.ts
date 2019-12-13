@@ -26,7 +26,7 @@ const routes: Routes = [
 //  { component: CartComponent, path: "cart" },
   { component: SignupComponent, path: 'signup' },
   { component: CoursesComponent, path: 'courses' },
-  { path: 'tutorials', loadChildren: './lazy-module/lazy-module.module#LazyModuleModule' },
+  { path: 'tutorials', loadChildren: './lazy-module/lazy-module.module#LazyModuleModule', canActivate: [Authguard]  },
   { component: DashboardComponent, path: 'dashboard', canActivate: [Authguard] },
   { component: NotFoundComponent, path: '**' }
 ];

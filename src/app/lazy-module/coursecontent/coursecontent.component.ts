@@ -31,7 +31,7 @@ export class CoursecontentComponent implements OnInit {
   expires;
   expired = false;
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
-  videoLocationUrl = 'https://storage.cloud.google.com/globally-cdn-jefftutors/';
+  videoLocationUrl = 'https://storage.googleapis.com/globally-cdn-jefftutors';
 
   sanitizedUrl;
 
