@@ -72,15 +72,14 @@ export class CourseDetailsComponent implements OnInit {
       this.numberOfViews = res[0].views;
 
       // first video option
-      var vidExtension = 'mp4';
+      let vidExtension = 'mp4';
       if (this.course == 'mth120') {
         vidExtension = 'm4v';
       }
       if (this.course == 'mth124') {
         vidExtension = 'mp4';
       }
-      var vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
-      console.log(vidUrl);
+      const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
       this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
 
       // increase views by 1
