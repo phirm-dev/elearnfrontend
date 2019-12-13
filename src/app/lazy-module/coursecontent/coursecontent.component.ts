@@ -4,14 +4,18 @@ import swal from 'sweetalert';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ActivatedRoute } from '@angular/router';
 import { EnquireUniportService } from 'src/app/enquire-uniport.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as Plyr from 'plyr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-coursecontent',
   templateUrl: './coursecontent.component.html',
-  styleUrls: ['./coursecontent.component.css', '../../../assets/libs/bootstrap/css/bootstrap.min.css', '../../../assets/libs/material-design-iconic-font/css/material-design-iconic-font.min.css', '../../../assets/libs/jquery-ui/jquery-ui.min.css', '../../../assets/libs/rslides/responsiveslides.css', '../../../assets/libs/slick/slick.css', '../../../assets/css/main.css']
+  styleUrls: ['./coursecontent.component.css', '../../../assets/libs/bootstrap/css/bootstrap.min.css',
+   '../../../assets/libs/material-design-iconic-font/css/material-design-iconic-font.min.css',
+    '../../../assets/libs/jquery-ui/jquery-ui.min.css',
+    '../../../assets/libs/rslides/responsiveslides.css',
+    '../../../assets/libs/slick/slick.css', '../../../assets/css/main.css']
 })
 export class CoursecontentComponent implements OnInit {
   public player;
@@ -26,7 +30,9 @@ export class CoursecontentComponent implements OnInit {
   comments: any;
   expires;
   expired = false;
-  videoLocationUrl = 'https://global-cdn.jefftutors.com';
+  // videoLocationUrl = 'https://global-cdn.jefftutors.com';
+  videoLocationUrl = 'https://storage.cloud.google.com/globally-cdn-jefftutors/';
+
   sanitizedUrl;
 
   constructor(private router: Router,
@@ -62,10 +68,8 @@ export class CoursecontentComponent implements OnInit {
     };
     // make api call to validate user subscription
     this.service.checkUserSubscription(userObj).subscribe(response => {
-      if (response['statusCode'] !== 400) {
         this.user = response;
         this.coursesPurchased = response['courses'];
-        //check if this course is one of the courses purchased by the user
         this.coursesPurchased.filter(course => {
           return course.course_code == this.course;
         }).map(course => {
@@ -73,31 +77,26 @@ export class CoursecontentComponent implements OnInit {
           this.noCourses = course.number_of_courses;
           this.noVideos = course.course_content;
 
-          var vidExtension = 'mp4';
-
+          let vidExtension = 'mp4';
           if (course.course_code == 'mth120') {
             vidExtension = 'm4v';
           }
-
           if (course.course_code == 'mth124') {
             vidExtension = 'mp4';
           }
 
-          var vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
-          console.log(vidUrl);
+          const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
           this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
-        })
-      } else {
-        this.expired = true;
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 3000);
-      }
-    }, (error: Response) => {
-      if (error.status === 403) {
+        });
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403 && error.error.status === false) {
         alert('You are logged in another device, logout and log in again, ensure no one has your password.')
-        this.router.navigate(['/dashboard']);
+        return this.router.navigate(['/dashboard']);
       }
+      this.expired = true;
+      setTimeout(() => {
+        this.router.navigate(['/dashboard']);
+      }, 3000);
     });
 
     // get course comments
@@ -113,15 +112,15 @@ export class CoursecontentComponent implements OnInit {
 
   // change the video in view
   watchCourse(no, course) {
-    var vid = document.querySelector('video');
-    var vidExtension = 'mp4';
+    const vid = document.querySelector('video');
+    let vidExtension = 'mp4';
     if (course == 'mth120') {
       vidExtension = 'm4v';
     }
     if (course == 'mth124') {
       vidExtension = 'mp4';
     }
-    var vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
+    const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     vid.autoplay = true;
     window.scrollTo(0, 200);
@@ -134,28 +133,28 @@ export class CoursecontentComponent implements OnInit {
   }
 
   makeCommentMobile(comment, course) {
-    if (comment.value == '') {
+    if (comment.value === '') {
       swal('Fill In Comment');
-      return
+      return;
     }
-    var sentence = comment.value;
+    const sentence = comment.value;
     comment.value = '';
     document.getElementById('talkBox').classList.add('slideOutDown');
     document.getElementById('talkBox').classList.remove('slideInUp');
-    var username = this.helper.decodeToken(this.token).username;
+    const username = this.helper.decodeToken(this.token).username;
     this.service.makeComment(username, sentence, course).subscribe(res => {
       this.comments.push(res);
     });
   }
 
   makeComment(comment, course) {
-    if (comment.value == '') {
+    if (comment.value === '') {
       swal('Fill In Comment');
-      return
+      return;
     }
-    var sentence = comment.value;
+    const sentence = comment.value;
     comment.value = '';
-    var username = this.helper.decodeToken(this.token).username;
+    const username = this.helper.decodeToken(this.token).username;
     this.service.makeComment(username, sentence, course).subscribe(res => {
       this.comments.push(res);
     });
@@ -163,17 +162,6 @@ export class CoursecontentComponent implements OnInit {
 
   back() {
     this.router.navigate(['/dashboard']);
-  }
-
-  animateComment() {
-    document.getElementById('talkBox').classList.add('slideInUp');
-    document.getElementById('talkBox').classList.remove('slideOutDown');
-    // document.getElementById('talkBox').classList.add('')
-  }
-
-  cancelComment() {
-    document.getElementById('talkBox').classList.add('slideOutDown');
-    document.getElementById('talkBox').classList.remove('slideInUp');
   }
 
 }
