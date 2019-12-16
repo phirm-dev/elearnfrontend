@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { CoursesComponent } from './courses/courses.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+
 const routes: Routes = [
   { component: HomeComponent, path: '' },
   { component: LoginComponent, path: 'login' },

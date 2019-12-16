@@ -28,8 +28,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/plyr/dist/plyr.css",
-              "./node_modules/videogular2/fonts/videogular.css"
+              "node_modules/plyr/dist/plyr.css"
             ],
             "scripts": []
           },

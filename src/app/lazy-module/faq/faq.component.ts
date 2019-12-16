@@ -12,7 +12,7 @@ export class FAQComponent implements OnInit {
   faq = [
     {
       number: 1,
-      question: 'What is Jefftutors?', answer: `Jefftutors is a platform that was created to make
+      question: 'What is StudyKrib🎓?', answer: `StudyKrib is a platform that was created to make
     learning easier for students along with other side benefits. There are available courses that are constantly
     updated
     for the benefit of students.`},
@@ -56,9 +56,9 @@ export class FAQComponent implements OnInit {
     {
       number: 8,
       question: ` Are all topics covered in the respective courses?`,
-      answer: `Jefftutors aims to give you the best content
+      answer: `StudyKrib aims to give you the best content
       available,not all topics in your respective text-books are going to be considered by your lecturers while
-      setting your exam questions, Jefftutors saves you this stress by
+      setting your exam questions, StudyKrib saves you this stress by
       bringing to you the topics that are majorly considered by your lecturers while setting your questions.`
     }
   ]
