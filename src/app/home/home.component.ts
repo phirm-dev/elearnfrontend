@@ -34,14 +34,14 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('available-courses', this.availableCourses);
         const getToken = localStorage.getItem('available-courses');
         this.courses = this.helper.decodeToken(getToken)['courses'];
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 3; i++) {
           this.displayCourses.push(this.courses[i]);
         }
       });
     } else {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 3; i++) {
         this.displayCourses.push(this.courses[i]);
       }
     }
