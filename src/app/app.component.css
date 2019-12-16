@@ -57,13 +57,13 @@ img {
 
 @media(min-width:990px) {
     #jeff-logo {
-        margin-left: 40%;
+        margin-left: 42%;
     }
 }
 
 @media(max-width:990px) {
     #jeff-logo {
-        margin-left: -30px;
+        margin-left: 0px;
     }
 }
 

@@ -52,9 +52,9 @@ export class CourseDetailsComponent implements OnInit {
     swal('You closed payment page');
   }
 
-  async ngOnInit() {
+  ngOnInit() {
 
-    this.player = await new Plyr('#plyrID', { captions: { active: true } });
+    this.player = new Plyr('#plyrID', { captions: { active: true } });
 
     // get course from route parameter
     this.route.paramMap.subscribe(params => {
