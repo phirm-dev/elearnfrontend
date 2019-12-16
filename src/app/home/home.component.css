@@ -8,3 +8,7 @@
     width: 100%;
     height: 100%;
 }
+
+#course_list :focus{
+    border: none;
+}

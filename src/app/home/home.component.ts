@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   availableCourses;
   fromStorage = localStorage.getItem('available-courses');
   courses;
+  displayCourses: any = [];
 
   // tslint:disable-next-line: max-line-length
   constructor(private router: Router, private service: EnquireUniportService, private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService) { }
@@ -33,10 +34,16 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('available-courses', this.availableCourses);
         const getToken = localStorage.getItem('available-courses');
         this.courses = this.helper.decodeToken(getToken)['courses'];
+        for (let i = 0; i < 2; i++) {
+          this.displayCourses.push(this.courses[i]);
+        }
       });
     } else {
       console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
+      for (let i = 0; i < 2; i++) {
+        this.displayCourses.push(this.courses[i]);
+      }
     }
   }
 

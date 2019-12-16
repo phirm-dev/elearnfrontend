@@ -1,6 +1,6 @@
 <!-- ##### Hero Area Start ##### -->
-<section class="hero-area bg-img bg-overlay-2by5" style="background-image: url(assets/img/dark1.jpeg);">
-  <div class="container h-100">
+<section class="hero-area bg-img bg-overlay-2by5" style="background-image: url(assets/img/bg-img/krib.jpeg); background-size: cover;">
+  <div class="container h-100" style="background-color: rgba(0,0,0,0.65); min-width: 100%;">
     <div class="row h-100 align-items-center">
       <div class="col-12">
         <div class="hero-content text-center">
@@ -80,14 +80,14 @@
     <div class="row">
 
       <!-- Single Popular Course -->
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let course of courses">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let course of displayCourses">
         <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
           <img src="assets/img/course_images/{{course.course_code}}/img.jpeg" alt="">
           <!-- Course Content -->
           <div class="course-content">
-            <h4>{{course.course_name}}</h4>
+            <h4 routerLink="/tutorials/course/{{course.course_code}}">{{course.course_name}}</h4>
             <div class="meta d-flex align-items-center">
-              <a href="#">{{course.course_code}}</a>
+              <a routerLink="/tutorials/course/{{course.course_code}}">{{course.course_code}}</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
               <!-- <a href="#">Art &amp; Design</a> -->
             </div>
@@ -116,6 +116,15 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
+          <a routerLink="/courses" class="btn clever-btn btn-2">Load More</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
   </div>
 </section>
 <!-- ##### Popular Courses End ##### -->
@@ -171,7 +180,7 @@
   <!-- Register Now Countdown -->
   <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
     <h3>Register Now</h3>
-    <p>Create an account with Jefftutors and get access to your tutorial videos any time, any where.</p>
+    <p>Create an account with studykrib and get access to your tutorial videos any time, any where.</p>
     <!-- Register Countdown -->
     <div class="register-countdown">
       <div class="events-cd d-flex flex-wrap" data-countdown="2019/03/01"></div>

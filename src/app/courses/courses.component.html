@@ -29,9 +29,9 @@
           <img src="assets/img/course_images/{{course.course_code}}/img.jpeg" alt="">
           <!-- Course Content -->
           <div class="course-content">
-            <h4>{{course.course_name}}</h4>
+            <h4 routerLink="/tutorials/course/{{course.course_code}}">{{course.course_name}}</h4>
             <div class="meta d-flex align-items-center">
-              <a href="#">{{course.course_code}}</a>
+              <a routerLink="/tutorials/course/{{course.course_code}}">{{course.course_code}}</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
               <!-- <a href="#">Art &amp; Design</a> -->
             </div>
