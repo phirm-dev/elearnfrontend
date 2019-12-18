@@ -377,7 +377,7 @@
                             </div>
                             <div class="instructor-info">
                               <h5>Nwizu Einstien</h5>
-                              <span>Admin / COO</span>
+                              <span>Operations</span>
                             </div>
                           </div>
                         </div>
@@ -390,7 +390,7 @@
                             </div>
                             <div class="instructor-info">
                               <h5>Amadi Chibuike</h5>
-                              <span>CEO</span>
+                              <span>Production</span>
                             </div>
                           </div>
                         </div>
@@ -403,7 +403,7 @@
                             </div>
                             <div class="instructor-info">
                               <h5>Ojukwu Chibuzor</h5>
-                              <span>Founder / CTO </span>
+                              <span>Developer</span>
                             </div>
                           </div>
                         </div>
@@ -645,22 +645,24 @@
           <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
         </header>
         <main class="modal__content" id="modal-1-content">
+          <p style="font-weight: bold;">Use Subscription Token</p>
+          <input type="text" class="form-control" style="width: 80%;" #token>
+          <button class="btn btn-primary mt-1" (click)="subscribeWithToken(token.value)">Subscribe</button>
           <br>
+          <br>
+          or
           <p *ngIf="user">
             <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
               [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
               (callback)="paymentDone($event)">Pay {{course.course_price/100}} With ATM Card</angular4-paystack>
           </p>
-          <br>
-          <p *ngIf="user">Having Issues Paying Online? </p>
+          or
           <br *ngIf="user">
           <h6>
             Transfer to account
           </h6>
           <p>
             0701194703
-            <br>
-            Chibuike Amadi Jeffrey
             <br>
             Access Bank
           </p>

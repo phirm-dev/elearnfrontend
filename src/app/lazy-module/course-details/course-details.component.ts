@@ -135,6 +135,19 @@ export class CourseDetailsComponent implements OnInit {
     }
   }
 
+  subscribeWithToken(token: string) {
+    const obj = {
+      username: this.user.username,
+      courseName: this.courseDetails[0].course_name,
+      code: token
+    };
+    this.service.subscribeWithCode(obj).subscribe(response => {
+      this.router.navigate(['tutorials/coursecontent/' + this.courseDetails[0].course_code]);
+    }, (error: HttpErrorResponse) => {
+      swal('error', error.error.message, 'error');
+    });
+  }
+
   contactMe() {
     const num = '2349073337066';
     const shareURL = `whatsapp://send?phone=${num}`;
@@ -151,7 +164,7 @@ export class CourseDetailsComponent implements OnInit {
     const shareText = `There is an online tutorial for uniport students , check it out`;
     if ('share' in navigator) {
       (navigator as any).share({
-        title: `Jefftutors`,
+        title: `StudyKrib`,
         text: shareText,
         url: window.location.origin
       }).then(() => {

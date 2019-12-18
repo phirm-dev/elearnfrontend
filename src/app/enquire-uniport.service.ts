@@ -119,6 +119,10 @@ export class EnquireUniportService {
     return this.http.post(this.url + 'admin/course/add', { course_code: course.course_code, username: course.username, token: token });
   }
 
+  subscribeWithCode(object: {username: any, courseName: any, code: string}) {
+    return this.http.post(`${this.url}users/rechargecode`, object);
+  }
+
 
   editCourse(course, xcourse) {
     var token = localStorage.getItem('admintoken');
@@ -144,9 +148,5 @@ export class EnquireUniportService {
 
   increaseViews(id) {
     return this.http.get(this.url + 'courses/views/' + id);
-  }
-
-  buyFromCart(ids) {
-    console.log(ids, 'From Service');
   }
 }
