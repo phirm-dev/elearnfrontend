@@ -46,6 +46,7 @@
     "plyr": "^3.5.4",
     "rxjs": "6.3.2",
     "sweetalert": "^2.1.2",
+    "video.js": "^7.6.6",
     "videogular2": "^6.4.0",
     "zone.js": "^0.8.29"
   },

@@ -4,9 +4,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import swal from 'sweetalert';
 import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import * as Plyr from 'plyr';
 import MicroModal from 'micromodal';
 import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-course-details',
@@ -14,8 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./course-details.component.css']
 })
 
-export class CourseDetailsComponent implements OnInit {
-  public player;
+export class CourseDetailsComponent implements OnInit{
   user;
   course;
   courseDetails = null;
@@ -53,8 +52,6 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.player = new Plyr('#plyrID', { captions: { active: true } });
 
     // get course from route parameter
     this.route.paramMap.subscribe(params => {
@@ -136,6 +133,9 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   subscribeWithToken(token: string) {
+    if (!token) {
+      return;
+    }
     const obj = {
       username: this.user.username,
       courseName: this.courseDetails[0].course_name,

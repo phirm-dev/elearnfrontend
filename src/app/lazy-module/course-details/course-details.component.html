@@ -6,9 +6,7 @@
   <p class="text-center">Loading.....</p>
 </div>
 <section *ngFor="let course of courseDetails">
-  <!-- ##### Breadcumb Area Start ##### -->
   <div class="breadcumb-area">
-    <!-- Breadcumb -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -17,41 +15,14 @@
       </ol>
     </nav>
   </div>
-  <!-- ##### Breadcumb Area End ##### -->
 
-  <!-- Alternate Intro -->
-  <!-- <div class="single-course-intro d-flex align-items-center justify-content-center"
-    style="background-image: url(/assets/img/core-img/texture.png);background: aliceblue;">
-  
-    <div class="single-course-intro-content text-center">
-      <video id="plyrID" oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl"
-        controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;" autoplay>
-      </video>
-      <p id="vidTitle" style="
-          font-size: 12px;
-          margin-left: 15px;
-          font-family: inherit;
-          margin-bottom: 10px;
-      ">Intro</p>
-    </div>
-  </div> -->
-  <!-- ##### Single Course Intro Start ##### -->
   <div class="single-course-intro d-flex align-items-center justify-content-center"
-    style="background-image: url(/assets/img/core-img/texture.png);background: aliceblue;">
-    <!-- Content -->
-    <video id="plyrID" plyr oncontextmenu="return false;" controls playsinline [src]="sanitizedUrl"
-    controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;height: 100%;" autoplay>
-  </video>
-  <!-- <p id="vidTitle" style="
-      font-size: 12px;
-      margin-left: 15px;
-      font-family: inherit;
-      margin-bottom: 10px;
-  ">Intro</p> -->
+    style="background-image: url(/assets/img/core-img/texture.png);background: rgb(32, 35, 37);">
+    <video id="my-player" class="video-js vjs-big-play-centered" preload="auto" oncontextmenu="return false;" controls
+      controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;height: 100%;" [src]="sanitizedUrl" data-setup="{}">
+    </video>
   </div>
-  <!-- ##### Single Course Intro End ##### -->
 
-  <!-- ##### Courses Content Start ##### -->
   <div class="single-course-content section-padding-100">
     <div class="container">
       <div class="row">
@@ -68,18 +39,12 @@
                   <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
                     aria-selected="false">Description</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
-                    aria-selected="true">Reviews</a>
-                </li> -->
+
                 <li class="nav-item">
                   <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4"
                     aria-selected="true">Members</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" id="tab--5" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5"
-                    aria-selected="true">Forum</a>
-                </li> -->
+
               </ul>
 
               <div class="tab-content" id="myTabContent">
@@ -164,7 +129,7 @@
                         </div>
 
                         <!-- Single Accordian Area -->
-                        <!-- <div class="panel single-accordion">
+                        <div class="panel single-accordion">
                           <h6>
                             <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed"
                               data-parent="#accordion" data-toggle="collapse" href="#collapseFour">Do i need to take the
@@ -178,7 +143,7 @@
                               finibus ac eget ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                               vulputate id justo quis facilisis.</p>
                           </div>
-                        </div> -->
+                        </div>
                       </div>
 
                     </div>
@@ -188,19 +153,6 @@
                 <!-- Tab Text -->
                 <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="tab--2">
                   <div class="clever-curriculum">
-
-                    <!-- About Curriculum -->
-                    <!-- <div class="about-curriculum mb-30">
-                      <h4>Syllabus</h4>
-                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
-                        lorem
-                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
-                        ultrices ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eget vehicula
-                        lorem, vitae porta nisi. Ut vel quam erat. Ut vitae erat tincidunt, tristique mi ac, pharetra
-                        dolor. In et suscipit ex. Pellentesque aliquet velit tortor, eget placerat mi scelerisque a.
-                        Aliquam eu dui efficitur purus posuere viverra. Proin ut elit mollis, euismod diam et, fermentum
-                        enim.</p>
-                    </div> -->
 
                     <!-- Curriculum Level -->
                     <div class="curriculum-level mb-30">
@@ -407,21 +359,6 @@
                             </div>
                           </div>
                         </div>
-
-                        <!-- Single Members -->
-                        <!-- <div class="col-lg-6">
-                            <div class="single-instructor d-flex align-items-center mb-30">
-                              <div class="instructor-thumb">
-                                <img src="assets/img/obinna.jpeg" alt="">
-                              </div>
-                              <div class="instructor-info">
-                                <h5>Odirionye Obinna</h5>
-                                <span>Developer</span>
-                              </div>
-                            </div>
-                          </div> -->
-
-                        <!-- Single Members -->
                         <div class="col-lg-6">
                           <div class="single-instructor d-flex align-items-center mb-30">
                             <div class="instructor-thumb">
@@ -604,28 +541,10 @@
                   <h6><i class="fa fa-bell" aria-hidden="true"></i> Lectures</h6>
                   <h6>{{course.number_of_courses}}</h6>
                 </li>
-                <!-- <li>
-                  <h6><i class="fa fa-file" aria-hidden="true"></i> Quizzes</h6>
-                  <h6>3</h6>
-                </li>
-                <li>
-                  <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Pass Percentage</h6>
-                  <h6>60</h6>
-                </li>
-                <li>
-                  <h6><i class="fa fa-thumbs-down" aria-hidden="true"></i> Max Retakes</h6>
-                  <h6>5</h6>
-                </li> -->
+               
               </ul>
             </div>
 
-            <!-- Widget -->
-            <!-- <div class="sidebar-widget">
-              <h4>Certification</h4>
-              <img src="assets/img/bg-img/cer.png" alt="">
-            </div> -->
-
-            <!-- Widget -->
           </div>
         </div>
       </div>

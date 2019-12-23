@@ -63,8 +63,8 @@
                     <img src="assets/img/empty.png">
                     <p class="text-center">You haven't subscribed for any course.</p>
                   </div>
-                  <div class="col-12 col-md-12 col-lg-12" *ngFor="let course of coursesPurchased">
-                    <div class="single-popular-course mb-100" data-wow-delay="750ms">
+                  <div class="col-12 col-md-12 col-lg-6">
+                    <div class="single-popular-course mb-50" data-wow-delay="750ms" *ngFor="let course of coursesPurchased">
                       <!-- <img src="assets/img/bg-img/e3.jpg" alt=""> -->
                       <!-- Course Content -->
                       <div class="course-content">
@@ -91,8 +91,8 @@
                             <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
                           </div> -->
                         </div>
-                        <div class="course-fee h-100">
-                          <a routerLink="/tutorials/coursecontent/{{course.course_code}}">view</a>
+                        <div class="course-fee h-100 primary">
+                          <a class="primary" routerLink="/tutorials/coursecontent/{{course.course_code}}">view</a>
                         </div>
                       </div>
                     </div>
