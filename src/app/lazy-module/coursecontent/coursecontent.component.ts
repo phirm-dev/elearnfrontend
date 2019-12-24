@@ -32,7 +32,7 @@ export class CoursecontentComponent implements OnInit {
   expired = false;
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
   videoLocationUrl = 'https://storage.googleapis.com/globally-cdn-jefftutors';
-
+  poster = 'assets/img/poster.jpeg';
   sanitizedUrl;
 
   constructor(private router: Router,
@@ -86,7 +86,8 @@ export class CoursecontentComponent implements OnInit {
           }
 
           const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
-          this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+          // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+          this.sanitizedUrl = vidUrl;
         });
     }, (error: HttpErrorResponse) => {
       if (error.status === 403 && error.error.status === false) {
@@ -126,7 +127,8 @@ export class CoursecontentComponent implements OnInit {
       vidExtension = 'mp4';
     }
     const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
-    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    this.sanitizedUrl = vidUrl;
     vid.autoplay = true;
     window.scrollTo(0, 200);
     document.getElementById('vidTitle').textContent = no;
