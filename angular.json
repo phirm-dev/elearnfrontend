@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "./node_modules/video.js/dist/video-js.css"
+              "./node_modules/video.js/dist/video-js.css",
+              "src/app/lib/video-player.css"
             ],
             "scripts": ["./node_modules/video.js/dist/video.js"]
           },

@@ -30,6 +30,7 @@
     "@ckeditor/ckeditor5-angular": "^1.1.0",
     "@ckeditor/ckeditor5-build-balloon": "^12.4.0",
     "@types/video.js": "^7.3.3",
+    "@videojs/themes": "^1.0.0",
     "angular-rave": "^1.2.1",
     "angular4-paystack": "^2.3.3",
     "angular4-ravepayment": "github:iamraphson/angular4-ravepayment",

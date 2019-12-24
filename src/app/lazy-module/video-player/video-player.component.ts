@@ -24,9 +24,11 @@ export class VideoPlayerComponent implements AfterViewInit, OnDestroy, OnChanges
         'src' : this.urlVideo,
         }
       ],
+      'controls' : true,
       'poster' : this.urlPoster
     };
     this.vjs = videojs('my-player', options);
+    this.vjs.addClass('vjs-matrix');
   }
 
   ngOnDestroy() {
