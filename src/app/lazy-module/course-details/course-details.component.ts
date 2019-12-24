@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import swal from 'sweetalert';
@@ -7,14 +7,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 import MicroModal from 'micromodal';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
   styleUrls: ['./course-details.component.css']
 })
 
-export class CourseDetailsComponent implements OnInit{
+export class CourseDetailsComponent implements OnInit {
+  urlVideo = 'https://vod.vodgc.net/gid7/vod/vodgc/vodgc/28/18-284-8-GCZKTJ1538104527_480P.mp4/tracks-v1a1/index.m3u8';
   user;
   course;
   courseDetails = null;
@@ -28,9 +28,10 @@ export class CourseDetailsComponent implements OnInit{
   livePublicKey = 'pk_live_dc10c90ee39b637a8fd23a969bdd23b96bd9e876';
   txtref = '' + Math.floor((Math.random() * 1000000000) + 1);
   paying = false;
-  sanitizedUrl;
+  sanitizedUrl = '';
   video = [];
   freeVidNo = 4;
+  poster = 'assets/img/poster.jpeg';
 
   constructor(private service: EnquireUniportService, private route: ActivatedRoute,
      private router: Router, private sanitizer: DomSanitizer) { }
@@ -52,7 +53,6 @@ export class CourseDetailsComponent implements OnInit{
   }
 
   ngOnInit() {
-
     // get course from route parameter
     this.route.paramMap.subscribe(params => {
       this.course = params.get('course');
@@ -61,11 +61,9 @@ export class CourseDetailsComponent implements OnInit{
     // get course details
     this.service.getCourse(this.course).subscribe(res => {
       this.courseDetails = res;
-      // console.log(this.courseDetails);
       for (let i = 0; i < this.freeVidNo; i++) {
         this.video.push(res[0].course_content[i]);
       }
-      // console.log(this.video);
       this.numberOfViews = res[0].views;
 
       // first video option
@@ -77,7 +75,8 @@ export class CourseDetailsComponent implements OnInit{
         vidExtension = 'mp4';
       }
       const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
-      this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+      // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+      this.sanitizedUrl = vidUrl;
 
       // increase views by 1
       this.service.increaseViews(this.courseDetails[0]._id).subscribe(res => {
@@ -103,30 +102,21 @@ export class CourseDetailsComponent implements OnInit{
 
   }
 
-  watchVideo(video) {
-    const vid = document.querySelector('video');
-
+  watchVideo(video: string) {
     let vidExtension = 'mp4';
-    if (this.course == 'mth120') {
+    if (this.course === 'mth120') {
       vidExtension = 'm4v';
     }
-    if (this.course == 'mth124') {
+    if (this.course === 'mth124') {
       vidExtension = 'mp4';
     }
-
     window.scrollTo(0, 0);
-
     // First video opiton
     const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
-    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    this.sanitizedUrl = vidUrl;
 
-    // Auto play video
-    vid.load();
-    vid.play();
-
-    // document.getElementById('vidTitle').textContent = video;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
-      //  do stuff here
       this.sanitizedUrl = '';
       // document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
     }

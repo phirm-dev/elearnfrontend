@@ -12,6 +12,7 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { FAQComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 const routes: Routes = [
   { path: 'course/:course', component: CourseDetailsComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
     CoursecontentComponent,
     CourseDetailsComponent,
     FAQComponent,
-    ContactComponent
+    ContactComponent,
+    VideoPlayerComponent
   ],
   exports: [RouterModule]
 })

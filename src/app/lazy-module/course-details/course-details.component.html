@@ -18,9 +18,10 @@
 
   <div class="single-course-intro d-flex align-items-center justify-content-center"
     style="background-image: url(/assets/img/core-img/texture.png);background: rgb(32, 35, 37);">
-    <video id="my-player" class="video-js vjs-big-play-centered" preload="auto" oncontextmenu="return false;" controls
+    <!-- <video id="my-player" class="video-js vjs-big-play-centered" preload="auto" oncontextmenu="return false;" controls
       controlsList="nodownload" poster="assets/img/poster.jpeg" style="width:100%;height: 100%;" [src]="sanitizedUrl" data-setup="{}">
-    </video>
+    </video> -->
+    <app-video-player style="width: 100%; height: 100%;" [urlVideo]="sanitizedUrl" [urlPoster]="poster"></app-video-player>
   </div>
 
   <div class="single-course-content section-padding-100">
