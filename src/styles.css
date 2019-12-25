@@ -268,6 +268,7 @@ img {
 .section-heading h3 {
   font-size: 30px;
   margin-bottom: 0;
+  color: #022B69;
 }
 
 @media only screen and (max-width: 767px) {
@@ -794,8 +795,9 @@ input:focus, textarea:focus {
   position: relative;
   z-index: 1;
   padding: 30px;
-  border: 1px solid #ebebeb;
+  /* border: 1px solid #ebebeb; */
   border-radius: 6px;
+  box-shadow: 0 26px 30px -14px rgba(0,102,245,0.08);
 }
 
 .single-cool-facts-area img {
@@ -812,7 +814,7 @@ input:focus, textarea:focus {
 .single-cool-facts-area h5 {
   margin-bottom: 0;
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(33, 12, 151, 0.8);
 }
 
 /* :: 7.0 Courses Area */
@@ -843,6 +845,7 @@ input:focus, textarea:focus {
 
 .single-popular-course .course-content h4 {
   margin-bottom: 5px;
+  color: #022B69;
 }
 
 .single-popular-course .course-content .meta {
@@ -902,7 +905,7 @@ input:focus, textarea:focus {
   width: 70px;
   height: 40px;
   border-radius: 0 0 6px 0;
-  background-color: #e3d21b;
+  background-color: #0066f5;
   text-align: center;
   line-height: 40px;
   font-size: 12px;
@@ -2432,7 +2435,7 @@ input:focus, textarea:focus {
 .breadcumb-area .breadcrumb {
   padding: 11px 2rem;
   margin-bottom: 0;
-  background-color: #f7f7f7;
+  background-color: #3762f0;
   border-radius: 0;
   height: 40px;
 }
@@ -2452,7 +2455,7 @@ input:focus, textarea:focus {
 
 .breadcumb-area .breadcrumb .breadcrumb-item a {
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.3);
+  color: white;
   text-transform: uppercase;
   font-weight: 600;
 }

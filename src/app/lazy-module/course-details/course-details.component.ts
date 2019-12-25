@@ -32,6 +32,7 @@ export class CourseDetailsComponent implements OnInit {
   video = [];
   freeVidNo = 4;
   poster = 'assets/img/poster.jpeg';
+  videoTitle: string;
 
   constructor(private service: EnquireUniportService, private route: ActivatedRoute,
      private router: Router, private sanitizer: DomSanitizer) { }
@@ -77,7 +78,7 @@ export class CourseDetailsComponent implements OnInit {
       const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
       // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
       this.sanitizedUrl = vidUrl;
-
+      this.videoTitle = res[0].course_content[0];
       // increase views by 1
       this.service.increaseViews(this.courseDetails[0]._id).subscribe(res => {
         if (res['statusCode'] == 200) {
@@ -115,6 +116,7 @@ export class CourseDetailsComponent implements OnInit {
     const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
+    this.videoTitle = video;
 
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';

@@ -19,6 +19,7 @@ export class CoursesComponent implements OnInit {
   constructor(private service: EnquireUniportService, private cartService: CartService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     if (!this.fromStorage || this.helper.isTokenExpired(this.fromStorage)) {
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
