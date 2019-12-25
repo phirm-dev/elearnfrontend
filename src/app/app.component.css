@@ -39,15 +39,22 @@ img {
     background: white !important;
 }
 
+a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover{
+    background: blue !important;
+    color: white;
+}
+
+#sidebar-wrapper .list-group{
+    margin-top: 10px;
+}
+
 #sidebar-wrapper .sidebar-heading {
     font-weight: bold;
 }
 
 #menu-toggle:focus{
     box-shadow: none !important;
-
 }
-
 
 /* 
 @media(min-width:775px) {
@@ -58,7 +65,7 @@ img {
 
 @media(min-width:990px) {
     #jeff-logo {
-        margin-left: 44%;
+        margin-left: 1vw;
     }
 }
 

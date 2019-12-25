@@ -1748,7 +1748,7 @@ input:focus, textarea:focus {
 
 .single-accordion h6 a.collapsed {
   background-color: #f7f7f7;
-  color: #5a5a5a;
+  color: blue;
 }
 
 .single-accordion h6 a.collapsed span.accor-close {
