@@ -39,13 +39,36 @@ img {
     background: white !important;
 }
 
+.notification{
+    height: 42px;
+    padding: 10px 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #0066f5;
+    width: 100%;
+    /* font-size: 1.3rem; */
+    color: white !important;
+    z-index: 100;
+}
+
+.notification span{
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 3px;
+    color: #0066f5;
+    font-size: .98rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 3px 5px;
+}
+
 a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover{
     background: blue !important;
     color: white;
-}
-
-#sidebar-wrapper .list-group{
-    margin-top: 10px;
 }
 
 #sidebar-wrapper .sidebar-heading {
