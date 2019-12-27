@@ -173,3 +173,28 @@
         height: 300px;
     }
 }
+
+.video-notification{
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    padding: 12px;
+    top: 4%;
+    left: 0%;
+    width: 20%;
+    z-index: 99;
+    font-family: 'varela round';
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+
+.hide-video-pop{
+    display: none;
+}
+
+@media(max-width: 970px) {
+    .video-notification{
+        width: 50%;
+    }
+}

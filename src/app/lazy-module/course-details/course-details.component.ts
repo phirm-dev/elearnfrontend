@@ -96,11 +96,27 @@ export class CourseDetailsComponent implements OnInit {
       this.user = this.helper.decodeToken(token);
     }
 
+    setTimeout(() => {
+      this.showVideoNotification('Subscribe For Just 1000 Naira');
+    }, 3000);
+
     // get user details
     // this.service.getUserDetails(this.user.username).subscribe(res => {
     //   this.userPurchasedCourses = res[0].courses;
     // });
 
+  }
+
+  hideVideoNotification(element: HTMLElement) {
+    element.classList.add('hide-video-pop');
+  }
+  showVideoNotification(message: string) {
+    const notificationBox: HTMLElement = document.querySelector('.video-notification');
+    notificationBox.textContent = message;
+    notificationBox.classList.remove('hide-video-pop');
+    setTimeout(() => {
+      this.hideVideoNotification(notificationBox);
+    }, 3000);
   }
 
   watchVideo(video: string) {
@@ -117,6 +133,13 @@ export class CourseDetailsComponent implements OnInit {
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
     this.videoTitle = video;
+
+    setTimeout(() => {
+      this.showVideoNotification(video);
+    }, 3000);
+    setTimeout(() => {
+      this.showVideoNotification('Get All Course Videos, Hit the Subscibe Button');
+    }, 9000);
 
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';

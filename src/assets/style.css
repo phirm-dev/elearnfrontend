@@ -882,7 +882,7 @@ textarea:focus {
       .clever-review .about-review {
         padding: 30px; } }
   .clever-review .clever-ratings {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); border-radius: 12px; }
     @media only screen and (max-width: 767px) {
       .clever-review .clever-ratings {
         -ms-flex-wrap: wrap;
@@ -929,6 +929,7 @@ textarea:focus {
         padding-right: 15px; }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
           .clever-review .clever-ratings .rating-viewer span {
+            border-radius: 12px;
             padding-right: 5px;
             font-size: 11px; } }
         @media only screen and (max-width: 767px) {
@@ -1783,7 +1784,8 @@ textarea:focus {
   position: relative;
   z-index: 1;
   padding: 35px 30px;
-  border: 1px solid #ebebeb;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
+  /* border: 1px solid #ebebeb; */
   border-radius: 6px; }
   @media only screen and (max-width: 767px) {
     .contact--info {

@@ -17,9 +17,6 @@ export class VideoPlayerComponent implements AfterViewInit, OnDestroy, OnChanges
   ngOnChanges() {
     this.vjs.src(this.urlVideo);
     this.vjs.play();
-    this.vjs.createModal(this.videoTitle, {
-      temporary: true
-    });
   }
 
   ngAfterViewInit() {
