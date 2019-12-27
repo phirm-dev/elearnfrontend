@@ -77,13 +77,7 @@ export class CoursecontentComponent implements OnInit {
           this.noCourses = course.number_of_courses;
           this.noVideos = course.course_content;
 
-          let vidExtension = 'mp4';
-          if (course.course_code == 'mth120') {
-            vidExtension = 'm4v';
-          }
-          if (course.course_code == 'mth124') {
-            vidExtension = 'mp4';
-          }
+          const vidExtension = 'mp4';
 
           const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
           // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
@@ -119,13 +113,7 @@ export class CoursecontentComponent implements OnInit {
   // change the video in view
   watchCourse(no, course) {
     const vid = document.querySelector('video');
-    let vidExtension = 'mp4';
-    if (course == 'mth120') {
-      vidExtension = 'm4v';
-    }
-    if (course == 'mth124') {
-      vidExtension = 'mp4';
-    }
+    const vidExtension = 'mp4';
     const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;

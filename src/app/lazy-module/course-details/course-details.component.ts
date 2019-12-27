@@ -66,15 +66,8 @@ export class CourseDetailsComponent implements OnInit {
         this.video.push(res[0].course_content[i]);
       }
       this.numberOfViews = res[0].views;
+      const vidExtension = 'mp4';
 
-      // first video option
-      let vidExtension = 'mp4';
-      if (this.course == 'mth120') {
-        vidExtension = 'm4v';
-      }
-      if (this.course == 'mth124') {
-        vidExtension = 'mp4';
-      }
       const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
       // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
       this.sanitizedUrl = vidUrl;
@@ -95,10 +88,8 @@ export class CourseDetailsComponent implements OnInit {
       }
       this.user = this.helper.decodeToken(token);
     }
-
-    setTimeout(() => {
-      this.showVideoNotification('Subscribe For Just 1000 Naira');
-    }, 3000);
+    this.showVideoNotification('Watch 4 Free Videos For This Course', 3000);
+    this.showVideoNotification('Get Updates To Courses When You Subscribe', 15000);
 
     // get user details
     // this.service.getUserDetails(this.user.username).subscribe(res => {
@@ -110,36 +101,29 @@ export class CourseDetailsComponent implements OnInit {
   hideVideoNotification(element: HTMLElement) {
     element.classList.add('hide-video-pop');
   }
-  showVideoNotification(message: string) {
-    const notificationBox: HTMLElement = document.querySelector('.video-notification');
-    notificationBox.textContent = message;
-    notificationBox.classList.remove('hide-video-pop');
+  showVideoNotification(message: string, duration: number = 1000) {
+    let notificationBox: HTMLElement;
+    setTimeout(() => {
+      notificationBox = document.querySelector('.video-notification');
+      notificationBox.textContent = message;
+      notificationBox.classList.remove('hide-video-pop');
+    }, duration);
     setTimeout(() => {
       this.hideVideoNotification(notificationBox);
-    }, 3000);
+    }, duration + 3000);
   }
 
   watchVideo(video: string) {
-    let vidExtension = 'mp4';
-    if (this.course === 'mth120') {
-      vidExtension = 'm4v';
-    }
-    if (this.course === 'mth124') {
-      vidExtension = 'mp4';
-    }
+    const vidExtension = 'mp4';
     window.scrollTo(0, 0);
     // First video opiton
     const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
     this.videoTitle = video;
+    this.showVideoNotification(video, 3000);
 
-    setTimeout(() => {
-      this.showVideoNotification(video);
-    }, 3000);
-    setTimeout(() => {
-      this.showVideoNotification('Get All Course Videos, Hit the Subscibe Button');
-    }, 9000);
+    this.showVideoNotification('Get All Course Videos, Hit the Subscibe Button', 9000);
 
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';
