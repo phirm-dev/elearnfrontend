@@ -5,7 +5,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ActivatedRoute } from '@angular/router';
 import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import * as Plyr from 'plyr';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -41,10 +40,6 @@ export class CoursecontentComponent implements OnInit {
 
 
   ngOnInit() {
-
-    this.player = new Plyr('#plyrID', { captions: { active: true } });
-
-
     // get the course code from url
     this.route.paramMap.subscribe(params => {
       this.course = params.get('course');
@@ -118,8 +113,6 @@ export class CoursecontentComponent implements OnInit {
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
     vid.autoplay = true;
-    window.scrollTo(0, 200);
-    document.getElementById('vidTitle').textContent = no;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       //  do stuff here
       this.sanitizedUrl = '';
