@@ -1,7 +1,5 @@
 <section>
-  <!-- ##### Breadcumb Area Start ##### -->
   <div class="breadcumb-area">
-    <!-- Breadcumb -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -10,10 +8,6 @@
       </ol>
     </nav>
   </div>
-  <!-- ##### Breadcumb Area End ##### -->
-  <!-- ##### Single Course Intro End ##### -->
-
-  <!-- ##### Courses Content Start ##### -->
   <div class="single-course-content section-padding-100">
     <div class="container">
       <div class="row">
@@ -26,30 +20,14 @@
                   <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
                     aria-selected="false">Subscribed</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
-                    aria-selected="true"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup
-                      *ngIf="lengthOfCart > 0"><span
-                        class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></a>
-                </li> -->
                 <li class="nav-item">
                   <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
                     aria-selected="true"><i class="fa fa-user" aria-hidden="true"></i></a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4"
-                    aria-selected="true">Members</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="tab--5" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5"
-                    aria-selected="true">Forum</a>
-                </li> -->
               </ul>
 
               <div class="tab-content" id="myTabContent">
-                <!-- Tab Text -->
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
-                  <!-- Single Popular Course -->
                   <div *ngIf="!coursesPurchased">
                     <div class="text-center">
                       <img src="assets/img/loading.gif" alt="" style="
@@ -64,92 +42,9 @@
                     <p class="text-center">You haven't subscribed for any course.</p>
                   </div>
                   <div class="col-12 col-md-12 col-lg-6">
-                    <div class="single-popular-course mb-50" data-wow-delay="750ms" *ngFor="let course of coursesPurchased">
-                      <!-- <img src="assets/img/bg-img/e3.jpg" alt=""> -->
-                      <!-- Course Content -->
-                      <div class="course-content">
-                        <h4>{{course.course_name}}</h4>
-                        <div class="meta d-flex align-items-center">
-                          <a href="#">{{course.course_code}}</a>
-                          <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                          <!-- <a href="#">Art &amp; Design</a> -->
-                        </div>
-                        <p>
-                          {{course.course_description.substring(0,105)}}....
-                        </p>
-                      </div>
-                      <!-- Seat Rating Fee -->
-                      <div class="seat-rating-fee d-flex justify-content-between">
-                        <div class="seat-rating h-100 d-flex align-items-center">
-                          <div class="seat">
-                            <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
-                          </div>
-                          <div class="rating">
-                            <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
-                          </div>
-                          <!-- <div class="seat">
-                            <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
-                          </div> -->
-                        </div>
-                        <div class="course-fee h-100 primary">
-                          <a class="primary" routerLink="/tutorials/coursecontent/{{course.course_code}}">view</a>
-                        </div>
-                      </div>
-                    </div>
+                    <app-courselist [coursesPurchased]="coursesPurchased"></app-courselist>
                   </div>
                 </div>
-
-                <!-- Tab Text -->
-                <!-- <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-3"></div>
-                      <div class="col-ld-6">
-                        <h5 class="text-center"></h5>
-                        <div *ngIf="cartItems.length<1">
-                          <img src="assets/img/emptycart.png">
-                          <p class="text-center">Your cart is empty</p>
-                        </div>
-                        <div class="col-12 col-md-12 col-lg-12" *ngFor="let item of cartItems">
-                          <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
-                            
-                            <div class="course-content">
-                              <h4>{{item.course_name}}</h4>
-                              <div class="meta d-flex align-items-center">
-                                <a href="#">{{item.course_code}}</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                               
-                              </div>
-                              <p>
-                                
-                              </p>
-                            </div>
-                            <div class="seat-rating-fee d-flex justify-content-between">
-                              <div class="seat-rating h-100 d-flex align-items-center">
-                               
-                                <div class="rating">
-                                  <i class="fa fa-video-camera" aria-hidden="true"></i> {{item.number_of_courses}}
-                                </div>
-                               
-                              </div>
-                              <div class="course-fee h-100">
-                                <a (click)="removeFromCart()" style="background:red;"> <i class="fa fa-trash"
-                                    aria-hidden="true"></i></a>
-                                <a routerLink="/tutorials/course/{{item.course_code}}">view</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="text-center">
-                          <button class="btn btn-primary" routerLink="/cart">checkout</button>
-                        </div>
-                      </div>
-                      <div class="col-lg-3"></div>
-                    </div>
-                  </div>
-                </div> -->
-
-                <!-- Tab Text -->
                 <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
                   <div class="clever-review">
                     <!-- About Review -->
@@ -169,166 +64,8 @@
                           </p>
                           <p class="text-center"> {{decodedToken.email}}</p>
                           <button class="btn btn-danger" (click)="logOut()">Logout</button>
-                          <!-- <h2>4.5</h2>
-                          <div class="ratings--">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                          </div>
-                          <span>Rated 5 out of 3 Ratings</span> -->
                         </div>
                       </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Tab Text -->
-                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab--4">
-                  <div class="clever-members">
-
-                    <!-- About Members -->
-                    <div class="about-members mb-30">
-                      <h4>Members</h4>
-                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
-                        lorem
-                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
-                        ultrices</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Tab Text -->
-                <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab--5">
-                  <div class="clever-review">
-
-                    <!-- About Review -->
-                    <div class="about-review mb-30">
-                      <h4>Reviews</h4>
-                      <p>Sed elementum lacus a risus luctus suscipit. Aenean sollicitudin sapien neque, in fermentum
-                        lorem
-                        dignissim a. Nullam eu mattis quam. Donec porttitor nunc a diam molestie blandit. Maecenas quis
-                        ultrices</p>
-                    </div>
-
-                    <!-- Ratings -->
-                    <div class="clever-ratings d-flex align-items-center mb-30">
-
-                      <div class="total-ratings text-center d-flex align-items-center justify-content-center">
-                        <div class="ratings-text">
-                          <h2>4.5</h2>
-                          <div class="ratings--">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                          </div>
-                          <span>Rated 5 out of 3 Ratings</span>
-                        </div>
-                      </div>
-
-                      <div class="rating-viewer">
-                        <!-- Rating -->
-                        <div class="single-rating mb-15 d-flex align-items-center">
-                          <span>5 STARS</span>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>80%</span>
-                        </div>
-                        <!-- Rating -->
-                        <div class="single-rating mb-15 d-flex align-items-center">
-                          <span>4 STARS</span>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>20%</span>
-                        </div>
-                        <!-- Rating -->
-                        <div class="single-rating mb-15 d-flex align-items-center">
-                          <span>3 STARS</span>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>0%</span>
-                        </div>
-                        <!-- Rating -->
-                        <div class="single-rating mb-15 d-flex align-items-center">
-                          <span>2 STARS</span>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>0%</span>
-                        </div>
-                        <!-- Rating -->
-                        <div class="single-rating mb-15 d-flex align-items-center">
-                          <span>1 STARS</span>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>0%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Single Review -->
-                    <div class="single-review mb-30">
-                      <div class="d-flex justify-content-between mb-30">
-                        <!-- Review Admin -->
-                        <div class="review-admin d-flex">
-                          <div class="thumb">
-                            <img src="assets/img/bg-img/t1.png" alt="">
-                          </div>
-                          <div class="text">
-                            <h6>Sarah Parker</h6>
-                            <span>Sep 29, 2017 at 9:48 am</span>
-                          </div>
-                        </div>
-                        <!-- Ratings -->
-                        <div class="ratings">
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
-                        sagittis.</p>
-                    </div>
-
-                    <!-- Single Review -->
-                    <div class="single-review mb-30">
-                      <div class="d-flex justify-content-between mb-30">
-                        <!-- Review Admin -->
-                        <div class="review-admin d-flex">
-                          <div class="thumb">
-                            <img src="img/bg-img/t1.png" alt="">
-                          </div>
-                          <div class="text">
-                            <h6>Sarah Parker</h6>
-                            <span>Sep 29, 2017 at 9:48 am</span>
-                          </div>
-                        </div>
-                        <!-- Ratings -->
-                        <div class="ratings">
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in,
-                        sagittis.</p>
                     </div>
                   </div>
                 </div>
@@ -339,5 +76,4 @@
       </div>
     </div>
   </div>
-  <!-- ##### Courses Content End ##### -->
 </section>

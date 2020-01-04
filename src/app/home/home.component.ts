@@ -27,10 +27,8 @@ export class HomeComponent implements OnInit {
 
 
     if (this.helper.isTokenExpired(this.fromStorage)) {
-      console.log('Expired , go to the network');
       this.service.getCoursesToken().subscribe(res => {
         this.availableCourses = res['token'];
-        console.log(res);
         localStorage.setItem('available-courses', this.availableCourses);
         const getToken = localStorage.getItem('available-courses');
         this.courses = this.helper.decodeToken(getToken)['courses'];
@@ -39,7 +37,6 @@ export class HomeComponent implements OnInit {
         }
       });
     } else {
-      console.log('Not expired , Decode token');
       this.courses = this.helper.decodeToken(this.fromStorage)['courses'];
       for (let i = 0; i < 3; i++) {
         this.displayCourses.push(this.courses[i]);
@@ -48,7 +45,9 @@ export class HomeComponent implements OnInit {
   }
 
   signUp(credentials) {
-    if (!credentials || credentials == '' || credentials.password == '' || credentials.phone == '' || credentials.email == '' || credentials.username == '') {
+    if (!credentials || credentials === '' || credentials.password === '' || credentials.phone === '' 
+    || credentials.email === ''
+     || credentials.username === '') {
       swal('Error', 'Missing Details', 'error');
     } else {
       this.spinnerService.show();

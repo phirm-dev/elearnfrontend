@@ -82,17 +82,17 @@
       <!-- Single Popular Course -->
       <div class="col-12 col-md-6 col-lg-4" *ngFor="let course of displayCourses">
         <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
-          <img src="assets/img/course_images/{{course.course_code}}/img.jpeg" alt="">
+          <img src="assets/img/course_images/{{course?.course_code}}/img.jpeg" alt="">
           <!-- Course Content -->
           <div class="course-content">
-            <h4 routerLink="/tutorials/course/{{course.course_code}}">{{course.course_name}}</h4>
+            <h4 routerLink="/tutorials/course/{{course?.course_code}}">{{course?.course_name}}</h4>
             <div class="meta d-flex align-items-center">
-              <a routerLink="/tutorials/course/{{course.course_code}}">{{course.course_code}}</a>
+              <a routerLink="/tutorials/course/{{course?.course_code}}">{{course?.course_code}}</a>
               <span><i class="fa fa-circle" aria-hidden="true"></i></span>
               <!-- <a href="#">Art &amp; Design</a> -->
             </div>
             <p>
-              {{course.course_description.substring(0,99)}} ....
+              {{course?.course_description.substring(0,99)}} ....
             </p>
           </div>
           <!-- Seat Rating Fee -->
@@ -102,15 +102,15 @@
                 <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
               </div> -->
               <div class="rating">
-                <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
+                <i class="fa fa-video-camera" aria-hidden="true"></i> {{course?.number_of_courses}}
               </div>
               <div class="seat">
-                <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
+                <i class="fa fas fa-money" aria-hidden="true"></i> N{{course?.course_price / 100}}
               </div>
             </div>
             <div class="course-fee h-100">
               <!-- <a (click)="addToCart(course)" style="background:green;cursor: pointer;">+<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a> -->
-              <a routerLink="/tutorials/course/{{course.course_code}}">view</a>
+              <a routerLink="/tutorials/course/{{course?.course_code}}">view</a>
             </div>
           </div>
         </div>
@@ -128,10 +128,6 @@
   </div>
 </section>
 <!-- ##### Popular Courses End ##### -->
-
-<!-- ##### Best Tutors Start ##### -->
-
-<!-- ##### Best Tutors End ##### -->
 
 <!-- ##### Register Now Start ##### -->
 <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center"
@@ -187,10 +183,3 @@
     </div>
   </div>
 </section>
-<!-- ##### Register Now End ##### -->
-
-<!-- ##### Upcoming Events Start ##### -->
-<!-- ##### Upcoming Events End ##### -->
-
-<!-- ##### Blog Area Start ##### -->
-<!-- ##### Blog Area End ##### -->

@@ -1,7 +1,4 @@
-<!-- ##### Header Area End ##### -->
-<!-- ##### Breadcumb Area Start ##### -->
 <div class="breadcumb-area">
-  <!-- Breadcumb -->
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -10,63 +7,9 @@
     </ol>
   </nav>
 </div>
-<!-- ##### Breadcumb Area End ##### -->
-
-<!-- ##### Catagory ##### -->
 <div class="bg-img d-flex align-items-center justify-content-center p-3"
   style="box-shadow: 0 26px 30px -14px rgba(0,102,245,0.08);height: 150px;">
   <h3 style="color: rgb(36, 121, 246);font-size: 45px;">courses</h3>
 </div>
 
-<!-- ##### Popular Course Area Start ##### -->
-<section class="popular-courses-area section-padding-100">
-  <div class="container">
-    <div class="row">
-
-      <!-- Single Popular Course -->
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let course of courses">
-        <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
-          <img src="assets/img/course_images/{{course.course_code}}/img.jpeg" alt="">
-          <!-- Course Content -->
-          <div class="course-content">
-            <h4 routerLink="/tutorials/course/{{course.course_code}}">{{course.course_name}}</h4>
-            <div class="meta d-flex align-items-center">
-              <a routerLink="/tutorials/course/{{course.course_code}}">{{course.course_code}}</a>
-              <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-              <!-- <a href="#">Art &amp; Design</a> -->
-            </div>
-            <p [innerHTML]="course.course_description.substring(0,60)">
-            </p>
-          </div>
-          <!-- Seat Rating Fee -->
-          <div class="seat-rating-fee d-flex justify-content-between">
-            <div class="seat-rating h-100 d-flex align-items-center">
-              <!-- <div class="seat">
-                  <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
-                </div> -->
-              <div class="rating">
-                <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
-              </div>
-              <div class="seat">
-                <i class="fa fas fa-money" aria-hidden="true"></i> N{{course.course_price / 100}}
-              </div>
-            </div>
-            <div class="course-fee h-100">
-              <!-- <a style="background:green;cursor: pointer;" (click)="addToCart(course)">+<i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a> -->
-              <a routerLink="/tutorials/course/{{course.course_code}}">view</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <!-- <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
-          <a href="#" class="btn clever-btn btn-2">Load More</a>
-        </div> -->
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ##### Popular Course Area End ##### -->
+<app-courselist [courses]="courses"></app-courselist>

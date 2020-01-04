@@ -1,0 +1,18 @@
+   <!-- Curriculum Level -->
+   <div class="curriculum-level mb-30">
+    <h4 class="d-flex justify-content-between"><span>Content</span> <span></span></h4>
+    <h5 *ngIf="!readonly">Free Preview Videos</h5>
+    <p *ngIf="!readonly">To get full access hit the subscribe button.</p>
+
+    <ul class="curriculum-list">
+      <li>
+        <ul>
+          <li class="single-instructor" *ngFor="let vid of video" (click)="watchVideo.emit(vid)"
+            style="cursor:pointer;padding: 12px;">
+            <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video:
+              <span>{{removeUnderscores(vid.toUpperCase())}}</span></span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>

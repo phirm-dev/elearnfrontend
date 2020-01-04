@@ -54,10 +54,10 @@ export class EnquireUniportService {
   }
 
   isLoggedIn() {
-    var token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token) {
-      var isTokenExpired = this.helper.isTokenExpired(token);
-      if (isTokenExpired == true) {
+      const isTokenExpired = this.helper.isTokenExpired(token);
+      if (isTokenExpired === true) {
         localStorage.removeItem('token');
       }
       return !isTokenExpired;
@@ -66,9 +66,9 @@ export class EnquireUniportService {
   }
 
   isAdminLoggedIn() {
-    var admintoken = localStorage.getItem('admintoken');
+    const admintoken = localStorage.getItem('admintoken');
     if (admintoken) {
-      var isTokenExpired = this.helper.isTokenExpired(admintoken);
+      const isTokenExpired = this.helper.isTokenExpired(admintoken);
       return !isTokenExpired;
     }
     return false;

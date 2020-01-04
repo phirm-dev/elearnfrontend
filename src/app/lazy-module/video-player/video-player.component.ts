@@ -10,13 +10,11 @@ export class VideoPlayerComponent implements AfterViewInit, OnDestroy, OnChanges
   public vjs: videojs.Player;
   @Input() urlVideo: string;
   @Input() urlPoster: string;
-  @Input() videoTitle: string;
 
   constructor() { }
 
   ngOnChanges() {
     this.vjs.src(this.urlVideo);
-    console.log(this.urlVideo);
     this.vjs.play();
   }
 

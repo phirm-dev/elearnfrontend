@@ -54,6 +54,7 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     // get course from route parameter
     this.route.paramMap.subscribe(params => {
       this.course = params.get('course');
@@ -121,7 +122,7 @@ export class CourseDetailsComponent implements OnInit {
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
     this.videoTitle = video;
-    this.showVideoNotification(video, 3000);
+    this.showVideoNotification(video, 500);
 
     this.showVideoNotification('Get All Course Videos, Hit the Subscibe Button', 9000);
 
@@ -152,11 +153,6 @@ export class CourseDetailsComponent implements OnInit {
     const shareURL = `whatsapp://send?phone=${num}`;
     const whatsappUrl = `https://wa.me/${num}`;
     location.href = whatsappUrl;
-  }
-
-  removeUnderscores(str: string) {
-    const newStr = str.replace(/_/g, ' ');
-    return newStr;
   }
 
   share() {

@@ -6,30 +6,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { Authguard } from './authguard.service';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { AngularRaveModule } from 'angular-rave';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { PlyrModule } from 'ngx-plyr';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { CoursesComponent } from './courses/courses.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 const routes: Routes = [
   { component: HomeComponent, path: '' },
-  { component: LoginComponent, path: 'login' },
-//  { component: CartComponent, path: "cart" },
-  { component: SignupComponent, path: 'signup' },
-  { component: CoursesComponent, path: 'courses' },
+  { loadChildren: './login/login.module#LoginModule', path: 'login' },
+  { loadChildren: './signup/signup.module#SignupModule', path: 'signup' },
+  { loadChildren: './courses/courses.module#CoursesModule', path: 'courses' },
   { path: 'tutorials', loadChildren: './lazy-module/lazy-module.module#LazyModuleModule' },
-  { component: DashboardComponent, path: 'dashboard', canActivate: [Authguard] },
-  { component: NotFoundComponent, path: '**' }
+  { loadChildren: './dashboard/dashboard.module#DashboardModule', path: 'dashboard', canActivate: [Authguard] },
+  { loadChildren: './not-found/not-found.module#NotFoundModule', path: '**' }
 ];
 
 
@@ -37,11 +29,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    DashboardComponent,
-    NotFoundComponent,
-    CoursesComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +40,7 @@ const routes: Routes = [
     Ng4LoadingSpinnerModule.forRoot(),
     AngularRaveModule,
     RouterModule.forRoot(routes),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [RouterModule],
   providers: [

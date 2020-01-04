@@ -1,0 +1,26 @@
+<div class="single-popular-course mb-50" data-wow-delay="750ms" *ngFor="let course of coursesPurchased">
+  <div class="course-content">
+    <h4>{{course.course_name}}</h4>
+    <div class="meta d-flex align-items-center">
+      <a href="#">{{course.course_code}}</a>
+      <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+    </div>
+    <p>
+      {{course.course_description.substring(0,105)}}....
+    </p>
+  </div>
+  <!-- Seat Rating Fee -->
+  <div class="seat-rating-fee d-flex justify-content-between">
+    <div class="seat-rating h-100 d-flex align-items-center">
+      <div class="seat">
+        <i class="fa fa-user" aria-hidden="true"></i> {{course.views}}
+      </div>
+      <div class="rating">
+        <i class="fa fa-video-camera" aria-hidden="true"></i> {{course.number_of_courses}}
+      </div>
+    </div>
+    <div class="course-fee h-100 primary">
+      <a class="primary" routerLink="/tutorials/coursecontent/{{course.course_code}}">view</a>
+    </div>
+  </div>
+</div>
