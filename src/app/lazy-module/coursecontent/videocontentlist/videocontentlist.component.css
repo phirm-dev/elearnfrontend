@@ -1,0 +1,19 @@
+.video-list-group {
+  overflow-y: scroll;
+  height: 85vh;
+  cursor: pointer;
+  z-index: 1040;
+}
+
+@media(max-width: 750px) {
+  ul {
+    padding: 10px;
+  }
+
+  .video-list-group {
+    overflow-y: auto;
+    height: auto;
+    cursor: pointer;
+    padding: 10px !important;
+  }
+}

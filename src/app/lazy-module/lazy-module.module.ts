@@ -8,6 +8,10 @@ import { FAQComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideolistComponent } from './videolist/videolist.component';
+import { CommentsComponent } from './coursecontent/comments/comments.component';
+import { OverviewComponent } from './coursecontent/overview/overview.component';
+import { AnnouncementComponent } from './coursecontent/announcement/announcement.component';
+import { VideocontentlistComponent } from './coursecontent/videocontentlist/videocontentlist.component';
 
 const routes: Routes = [
   { path: 'course/:course', component: CourseDetailsComponent },
@@ -28,7 +32,11 @@ const routes: Routes = [
     FAQComponent,
     ContactComponent,
     VideoPlayerComponent,
-    VideolistComponent
+    VideolistComponent,
+    CommentsComponent,
+    OverviewComponent,
+    AnnouncementComponent,
+    VideocontentlistComponent
   ],
   exports: [RouterModule]
 })

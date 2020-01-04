@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'app-coursecontent',
   templateUrl: './coursecontent.component.html',
   styleUrls: ['./coursecontent.component.css', '../../../assets/libs/bootstrap/css/bootstrap.min.css',
-   '../../../assets/libs/material-design-iconic-font/css/material-design-iconic-font.min.css',
+    '../../../assets/libs/material-design-iconic-font/css/material-design-iconic-font.min.css',
     '../../../assets/libs/jquery-ui/jquery-ui.min.css',
     '../../../assets/libs/rslides/responsiveslides.css',
     '../../../assets/libs/slick/slick.css', '../../../assets/css/main.css']
@@ -19,7 +19,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class CoursecontentComponent implements OnInit {
   public player;
   coursesPurchased;
-  user;
+  user: any;
   course;
   helper = new JwtHelperService();
   token = localStorage.getItem('token');
@@ -63,21 +63,22 @@ export class CoursecontentComponent implements OnInit {
     };
     // make api call to validate user subscription
     this.service.checkUserSubscription(userObj).subscribe(response => {
-        this.user = response;
-        this.coursesPurchased = response['courses'];
-        this.coursesPurchased.filter(course => {
-          return course.course_code == this.course;
-        }).map(course => {
-          this.view = course;
-          this.noCourses = course.number_of_courses;
-          this.noVideos = course.course_content;
+      this.user = response;
+      this.coursesPurchased = response['courses'];
+      this.coursesPurchased.filter(course => {
+        return course.course_code == this.course;
+      }).map(course => {
+        this.view = course;
+        console.log(this.view);
+        this.noCourses = course.number_of_courses;
+        this.noVideos = course.course_content;
 
-          const vidExtension = 'mp4';
+        const vidExtension = 'mp4';
 
-          const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
-          // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
-          this.sanitizedUrl = vidUrl;
-        });
+        const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
+        // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+        this.sanitizedUrl = vidUrl;
+      });
     }, (error: HttpErrorResponse) => {
       if (error.status === 403 && error.error.status === false) {
         alert('You are logged in another device, logout and log in again, ensure no one has your password.')
@@ -100,11 +101,6 @@ export class CoursecontentComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  removeUnderscores(str: string) {
-    const newStr = str.replace(/_/g, ' ');
-    return newStr;
-  }
-
   // change the video in view
   watchCourse(no, course) {
     const vid = document.querySelector('video');
@@ -118,21 +114,6 @@ export class CoursecontentComponent implements OnInit {
       this.sanitizedUrl = '';
       document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
     }
-  }
-
-  makeCommentMobile(comment, course) {
-    if (comment.value === '') {
-      swal('Fill In Comment');
-      return;
-    }
-    const sentence = comment.value;
-    comment.value = '';
-    document.getElementById('talkBox').classList.add('slideOutDown');
-    document.getElementById('talkBox').classList.remove('slideInUp');
-    const username = this.helper.decodeToken(this.token).username;
-    this.service.makeComment(username, sentence, course).subscribe(res => {
-      this.comments.push(res);
-    });
   }
 
   makeComment(comment, course) {

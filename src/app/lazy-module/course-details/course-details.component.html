@@ -1,8 +1,5 @@
 <div class="text-center" *ngIf="!courseDetails">
-  <img src="assets/img/loading.gif" alt="" style="
-  margin-top: 13%;
-  width: 200px;
-">
+<div class="spinner-grow text-primary" style="margin-top: 13%;"></div>
   <p class="text-center">Loading.....</p>
 </div>
 <section *ngFor="let course of courseDetails">
@@ -16,8 +13,7 @@
     </nav>
   </div>
 
-  <div class="single-course-intro d-flex align-items-center justify-content-center"
-    style="background-image: url(/assets/img/core-img/texture.png);background: rgb(32, 35, 37);">
+  <div class="single-course-intro d-flex align-items-center justify-content-center" style="background-image: url(/assets/img/core-img/texture.png);background: rgb(32, 35, 37);">
     <div class="video-notification hide-video-pop"></div>
     <app-video-player style="width: 100%; height: 100%;" [urlVideo]="sanitizedUrl" [urlPoster]="poster"></app-video-player>
   </div>
@@ -31,17 +27,14 @@
             <div class="clever-tabs-content">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
-                    aria-selected="true">Curriculum</a>
+                  <a class="nav-link active" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="true">Curriculum</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
-                    aria-selected="false">Description</a>
+                  <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Description</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4"
-                    aria-selected="true">Members</a>
+                  <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="true">Members</a>
                 </li>
 
               </ul>
@@ -85,8 +78,7 @@
 
                         <!-- Single Accordian Area -->
                         <div class="panel single-accordion">
-                          <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
-                              data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How do I subscribe for
+                          <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How do I subscribe for
                               a course?.
                               <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                               <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
@@ -99,8 +91,7 @@
                         <!-- Single Accordian Area -->
                         <div class="panel single-accordion">
                           <h6>
-                            <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
-                              data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">How long does the
+                            <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">How long does the
                               subscription last?
                               <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                               <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
@@ -115,8 +106,7 @@
                         <!-- Single Accordian Area -->
                         <div class="panel single-accordion">
                           <h6>
-                            <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
-                              data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What is the price
+                            <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">What is the price
                               for this course?
                               <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                               <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
@@ -232,7 +222,7 @@
                   <h6><i class="fa fa-bell" aria-hidden="true"></i> Lectures</h6>
                   <h6>{{course.number_of_courses}}</h6>
                 </li>
-               
+
               </ul>
             </div>
 
@@ -246,8 +236,7 @@
 
   <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title"
-        style="margin:23px;">
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title" style="margin:23px;">
         <header class="modal__header">
           <h2 class="modal__title" id="modal-1-title">
             Payment Methods
@@ -262,9 +251,8 @@
           <br>
           or
           <p *ngIf="user">
-            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref
-              [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()"
-              (callback)="paymentDone($event)">Pay {{course.course_price/100}} With ATM Card</angular4-paystack>
+            <angular4-paystack [key]=livePublicKey [email]="user.email" [amount]="course.course_price" [ref]=txtref [channels]="['card']" [class]="'btn btn-primary'" (close)="paymentCancel()" (callback)="paymentDone($event)">Pay
+              {{course.course_price/100}} With ATM Card</angular4-paystack>
           </p>
           or
           <br *ngIf="user">
