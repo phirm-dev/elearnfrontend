@@ -69,7 +69,6 @@ export class CoursecontentComponent implements OnInit {
         return course.course_code == this.course;
       }).map(course => {
         this.view = course;
-        console.log(this.view);
         this.noCourses = course.number_of_courses;
         this.noVideos = course.course_content;
 
@@ -101,20 +100,27 @@ export class CoursecontentComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  // change the video in view
-  watchCourse(no, course) {
-    const vid = document.querySelector('video');
+  // watchCourse(no, course) {
+  //   const vid = document.querySelector('video');
+  //   const vidExtension = 'mp4';
+  //   const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
+  //   this.sanitizedUrl = vidUrl;
+  //   vid.autoplay = true;
+  //   if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
+  //     this.sanitizedUrl = '';
+  //     document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
+  //   }
+  // }
+
+  watchVideo(event) {
     const vidExtension = 'mp4';
-    const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
-    // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
+    const vidUrl = this.videoLocationUrl + '/videos/' + this.view.course_code + '/' + event + '.' + vidExtension;
     this.sanitizedUrl = vidUrl;
-    vid.autoplay = true;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
-      //  do stuff here
       this.sanitizedUrl = '';
-      document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
     }
   }
+
 
   makeComment(comment, course) {
     if (comment.value === '') {

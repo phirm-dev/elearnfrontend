@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 })
 export class EnquireUniportService {
 
-  url = environment.url;
+  private url = environment.url;
   helper = new JwtHelperService();
   token = localStorage.getItem('token');
   decodedToken = this.helper.decodeToken(this.token);

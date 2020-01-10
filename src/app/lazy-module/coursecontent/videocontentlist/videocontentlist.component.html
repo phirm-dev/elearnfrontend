@@ -1,5 +1,5 @@
 <ul class="list-group video-list-group">
   <li class="list-group-item disabled text-center text-uppercase text-bold">Videos</li>
-  <li #vidlist class="list-group-item" (click)="watchCourse(vid,view.course_code);" *ngFor="let vid of noVideos; let i = index">{{i + 1}}. {{removeUnderscores(vid.toUpperCase())}}</li>
+  <li #vidlist class="list-group-item" (click)="watchVideo.emit(vid);" *ngFor="let vid of noVideos; let i = index">{{removeUnderscores(vid.toUpperCase())}}</li>
   <li class="list-group-item disabled text-center text-uppercase text-bold">End</li>
 </ul>

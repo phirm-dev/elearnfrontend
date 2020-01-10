@@ -47,7 +47,7 @@
               <app-overview [description]="view.course_description"></app-overview>
             </div>
             <div class="tab-pane container" id="videos">
-              <app-videocontentlist [noVideos]="noVideos" style="padding: 10px;" id="video-list"></app-videocontentlist>
+              <app-videocontentlist [noVideos]="noVideos" (watchVideo)="watchVideo($event)" style="padding: 10px;" id="video-list"></app-videocontentlist>
             </div>
             <div class="tab-pane container" id="menu1">
               <app-comments></app-comments>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="col-lg-3 list-col">
-      <app-videocontentlist [noVideos]="noVideos"></app-videocontentlist>
+      <app-videocontentlist (watchVideo)="watchVideo($event)" [noVideos]="noVideos"></app-videocontentlist>
     </div>
   </div>
 </div>

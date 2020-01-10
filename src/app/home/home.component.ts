@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   signUp(credentials) {
-    if (!credentials || credentials === '' || credentials.password === '' || credentials.phone === '' 
+    if (!credentials || credentials === '' || credentials.password === '' || credentials.phone === ''
     || credentials.email === ''
      || credentials.username === '') {
       swal('Error', 'Missing Details', 'error');
@@ -64,15 +64,6 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-
-  // addToCart(item) {
-  //   var cartAdded = this.cartService.addToCart(item);
-  //   if (cartAdded) {
-  //     swal("Success", "Added to cart", "success");
-  //   } else {
-  //     swal("", "Already in cart", "warning");
-  //   }
-  // }
 
   nav() {
     const token = localStorage.getItem('token');
