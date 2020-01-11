@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { removeUnderscores } from '../../../lib/handlevideodisplay';
 
 @Component({
   selector: 'app-videocontentlist',
@@ -9,15 +10,11 @@ export class VideocontentlistComponent implements OnInit {
 
   @Input() noVideos:any[];
   @Output() watchVideo = new EventEmitter();
+  handlevideodisplay = removeUnderscores;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  removeUnderscores(str: string) {
-    const newStr = str.replace(/_/g, ' ');
-    return newStr;
   }
 
 }

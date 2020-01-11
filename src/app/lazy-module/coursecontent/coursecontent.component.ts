@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-coursecontent',
@@ -30,7 +31,7 @@ export class CoursecontentComponent implements OnInit {
   expires;
   expired = false;
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
-  videoLocationUrl = 'https://storage.googleapis.com/globally-cdn-jefftutors';
+  videoLocationUrl = environment.baseVideoUrl;
   poster = 'assets/img/poster.jpeg';
   sanitizedUrl;
 
@@ -72,9 +73,9 @@ export class CoursecontentComponent implements OnInit {
         this.noCourses = course.number_of_courses;
         this.noVideos = course.course_content;
 
-        const vidExtension = 'mp4';
+        // const vidExtension = 'mp4';
 
-        const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0] + '.' + vidExtension;
+        const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0];
         // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
         this.sanitizedUrl = vidUrl;
       });
@@ -113,8 +114,8 @@ export class CoursecontentComponent implements OnInit {
   // }
 
   watchVideo(event) {
-    const vidExtension = 'mp4';
-    const vidUrl = this.videoLocationUrl + '/videos/' + this.view.course_code + '/' + event + '.' + vidExtension;
+    // const vidExtension = 'mp4';
+    const vidUrl = this.videoLocationUrl + '/videos/' + this.view.course_code + '/' + event;
     this.sanitizedUrl = vidUrl;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';

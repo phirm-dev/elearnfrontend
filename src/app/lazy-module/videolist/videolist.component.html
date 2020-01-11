@@ -10,7 +10,7 @@
           <li class="single-instructor" *ngFor="let vid of video" (click)="watchVideo.emit(vid)"
             style="cursor:pointer;padding: 12px;">
             <span><i class="fa fa-video-camera" aria-hidden="true"></i> Video:
-              <span>{{removeUnderscores(vid.toUpperCase())}}</span></span>
+              <span>{{handlevideodisplay(vid.toUpperCase())}}</span></span>
           </li>
         </ul>
       </li>

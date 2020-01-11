@@ -6,6 +6,7 @@ import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import MicroModal from 'micromodal';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-course-details',
@@ -14,7 +15,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 
 export class CourseDetailsComponent implements OnInit {
-  urlVideo = 'https://vod.vodgc.net/gid7/vod/vodgc/vodgc/28/18-284-8-GCZKTJ1538104527_480P.mp4/tracks-v1a1/index.m3u8';
   user;
   course;
   courseDetails = null;
@@ -23,7 +23,7 @@ export class CourseDetailsComponent implements OnInit {
   userPurchasedCourses;
   // public APIkey: string = "FLWPUBK-9fc35f1dd34ad3dcdbb261730b89fc3a-X";
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
-  videoLocationUrl = 'https://storage.googleapis.com/globally-cdn-jefftutors';
+  videoLocationUrl = environment.baseVideoUrl;
   // testPublicKey = 'pk_test_bed1c8f4a96cf7c72d846de9bb66c915e6994bc4';
   livePublicKey = 'pk_live_dc10c90ee39b637a8fd23a969bdd23b96bd9e876';
   txtref = '' + Math.floor((Math.random() * 1000000000) + 1);
@@ -67,9 +67,9 @@ export class CourseDetailsComponent implements OnInit {
         this.video.push(res[0].course_content[i]);
       }
       this.numberOfViews = res[0].views;
-      const vidExtension = 'mp4';
+      // const vidExtension = 'mp4';
 
-      const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}.${vidExtension}`;
+      const vidUrl = `${this.videoLocationUrl}/videos/${this.courseDetails[0].course_code}/${res[0].course_content[0]}`;
       // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
       this.sanitizedUrl = vidUrl;
       this.videoTitle = res[0].course_content[0];
@@ -89,42 +89,32 @@ export class CourseDetailsComponent implements OnInit {
       }
       this.user = this.helper.decodeToken(token);
     }
-    this.showVideoNotification('Watch 4 Free Videos For This Course', 3000);
-    this.showVideoNotification('Get Updates To Courses When You Subscribe', 15000);
-
-    // get user details
-    // this.service.getUserDetails(this.user.username).subscribe(res => {
-    //   this.userPurchasedCourses = res[0].courses;
-    // });
 
   }
 
   hideVideoNotification(element: HTMLElement) {
     element.classList.add('hide-video-pop');
   }
-  showVideoNotification(message: string, duration: number = 1000) {
-    let notificationBox: HTMLElement;
-    setTimeout(() => {
-      notificationBox = document.querySelector('.video-notification');
-      notificationBox.textContent = message;
-      notificationBox.classList.remove('hide-video-pop');
-    }, duration);
-    setTimeout(() => {
-      this.hideVideoNotification(notificationBox);
-    }, duration + 3000);
-  }
+  // showVideoNotification(message: string, duration: number = 1000) {
+  //   let notificationBox: HTMLElement;
+  //   setTimeout(() => {
+  //     notificationBox = document.querySelector('.video-notification');
+  //     notificationBox.textContent = message;
+  //     notificationBox.classList.remove('hide-video-pop');
+  //   }, duration);
+  //   setTimeout(() => {
+  //     this.hideVideoNotification(notificationBox);
+  //   }, duration + 3000);
+  // }
 
   watchVideo(video: string) {
-    const vidExtension = 'mp4';
+    // const vidExtension = 'mp4';
     window.scrollTo(0, 0);
     // First video opiton
-    const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video + '.' + vidExtension;
+    const vidUrl = this.videoLocationUrl + '/videos/' + this.course + '/' + video;
     // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
     this.sanitizedUrl = vidUrl;
     this.videoTitle = video;
-    this.showVideoNotification(video, 500);
-
-    this.showVideoNotification('Get All Course Videos, Hit the Subscibe Button', 9000);
 
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';
