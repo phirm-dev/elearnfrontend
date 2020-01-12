@@ -1,7 +1,7 @@
 <div class="loading" *ngIf="!view">
   <div class="spinner-grow text-primary"></div>
 </div>
-<div class="container-fluid" *ngIf="view" style="overflow-y:overlay;overflow-x:hidden;">
+<div class="container-fluid" *ngIf="view" style="overflow:hidden;">
   <div class="row">
     <div class="col-lg-12">
       <ul class="nav nav-tabs nav-justified">
@@ -29,7 +29,7 @@
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#home">Overview</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="small-videos-menu">
               <a class="nav-link video-tab-link" data-toggle="tab" href="#videos">Videos</a>
             </li>
             <li class="nav-item">
@@ -50,7 +50,7 @@
               <app-videocontentlist [noVideos]="noVideos" (watchVideo)="watchVideo($event)" style="padding: 10px;" id="video-list"></app-videocontentlist>
             </div>
             <div class="tab-pane container" id="menu1">
-              <app-comments></app-comments>
+              <app-comments [comments$]="comments$"></app-comments>
             </div>
             <div class="tab-pane container" id="menu2">
               <app-announcement></app-announcement>
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 list-col">
+    <div class="col-lg-3" id="list-col">
       <app-videocontentlist (watchVideo)="watchVideo($event)" [noVideos]="noVideos"></app-videocontentlist>
     </div>
   </div>

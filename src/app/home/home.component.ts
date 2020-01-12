@@ -45,9 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   signUp(credentials) {
-    if (!credentials || credentials === '' || credentials.password === '' || credentials.phone === ''
-    || credentials.email === ''
-     || credentials.username === '') {
+    if (!credentials || !credentials.password || !credentials.phone || !credentials.email || !credentials.username) {
       swal('Error', 'Missing Details', 'error');
     } else {
       this.spinnerService.show();

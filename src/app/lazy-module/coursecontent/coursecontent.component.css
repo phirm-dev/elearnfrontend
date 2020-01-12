@@ -9,8 +9,8 @@ video {
 }
 
 
-.list-col {
-  padding: 0 !important;
+#list-col {
+  padding: 0px 15px 0px 0px;
 }
 
 .vid-col {
@@ -24,18 +24,26 @@ video {
   width: 100% !important;
 }
 
-#video-list{
-  display: none !important;
-}
+
 
 .spinner-grow {
   margin: 50%;
   margin-top: 15%;
 }
 
-@media(max-width: 750px) {
-  .list-col{
-    display: none;
+@media(min-width: 990px) {
+  #videos{
+    display: none !important;
+  }
+
+  #small-videos-menu{
+    display: none !important;
+  }
+}
+
+@media(max-width: 990px) {
+  #list-col{
+    display: none !important;
   }
 
   .nav-more{

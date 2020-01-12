@@ -27,7 +27,7 @@ export class CoursecontentComponent implements OnInit {
   view = null;
   noCourses;
   noVideos: any[];
-  comments: any;
+  comments$: any;
   expires;
   expired = false;
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
@@ -91,9 +91,7 @@ export class CoursecontentComponent implements OnInit {
     });
 
     // get course comments
-    this.service.getCourseComments(this.course).subscribe(res => {
-      this.comments = res;
-    });
+    this.comments$ = this.service.getCourseComments(this.course);
 
   }
 
@@ -120,20 +118,6 @@ export class CoursecontentComponent implements OnInit {
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';
     }
-  }
-
-
-  makeComment(comment, course) {
-    if (comment.value === '') {
-      swal('Fill In Comment');
-      return;
-    }
-    const sentence = comment.value;
-    comment.value = '';
-    const username = this.helper.decodeToken(this.token).username;
-    this.service.makeComment(username, sentence, course).subscribe(res => {
-      this.comments.push(res);
-    });
   }
 
   back() {

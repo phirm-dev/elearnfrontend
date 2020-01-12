@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,7 +32,6 @@ export class AppComponent implements OnInit {
 
   toggleNav() {
     document.getElementById('wrapper').classList.toggle('toggled');
-    // $("#wrapper").toggleClass("toggled");
     window.scrollTo(0, 0);
   }
 
