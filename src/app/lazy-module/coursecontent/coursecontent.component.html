@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-lg-9 vid-col">
       <div class="video-container">
-        <video [src]="sanitizedUrl" autoplay [poster]="poster" controls style="background: black">
+        <video [src]="sanitizedUrl" autoplay [poster]="poster" controls  oncontextmenu="return false;" controlsList="nodownload" style="background: black" >
         </video>
       </div>
       <div class="row">
