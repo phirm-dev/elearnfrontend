@@ -11,9 +11,7 @@ export class CommentsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.comments$, 'comments here');
-  }
+  ngOnInit() { }
 
   // makeComment(comment, course) {
   //   if (comment.value === '') {

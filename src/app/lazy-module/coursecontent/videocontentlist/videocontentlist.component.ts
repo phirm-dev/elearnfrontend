@@ -9,6 +9,7 @@ import { removeUnderscores } from '../../../lib/handlevideodisplay';
 export class VideocontentlistComponent implements OnInit {
 
   @Input() noVideos:any[];
+  @Input() courseCode: string;
   @Output() watchVideo = new EventEmitter();
   handlevideodisplay = removeUnderscores;
 
