@@ -46,6 +46,10 @@ video {
     display: none !important;
   }
 
+  video{
+    height: 50vh;
+  }
+
   .nav-more{
     display: none !important;
   }
