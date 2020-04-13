@@ -50,7 +50,7 @@
               <app-videocontentlist [noVideos]="noVideos" [courseCode]="course" (watchVideo)="watchVideo($event)" style="padding: 10px;" id="video-list"></app-videocontentlist>
             </div>
             <div class="tab-pane container" id="menu1">
-              <app-comments [comments$]="comments$"></app-comments>
+              <app-comments [comments$]="comments$" (submit)="submit($event)"></app-comments>
             </div>
             <div class="tab-pane container" id="menu2">
               <app-announcement></app-announcement>

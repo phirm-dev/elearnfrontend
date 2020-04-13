@@ -4,9 +4,9 @@
 
 export const environment = {
 	production: false,
-	url: 'http://localhost:3000/api/',
+	// url: 'http://localhost:3000/api/',
 	baseVideoUrl: 'https://storage.googleapis.com/globally-cdn-jefftutors',
-	// url: 'https://studykrib.herokuapp.com/api/'
+	url: 'https://studykrib.herokuapp.com/api/'
 	// url: 'https://jefftutors-node.nerdeveloper.now.sh/api/',
 };
 

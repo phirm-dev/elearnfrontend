@@ -90,34 +90,36 @@ export class CoursecontentComponent implements OnInit {
       }, 3000);
     });
 
+    this.getComments();
+  }
+
+  getComments() {
     // get course comments
     this.comments$ = this.service.getCourseComments(this.course);
-
   }
 
   purchase() {
     this.router.navigate(['/dashboard']);
   }
 
-  // watchCourse(no, course) {
-  //   const vid = document.querySelector('video');
-  //   const vidExtension = 'mp4';
-  //   const vidUrl = this.videoLocationUrl + '/videos/' + course + '/' + no + '.' + vidExtension;
-  //   this.sanitizedUrl = vidUrl;
-  //   vid.autoplay = true;
-  //   if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
-  //     this.sanitizedUrl = '';
-  //     document.getElementById('vidTitle').textContent = 'Use chrome or another browser';
-  //   }
-  // }
-
   watchVideo(event) {
-    // const vidExtension = 'mp4';
     const vidUrl = this.videoLocationUrl + '/videos/' + this.view.course_code + '/' + event;
     this.sanitizedUrl = vidUrl;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';
     }
+  }
+
+  submit(event: { value: string; }) {
+    if (event.value === '') {
+      return;
+    }
+    const sentence = event.value;
+    event.value = '';
+    const username = this.helper.decodeToken(this.token).username;
+    this.service.makeComment(username, sentence, this.course).subscribe(res => {
+      this.getComments();
+    });
   }
 
   back() {
