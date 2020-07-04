@@ -1,15 +1,48 @@
-<div class="breadcumb-area">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-      <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
-      <!-- <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li> -->
-    </ol>
-  </nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-light bg-none">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/">Studykrib</a>
+          <a href="" class="d-flex user"></a>
+        </div>
+      </nav>
+    </div>
+    <div class="col-lg-12 bg-light dashboard">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="nav-link present-link">Available Courses</a>
+          <a href="" class="btn btn-primary d-flex" *ngIf="!isLoggedIn()">Login</a>
+          <a href="" class="btn btn-primary d-flex" *ngIf="isLoggedIn()">Dashboard</a>
+        </div>
+      </nav>
+      <div class="intro">
+        <div class="container-fluid">
+          <!-- <p class="intro-title">Available Courses</p>
+          <hr /> -->
+          <div class="row mt-5">
+            <div class="col-lg-4 col-md-6" *ngFor="let course of courses">
+              <div class="cards">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="cards icon-card" routerLink="/tutorials/course/{{course?.course_code}}">
+                      <p class="action">Preview Course</p>
+                      <p class="icon-hand animate__animated animate__bounce ">☝</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="cards-body text-center">
+                      <p class="title">{{course?.course_name.substring(0, 10)}}...</p>
+                      <p class="desc" [innerHTML]="course?.course_description.substring(0,60)">....</p>
+                      <p class="action" routerLink="/tutorials/course/{{course?.course_code}}">Preview Course</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="bg-img d-flex align-items-center justify-content-center p-3"
-  style="box-shadow: 0 26px 30px -14px rgba(0,102,245,0.08);height: 150px; background: white;">
-  <h3 style="color: rgb(36, 121, 246);font-size: 45px;">courses</h3>
-</div>
-
-<app-courselist [courses]="courses"></app-courselist>
