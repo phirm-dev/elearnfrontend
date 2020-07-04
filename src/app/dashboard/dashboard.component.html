@@ -79,7 +79,15 @@
       <nav class="navbar navbar-light bg-none">
         <div class="container-fluid">
           <a class="navbar-brand" routerLink="/">Studykrib</a>
-          <a href="" class="d-flex user">@{{decodedToken.username}}</a>
+          <a href="" class="d-flex user" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">@{{decodedToken.username}}</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/tutorials/contact">Contacts</a>
+            <a class="dropdown-item" routerLink="/tutorials/FAQ's">FAQ's</a>
+            <a class="dropdown-item" href="#" (click)="contactUs()" style="color: green;">Whatsapp Us</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" style="color: red;" (click)="logOut()">Logout</a>
+          </div>
         </div>
       </nav>
     </div>
