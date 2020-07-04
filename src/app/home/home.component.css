@@ -9,6 +9,10 @@
     height: 100%;
 }
 
-#course_list :focus{
+#course_list :focus {
     border: none;
+}
+
+.cool-facts-area {
+    background: white;
 }

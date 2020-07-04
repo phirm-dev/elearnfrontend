@@ -1,5 +1,4 @@
-<div class="d-flex" id="wrapper" #sidebar>
-  <!-- Sidebar -->
+<!-- <div class="d-flex" id="wrapper" #sidebar>
   <div class="bg-light border-right sticky-top" id="sidebar-wrapper">
     <div class="sidebar-heading" routerLink="/"> <img src="assets/icons/app.png" alt=""> StudyKrib </div>
     <div class="list-group list-group-flush">
@@ -17,9 +16,6 @@
         class="list-group-item list-group-item-action bg-light">Login</a>
     </div>
   </div>
-  <!-- sidebar-wrapper -->
-
-  <!-- Page Content -->
   <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom fixed-top" style="box-shadow: 0 26px 30px -14px rgba(0,102,245,0.08);">
       <button class="btn btn-primary" id="menu-toggle" (click)="toggleNav()">📖</button>
@@ -57,6 +53,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  <!-- page-content-wrapper -->
 
-</div>
+</div> -->
+<ng4-loading-spinner> </ng4-loading-spinner>
+<router-outlet></router-outlet>
