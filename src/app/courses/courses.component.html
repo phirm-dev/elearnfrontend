@@ -12,8 +12,8 @@
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="nav-link present-link">Available Courses</a>
-          <a href="" class="btn btn-primary d-flex" *ngIf="!isLoggedIn()">Login</a>
-          <a href="" class="btn btn-primary d-flex" *ngIf="isLoggedIn()">Dashboard</a>
+          <a routerLink="/login" class="btn btn-primary d-flex" *ngIf="!isLoggedIn()">Login</a>
+          <a routerLink="/dashboard" class="btn btn-primary d-flex" *ngIf="isLoggedIn()">Dashboard</a>
         </div>
       </nav>
       <div class="intro">
