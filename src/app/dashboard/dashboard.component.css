@@ -1,8 +1,4 @@
-body {
-    font-family: sans-serif;
-    background: rgb(0, 0, 0);
-    background: radial-gradient(circle, rgba(0, 0, 0, 1) 4%, rgba(0, 87, 105, 1) 11%, rgba(21, 46, 170, 1) 34%);
-}
+
 
 a {
     color: lightblue;
