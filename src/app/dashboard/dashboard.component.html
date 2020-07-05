@@ -73,14 +73,14 @@
   </div>
 </section> -->
 
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col-lg-12">
       <nav class="navbar navbar-light bg-none">
         <div class="container-fluid">
           <a class="navbar-brand" routerLink="/">Studykrib</a>
           <a href="" class="d-flex user" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">@{{decodedToken.username}}</a>
+            aria-expanded="false"><span class="avatar"></span>  <span class="avatar-username"> @{{decodedToken.username}}</span></a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/tutorials/contact">Contacts</a>
             <a class="dropdown-item" routerLink="/tutorials/FAQ's">FAQ's</a>
@@ -114,18 +114,18 @@
                 <div class="spinner-grow text-primary" style="margin-top: 13%; margin: auto;"></div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6" *ngFor="let course of coursesPurchased">
+            <div class="col-lg-6 col-md-6  wow fadeInUp" data-wow-delay="250ms" *ngFor="let course of coursesPurchased; let i = index">
               <div class="cards">
                 <div class="row">
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <div class="cards icon-card" routerLink="/tutorials/coursecontent/{{course.course_code}}">
                       <p class="action">Watch Course</p>
                       <p class="icon-hand animate__animated animate__bounce ">☝</p>
                     </div>
                   </div>
-                  <div class="col-lg-8">
+                  <div class="col-lg-12">
                     <div class="cards-body text-center">
-                      <p class="title">{{course.course_name.substring(0,10)}}</p>
+                      <p class="title">{{course.course_name}}</p>
                       <p class="desc">You have access to all videos and content</p>
                       <p class="action" routerLink="/tutorials/coursecontent/{{course.course_code}}">Watch Course</p>
                     </div>
@@ -139,3 +139,12 @@
     </div>
   </div>
 </div>
+
+<footer>
+  <div>
+    <div class="footer-copyright text-center">
+      <p style="padding: 5rem; color: white;">Built by @phirmware</p>
+      <p>Contact us in case of any issues</p>
+    </div>
+  </div>
+</footer>

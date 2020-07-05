@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col-lg-12">
       <nav class="navbar navbar-light bg-none">
@@ -9,7 +9,7 @@
       </nav>
     </div>
     <div class="col-lg-12 bg-light dashboard">
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light sticky-top bg-light">
         <div class="container-fluid">
           <a class="nav-link">Available Courses</a>
           <a routerLink="/login" class="btn btn-primary d-flex" *ngIf="!isLoggedIn()">Login</a>
@@ -21,19 +21,19 @@
           <!-- <p class="intro-title">Available Courses</p>
           <hr /> -->
           <div class="row mt-5">
-            <div class="col-lg-4 col-md-6" *ngFor="let course of courses">
+            <div class="col-lg-6 col-md-6 mt-4 text-left wow fadeInUp" data-wow-delay="250ms" *ngFor="let course of courses">
               <div class="cards">
                 <div class="row">
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <div class="cards icon-card" routerLink="/tutorials/course/{{course?.course_code}}">
                       <p class="action">Preview Course</p>
                       <p class="icon-hand animate__animated animate__bounce ">☝</p>
                     </div>
                   </div>
-                  <div class="col-lg-8">
-                    <div class="cards-body text-center">
-                      <p class="title">{{course?.course_name.substring(0, 10)}}...</p>
-                      <p class="desc" [innerHTML]="course?.course_description.substring(0,60)">....</p>
+                  <div class="col-lg-12">
+                    <div class="cards-body">
+                      <p class="title">{{course?.course_name}}</p>
+                      <p class="desc" [innerHTML]="course?.course_description">....</p>
                       <p class="action" routerLink="/tutorials/course/{{course?.course_code}}">Preview Course</p>
                     </div>
                   </div>
@@ -46,3 +46,12 @@
     </div>
   </div>
 </div>
+
+<footer>
+  <div>
+    <div class="footer-copyright text-center">
+      <p style="padding: 5rem; color: white;">Built by @phirmware</p>
+      <p>Contact us in case of any issues</p>
+    </div>
+  </div>
+</footer>
