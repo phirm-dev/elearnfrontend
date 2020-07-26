@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.service.isLoggedIn();
 
-    console.log(this.service.isLoggedIn());
-
 
     if (this.helper.isTokenExpired(this.fromStorage)) {
       this.service.getCoursesToken().subscribe(res => {
@@ -44,10 +42,6 @@ export class HomeComponent implements OnInit {
         this.displayCourses.push(this.courses[i]);
       }
     }
-  }
-
-  isLoggedIn(): boolean {
-    return this.service.isLoggedIn();
   }
 
   signUp(credentials) {

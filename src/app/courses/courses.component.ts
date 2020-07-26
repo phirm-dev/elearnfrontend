@@ -32,8 +32,4 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  isLoggedIn(): boolean {
-    return this.service.isLoggedIn();
-  }
-
 }

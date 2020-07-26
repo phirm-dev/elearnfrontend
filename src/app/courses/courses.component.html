@@ -1,57 +1,15 @@
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-lg-12">
-      <nav class="navbar navbar-light bg-none">
-        <div class="container-fluid">
-          <a class="navbar-brand" routerLink="/"><img src="assets/icons/app.png" alt="" style="width: 10%;"> Studykrib</a>
-          <a href="" class="d-flex user"></a>
-        </div>
-      </nav>
-    </div>
-    <div class="col-lg-12 bg-light dashboard">
-      <nav class="navbar navbar-light sticky-top bg-light">
-        <div class="container-fluid">
-          <a class="nav-link">Available Courses</a>
-          <a routerLink="/login" class="btn btn-primary d-flex" *ngIf="!isLoggedIn()">Login</a>
-          <a routerLink="/dashboard" class="btn btn-primary d-flex" *ngIf="isLoggedIn()">Dashboard</a>
-        </div>
-      </nav>
-      <div class="intro">
-        <div class="container-fluid">
-          <!-- <p class="intro-title">Available Courses</p>
-          <hr /> -->
-          <div class="row mt-5">
-            <div class="col-lg-6 col-md-6 mt-4 text-left wow fadeInUp" data-wow-delay="250ms" *ngFor="let course of courses">
-              <div class="cards">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="cards icon-card" routerLink="/tutorials/course/{{course?.course_code}}">
-                      <p class="action">Preview Course</p>
-                      <p class="icon-hand animate__animated animate__bounce ">☝</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="cards-body">
-                      <p class="title">{{course?.course_name}}</p>
-                      <p class="desc" [innerHTML]="course?.course_description">....</p>
-                      <p class="action" routerLink="/tutorials/course/{{course?.course_code}}">Preview Course</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="breadcumb-area">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+      <!-- <li class="breadcrumb-item active" aria-current="page" routerLink="/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><sup *ngIf="lengthOfCart > 0"><span class="badge badge-pill badge-danger">{{lengthOfCart}}</span></sup></li> -->
+    </ol>
+  </nav>
+</div>
+<div class="bg-img d-flex align-items-center justify-content-center p-3"
+  style="box-shadow: 0 26px 30px -14px rgba(0,102,245,0.08);height: 150px;">
+  <h3 style="color: rgb(36, 121, 246);font-size: 45px;">courses</h3>
 </div>
 
-<footer>
-  <div>
-    <div class="footer-copyright text-center">
-      <p style="padding: 5rem; color: white;">Built by @phirmware</p>
-      <p>Contact us in case of any issues</p>
-    </div>
-  </div>
-</footer>
+<app-courselist [courses]="courses"></app-courselist>

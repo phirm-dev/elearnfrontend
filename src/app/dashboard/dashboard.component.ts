@@ -53,12 +53,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  contactUs() {
-    const num = '2349036229746';
-    const shareURL = `whatsapp://send?phone=${num}`;
-    location.href = shareURL;
-  }
-
 
   logOut() {
     localStorage.removeItem('token');
