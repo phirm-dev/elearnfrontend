@@ -7,6 +7,7 @@ import { EnquireUniportService } from 'src/app/enquire-uniport.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { removeUnderscores } from 'src/app/lib/handlevideodisplay';
 
 @Component({
   selector: 'app-coursecontent',
@@ -30,6 +31,7 @@ export class CoursecontentComponent implements OnInit {
   comments$: any;
   expires;
   expired = false;
+  public presentVideo: string;
   // videoLocationUrl = 'https://global-cdn.jefftutors.com';
   videoLocationUrl = environment.baseVideoUrl;
   poster = 'assets/img/poster.jpeg';
@@ -76,6 +78,7 @@ export class CoursecontentComponent implements OnInit {
         // const vidExtension = 'mp4';
 
         const vidUrl = this.videoLocationUrl + '/videos/' + course.course_code + '/' + course.course_content[0];
+        this.presentVideo = removeUnderscores(course.course_content[0])
         // this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(vidUrl);
         this.sanitizedUrl = vidUrl;
       });
@@ -103,11 +106,17 @@ export class CoursecontentComponent implements OnInit {
   }
 
   watchVideo(event) {
+    this.presentVideo = removeUnderscores(event)
     const vidUrl = this.videoLocationUrl + '/videos/' + this.view.course_code + '/' + event;
     this.sanitizedUrl = vidUrl;
     if (navigator.userAgent.indexOf(' UCBrowser/') >= 0) {
       this.sanitizedUrl = '';
     }
+  }
+
+  getVideoName(video) {
+    const [ videoName ] = video.split('.')
+    console.log(videoName, 'sia')
   }
 
   submit(event: { value: string; }) {

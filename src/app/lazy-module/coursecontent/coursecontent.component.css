@@ -8,6 +8,13 @@ video {
   width: 100%;
 }
 
+.videotitle{
+  margin-left:25px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 #list-col {
   padding: 0px 15px 0px 0px;
@@ -48,6 +55,10 @@ video {
 
   video{
     height: 50vh;
+  }
+
+  .videotitle{
+    margin-bottom: 3px;
   }
 
   .nav-more{
