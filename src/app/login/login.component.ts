@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       }, (error) => {
           this.spinnerService.hide();
           this.modalTitle = 'Error';
-          this.modalText = error['message'];
+          this.modalText = error['error']['message'];
           MicroModal.show('modal-1');
       });
     }

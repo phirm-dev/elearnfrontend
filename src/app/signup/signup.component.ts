@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
         console.log(error, 'error')
         this.spinnerService.hide();
         this.modalTitle = 'Error';
-        this.modalText = error;
+        this.modalText = error['error']['message'];
         MicroModal.show('modal-1');
     });
     }
