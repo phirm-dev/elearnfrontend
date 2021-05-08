@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OverviewComponent implements OnInit {
 
   @Input() description: any;
+  @Input() materials: string;
 
   constructor() { }
 
